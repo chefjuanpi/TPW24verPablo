@@ -40,6 +40,7 @@ GO
 
 CREATE TABLE [Messages] (
   MessageID INT IDENTITY(1,1) PRIMARY KEY,
+  TopicID INT FOREIGN KEY REFERENCES Topics(TopicID),
   WrittenBy INT FOREIGN KEY REFERENCES Users(UserID),
   DateWritten DATE NOT NULL,
   DateLastEdited DATE,
