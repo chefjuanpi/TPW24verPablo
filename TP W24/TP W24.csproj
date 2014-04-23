@@ -61,6 +61,8 @@
     <Content Include="css\Account.css" />
     <Content Include="Admin\Management.css" />
     <Content Include="ContactAdmin.aspx" />
+    <Content Include="css\reset.css" />
+    <Content Include="css\trunk.css" />
     <Content Include="images\drapeau-quebec.png" />
     <Content Include="images\tirage\leftArrow.png" />
     <Content Include="images\tirage\quebec0.jpg" />
@@ -96,6 +98,9 @@
     <Content Include="css\Members.css" />
     <Content Include="ReadMessage.aspx" />
     <Content Include="css\ReadMessage.css" />
+    <Content Include="js\html5shiv.js" />
+    <Content Include="js\jquery-1.9.js" />
+    <Content Include="js\trunk.js" />
     <Content Include="SeeMessages.aspx" />
     <Content Include="css\SeeMessages.css" />
     <Content Include="SendMessage.aspx" />

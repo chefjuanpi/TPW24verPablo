@@ -5,51 +5,88 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta charset="utf-8" />
-    <link href="../css/Default.css" rel="stylesheet" type="text/css" />
+    <link href="../css/Default.css"     rel="stylesheet" type="text/css" />
+
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <title></title>
+
+
+
+
+    <meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 568px)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="HandheldFriendly" content="True">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<!-- Style Sheets --> 
+<link rel="stylesheet" type="text/css" media="all" href="css/reset.css" />
+<link rel="stylesheet" type="text/css" media="all" href="css/trunk.css" />
+
+<!-- Scripts --> 
+<script type="text/javascript">
+    if (typeof jQuery == 'undefined')
+        document.write(unescape("%3Cscript src='js/jquery-1.9.js'" +
+															"type='text/javascript'%3E%3C/script%3E"))
+</script>
+<script type="text/javascript" language="javascript" src="js/trunk.js"></script>
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<![endif]-->
+
+
+
+
+
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
+        	
         <div id="wrapper">
-	        <div id="menu">
+            <header class="slide">     <!--	Add "slideRight" class to items that move right when viewing Nav Drawer  -->
+		<ul id="navToggle" class="burger slide">    <!--	Add "slideRight" class to items that move right when viewing Nav Drawer  -->
+			<li></li><li></li><li></li>
+		</ul>
+		<h1>Les Coulisses du Québec</h1>
+	</header>
+	        <nav class="slide" >
+                <ul>                    
                 <asp:LoginView ID="LoginView1" runat="server" ViewStateMode="Disabled">
                     <AnonymousTemplate>
-                        <ul>
+                        
 			                <li><a href="Default.aspx" accesskey="1" title="">Accueil</a></li>
 			                <li><a href="ForumBoards.aspx" accesskey="2" title="">Forum</a></li>
 			                <li><a class="modal_trigger" href="#modal" accesskey="3" title="">Compte</a></li>
 			                <li><a href="Members.aspx" accesskey="4" title="">Membres</a></li>
-		                </ul>
+		                
                     </AnonymousTemplate>
                     <LoggedInTemplate>
-                        <ul>
+                        
 			                <li><a href="Default.aspx" accesskey="1" title="">Accueil</a></li>
 			                <li><a href="ForumBoards.aspx" accesskey="2" title="">Forum</a></li>
 			                <li><a href="Account.aspx" accesskey="3" title="">Compte</a></li>
 			                <li><a href="Members.aspx" accesskey="4" title="">Membres</a></li>
-		                </ul>
+		               
                     </LoggedInTemplate>
                     <RoleGroups>
                         <asp:RoleGroup Roles="Admin">
                             <ContentTemplate>
-                                <ul>
+                               
 			                        <li><a href="Default.aspx" accesskey="1" title="">Accueil</a></li>
 			                        <li><a href="ForumBoards.aspx" accesskey="2" title="">Forum</a></li>
 			                        <li><a href="Account.aspx" accesskey="3" title="">Compte</a></li>
 			                        <li><a href="Members.aspx" accesskey="4" title="">Membres</a></li>
 			                        <li><a href="Management.aspx" accesskey="5" title="" style="color:#715558;">Gestion</a></li>
-		                        </ul>
-                            </ContentTemplate>
+		                                                   </ContentTemplate>
                         </asp:RoleGroup>
                     </RoleGroups>
                 </asp:LoginView>
-	        </div>
+                </ ul>
+	        </nav>
 	        <!-- end #menu -->
 
 	        <div id="header">
