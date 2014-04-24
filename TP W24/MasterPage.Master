@@ -49,35 +49,37 @@
 	            <nav class="slide" >
                     <ul>                    
                     <asp:LoginView ID="LoginView1" runat="server" ViewStateMode="Disabled">
-                        <AnonymousTemplate>
-                        
-			                    <li><a href="Default.aspx" accesskey="1" title="">Accueil</a></li>
-			                    <li><a href="ForumBoards.aspx" accesskey="2" title="">Forum</a></li>
-			                    <li><a class="modal_trigger" href="#modal" accesskey="3" title="">Compte</a></li>
-			                    <li><a href="Members.aspx" accesskey="4" title="">Membres</a></li>
-		                
-                        </AnonymousTemplate>
-                        <LoggedInTemplate>
-                        
-			                    <li><a href="Default.aspx" accesskey="1" title="">Accueil</a></li>
-			                    <li><a href="ForumBoards.aspx" accesskey="2" title="">Forum</a></li>
-			                    <li><a href="Account.aspx" accesskey="3" title="">Compte</a></li>
-			                    <li><a href="Members.aspx" accesskey="4" title="">Membres</a></li>
-		               
-                        </LoggedInTemplate>
-                        <RoleGroups>
-                            <asp:RoleGroup Roles="Admin">
-                                <ContentTemplate>
-                               
-			                            <li><a href="Default.aspx" accesskey="1" title="">Accueil</a></li>
-			                            <li><a href="ForumBoards.aspx" accesskey="2" title="">Forum</a></li>
-			                            <li><a href="Account.aspx" accesskey="3" title="">Compte</a></li>
-			                            <li><a href="Members.aspx" accesskey="4" title="">Membres</a></li>
-			                            <li><a href="Management.aspx" accesskey="5" title="" style="color:#715558;">Gestion</a></li>
-		                                                       </ContentTemplate>
-                            </asp:RoleGroup>
-                        </RoleGroups>
-                    </asp:LoginView>
+                    <AnonymousTemplate>
+                        <ul>
+			                <li><a href="Default.aspx" accesskey="1" title="">Accueil</a></li>
+			                <li><a href="ForumBoards.aspx" accesskey="2" title="">Forum</a></li>
+			                <li><a class="modal_trigger" href="#modal" accesskey="3" title="">Compte</a></li>
+			                <li><a href="Members.aspx" accesskey="4" title="">Membres</a></li>
+		                </ul>
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        <ul>
+			                <li><a href="Default.aspx" accesskey="1" title="">Accueil</a></li>
+			                <li><a href="ForumBoards.aspx" accesskey="2" title="">Forum</a></li>
+                            <li><a class="modal_trigger" href="#modal" accesskey="3" title="">Compte</a></li>
+			                <li><a href="Account.aspx" accesskey="3" title="">Compte2</a></li>
+			                <li><a href="Members.aspx" accesskey="4" title="">Membres</a></li>
+		                </ul>
+                    </LoggedInTemplate>
+                    <RoleGroups>
+                        <asp:RoleGroup Roles="Admin">
+                            <ContentTemplate>
+                                <ul>
+			                        <li><a href="Default.aspx" accesskey="1" title="">Accueil</a></li>
+			                        <li><a href="ForumBoards.aspx" accesskey="2" title="">Forum</a></li>
+			                        <li><a href="Account.aspx" accesskey="3" title="">Compte3</a></li>
+			                        <li><a href="Members.aspx" accesskey="4" title="">Membres</a></li>
+			                        <li><a href="Management.aspx" accesskey="5" title="" style="color:#715558;">Gestion</a></li>
+		                        </ul>
+                            </ContentTemplate>
+                        </asp:RoleGroup>
+                    </RoleGroups>
+                </asp:LoginView>
                     </ ul>
 	            </nav>
 	            <!-- end #menu -->
