@@ -1,104 +1,106 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="TP_W24.MasterPage" %>
 
-<!DOCTYPE html>
+<!DOCTYPE html lang="fr">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+
+<!--Élements Meta-->
     <meta charset="utf-8" />
-    <link href="../css/Default.css"     rel="stylesheet" type="text/css" />
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 568px)">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-    <title></title>
-
-
-
-
-    <meta charset="utf-8">
-<meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 568px)">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="HandheldFriendly" content="True">
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
-
+<!-- title -->
+    <title>Les Coulisses du Québec</title>
+    
 <!-- Style Sheets --> 
-<link rel="stylesheet" type="text/css" media="all" href="css/reset.css" />
-<link rel="stylesheet" type="text/css" media="all" href="css/trunk.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="../css/Default.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="../css/reset.css"   />
+    <link rel="stylesheet" type="text/css" media="all" href="../css/trunk.css"   />
 
 <!-- Scripts --> 
-<script type="text/javascript">
-    if (typeof jQuery == 'undefined')
-        document.write(unescape("%3Cscript src='js/jquery-1.9.js'" +
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script type="text/javascript" src="js/trunk.js"></script>
+    <script type="text/javascript">
+        if (typeof jQuery == 'undefined')
+            document.write(unescape("%3Cscript src='js/jquery-1.9.js'" +
 															"type='text/javascript'%3E%3C/script%3E"))
-</script>
-<script type="text/javascript" language="javascript" src="js/trunk.js"></script>
+    </script>
 <!--[if lt IE 9]>
 <script src="js/html5shiv.js"></script>
 <![endif]-->
-
-
-
-
-
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-        	
-        <div id="wrapper">
+        <div class="container">
             <header class="slide">     <!--	Add "slideRight" class to items that move right when viewing Nav Drawer  -->
-		<ul id="navToggle" class="burger slide">    <!--	Add "slideRight" class to items that move right when viewing Nav Drawer  -->
-			<li></li><li></li><li></li>
-		</ul>
-		<h1>Les Coulisses du Québec</h1>
-	</header>
-	        <nav class="slide" >
-                <ul>                    
-                <asp:LoginView ID="LoginView1" runat="server" ViewStateMode="Disabled">
-                    <AnonymousTemplate>
+		        <ul id="navToggle" class="burger slide">    <!--	Add "slideRight" class to items that move right when viewing Nav Drawer  -->
+			        <li></li><li></li><li></li>
+		        </ul>
+		        <h1>Les Coulisses du Québec</h1>
+	        </header>
+            
+	            <nav class="slide" >
+                    <ul>                    
+                    <asp:LoginView ID="LoginView1" runat="server" ViewStateMode="Disabled">
+                        <AnonymousTemplate>
                         
-			                <li><a href="Default.aspx" accesskey="1" title="">Accueil</a></li>
-			                <li><a href="ForumBoards.aspx" accesskey="2" title="">Forum</a></li>
-			                <li><a class="modal_trigger" href="#modal" accesskey="3" title="">Compte</a></li>
-			                <li><a href="Members.aspx" accesskey="4" title="">Membres</a></li>
+			                    <li><a href="Default.aspx" accesskey="1" title="">Accueil</a></li>
+			                    <li><a href="ForumBoards.aspx" accesskey="2" title="">Forum</a></li>
+			                    <li><a class="modal_trigger" href="#modal" accesskey="3" title="">Compte</a></li>
+			                    <li><a href="Members.aspx" accesskey="4" title="">Membres</a></li>
 		                
-                    </AnonymousTemplate>
-                    <LoggedInTemplate>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
                         
-			                <li><a href="Default.aspx" accesskey="1" title="">Accueil</a></li>
-			                <li><a href="ForumBoards.aspx" accesskey="2" title="">Forum</a></li>
-			                <li><a href="Account.aspx" accesskey="3" title="">Compte</a></li>
-			                <li><a href="Members.aspx" accesskey="4" title="">Membres</a></li>
+			                    <li><a href="Default.aspx" accesskey="1" title="">Accueil</a></li>
+			                    <li><a href="ForumBoards.aspx" accesskey="2" title="">Forum</a></li>
+			                    <li><a href="Account.aspx" accesskey="3" title="">Compte</a></li>
+			                    <li><a href="Members.aspx" accesskey="4" title="">Membres</a></li>
 		               
-                    </LoggedInTemplate>
-                    <RoleGroups>
-                        <asp:RoleGroup Roles="Admin">
-                            <ContentTemplate>
+                        </LoggedInTemplate>
+                        <RoleGroups>
+                            <asp:RoleGroup Roles="Admin">
+                                <ContentTemplate>
                                
-			                        <li><a href="Default.aspx" accesskey="1" title="">Accueil</a></li>
-			                        <li><a href="ForumBoards.aspx" accesskey="2" title="">Forum</a></li>
-			                        <li><a href="Account.aspx" accesskey="3" title="">Compte</a></li>
-			                        <li><a href="Members.aspx" accesskey="4" title="">Membres</a></li>
-			                        <li><a href="Management.aspx" accesskey="5" title="" style="color:#715558;">Gestion</a></li>
-		                                                   </ContentTemplate>
-                        </asp:RoleGroup>
-                    </RoleGroups>
-                </asp:LoginView>
-                </ ul>
-	        </nav>
-	        <!-- end #menu -->
-
-	        <div id="header">
-		        <h1></h1> <!-- Texte apparaissant sur la 1ere image du header -->
-		        <div id="chasseGalerieContainer"><h2>Les Coulisses du Québec</h2></div> <!-- Texte apparaissant sur la 2e image du header -->
+			                            <li><a href="Default.aspx" accesskey="1" title="">Accueil</a></li>
+			                            <li><a href="ForumBoards.aspx" accesskey="2" title="">Forum</a></li>
+			                            <li><a href="Account.aspx" accesskey="3" title="">Compte</a></li>
+			                            <li><a href="Members.aspx" accesskey="4" title="">Membres</a></li>
+			                            <li><a href="Management.aspx" accesskey="5" title="" style="color:#715558;">Gestion</a></li>
+		                                                       </ContentTemplate>
+                            </asp:RoleGroup>
+                        </RoleGroups>
+                    </asp:LoginView>
+                    </ ul>
+	            </nav>
+	            <!-- end #menu -->
+            <div class="content slide">     <!--	Add "slideRight" class to items that move right when viewing Nav Drawer  -->
+		        <ul class="responsive">
+			        <li class="header-section">
+                        <div id="header">
+		                    <h1></h1> <!-- Texte apparaissant sur la 1ere image du header -->
+		                    <div id="chasseGalerieContainer"><h2></h2></div> <!-- Texte apparaissant sur la 2e image du header -->
+	                    </div>
+                        <asp:ContentPlaceHolder ID="header1" runat="server">  </asp:ContentPlaceHolder>
+	                <!-- end #header -->
+			        </li>
+			        <li class="body-section">
+                         <asp:ContentPlaceHolder ID="body" runat="server">    </asp:ContentPlaceHolder>
+			        </li>
+			        <li class="footer-section">
+                        <asp:ContentPlaceHolder ID="footer" runat="server">    </asp:ContentPlaceHolder>
+				        <p class="placefiller">FOOTER</p>
+			        </li>
+		        </ul>
 	        </div>
-	        <!-- end #header -->
-
-            <asp:ContentPlaceHolder ID="body" runat="server">
-        
-            </asp:ContentPlaceHolder>
-        </div>
+	   </div>
     </form>
     <!-- #include file="LoginPopup/LoginPopup.html" -->
 </body>

@@ -26,13 +26,18 @@
         });
     </script>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-    <div id="content">
-        <div style="zoom: 130%;"> 
+<asp:Content ID="Content2" ContentPlaceHolderID="header1" runat="server">
+    <div style="zoom: 130%; margin-left:20%; margin-right:20%;"> 
             <img class="fleche" src="images/tirage/leftArrow.png" alt="gauche" />
             <img id="tirage" src="images/tirage/quebec0.jpg" aria-busy="True" />
             <img class="fleche" src="images/tirage/rightArrow.png" alt="droit"/>
         </div>
+
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="body" runat="server">
+    <div id="content">
+        
         <br />
 		<div id="posts">
 			<div class="post">
@@ -100,3 +105,7 @@
 		<div style="clear: both;">&nbsp;</div>
 	</div>
 </asp:Content>
+
+<asp:Content ID="Content4" ContentPlaceHolderID="footer" runat="server">
+
+</asp:Content>  

@@ -35,12 +35,12 @@ a {text-decoration: none;}
 header {
 	height: 60px;
 	position: relative;
-    background: #FFFFFF url(../images/img02.jpg) repeat-x left top;
+	background-color: #f3f5f6;
 }
 header h1 {
-	color: #FFFFFF;
+	color: #9aa6af;
 	text-align: left;
-	font-size: 24px;
+	font-size: 27px;
 	line-height: 60px;
 	font-weight: bold;
 	padding-left: 20px;
@@ -75,15 +75,11 @@ nav li {
 	display: inline-block;
 }
 nav li a {
-    display: block;
-	width: 108px;
-	height: 36px;
-	padding: 20px 20px 0 20px;
-	background: url(../images/img03.jpg) no-repeat;
-	letter-spacing: -1px;
-	text-align: center;
-	font-size: 1.6em;
-	color: #FFFFFF;
+	font-size: 11px;
+	color: #9aa6af;
+	padding: 24px 15px;
+	
+	display: block;
 }
 nav li a:hover {color: #000;}
 
@@ -95,11 +91,9 @@ nav li a:hover {color: #000;}
 .header-section,
 .body-section,
 .footer-section 
-{padding: 2px;}
+{padding: 20px;}
 
-.header-section {
-    background: #FFFFFF url(../images/img021.jpg) repeat-x left top;
-}
+.header-section {background-color: #ffffff;}
 .body-section {background-color: #f4f5f6;}
 .footer-section {background-color: #dadee1;}
 .placefiller {

@@ -25,14 +25,14 @@ $(function() {
         event.stopPropagation();
         event.preventDefault();
         if (content.hasClass('open')) {
-            close();
+            close()
         } else {
-            open();
+            open()
         }
     });
     content.click(function() {
         if (content.hasClass('open')) {
-            close();
+            close()
         }
     });
 

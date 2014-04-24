@@ -21,7 +21,7 @@ $(function() {
         $(items).removeClass('open').addClass('close');
     }
 
-    $('#navToggle').on(clickevent, function() {
+    $('#navToggle').on(clickevent, function(event) {
         event.stopPropagation();
         event.preventDefault();
         if (content.hasClass('open')) {
