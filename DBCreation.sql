@@ -1,3 +1,4 @@
+GO
 USE Northwind
 GO
 DROP DATABASE TPW24
@@ -9,7 +10,7 @@ USE TPW24
 GO
 
 CREATE TABLE Users (
-  UserID INT IDENTITY(1,1) PRIMARY KEY,
+  UserID uniqueidentifier PRIMARY KEY,
   Password VARCHAR(30) NOT NULL,
   FirstName NVARCHAR(60),
   LastName NVARCHAR(60),
@@ -33,7 +34,7 @@ GO
 CREATE TABLE Topics (
   TopicID INT IDENTITY(1,1) PRIMARY KEY,
   BoardID INT FOREIGN KEY REFERENCES Boards(BoardID),
-  StartedBy INT FOREIGN KEY REFERENCES Users(UserID),
+  StartedBy uniqueidentifier FOREIGN KEY REFERENCES Users(UserID),
   TopicTitle VARCHAR(100) NOT NULL
 )
 GO
@@ -41,7 +42,7 @@ GO
 CREATE TABLE [Messages] (
   MessageID INT IDENTITY(1,1) PRIMARY KEY,
   TopicID INT FOREIGN KEY REFERENCES Topics(TopicID),
-  WrittenBy INT FOREIGN KEY REFERENCES Users(UserID),
+  WrittenBy uniqueidentifier FOREIGN KEY REFERENCES Users(UserID),
   DateWritten DATE NOT NULL,
   DateLastEdited DATE,
   Content NTEXT NOT NULL,
@@ -51,8 +52,8 @@ GO
 
 CREATE TABLE PrivateMsgs (
   PrivateMsgID INT IDENTITY(1,1) PRIMARY KEY,
-  WrittenBy INT FOREIGN KEY REFERENCES Users(UserID),
-  SentTo INT FOREIGN KEY REFERENCES Users(UserID),
+  WrittenBy uniqueidentifier FOREIGN KEY REFERENCES Users(UserID),
+  SentTo uniqueidentifier FOREIGN KEY REFERENCES Users(UserID),
   DateWritten DATE NOT NULL,
   Content NTEXT NOT NULL
 )

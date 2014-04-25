@@ -70,7 +70,8 @@
     <Content Include="images\tirage\quebec2.jpg" />
     <Content Include="images\tirage\rightArrow.png" />
     <Content Include="css\LoginPopup.css" />
-    <Content Include="LoginPopup\LoginPopup.html" />
+    <Content Include="LoginPopup\LoginPopup.aspx" />
+    <Content Include="LoginPopup\test.aspx" />
     <Content Include="RegisteredUsers\CreateNewTopic.aspx" />
     <Content Include="RegisteredUsers\CreateNewTopic.css" />
     <Content Include="Default.aspx" />
@@ -121,6 +122,20 @@
     </Compile>
     <Compile Include="ContactAdmin.aspx.designer.cs">
       <DependentUpon>ContactAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LoginPopup\LoginPopup.aspx.cs">
+      <DependentUpon>LoginPopup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginPopup\LoginPopup.aspx.designer.cs">
+      <DependentUpon>LoginPopup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LoginPopup\test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginPopup\test.aspx.designer.cs">
+      <DependentUpon>test.aspx</DependentUpon>
     </Compile>
     <Compile Include="RegisteredUsers\CreateNewTopic.aspx.cs">
       <DependentUpon>CreateNewTopic.aspx</DependentUpon>
