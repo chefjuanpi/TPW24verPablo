@@ -58,7 +58,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account.aspx" />
-    <Content Include="App_Start\AuthConfig.vb" />
     <Content Include="css\Account.css" />
     <Content Include="Admin\Management.css" />
     <Content Include="ContactAdmin.aspx" />
@@ -70,7 +69,7 @@
     <Content Include="images\tirage\quebec1.jpg" />
     <Content Include="images\tirage\quebec2.jpg" />
     <Content Include="images\tirage\rightArrow.png" />
-    <Content Include="LoginPopup\LoginPopup.css" />
+    <Content Include="css\LoginPopup.css" />
     <Content Include="LoginPopup\LoginPopup.html" />
     <Content Include="RegisteredUsers\CreateNewTopic.aspx" />
     <Content Include="RegisteredUsers\CreateNewTopic.css" />
@@ -215,6 +214,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="App_Start\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

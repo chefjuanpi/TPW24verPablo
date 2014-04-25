@@ -19,6 +19,7 @@
     <link rel="stylesheet" type="text/css" media="all" href="../css/Default.css" />
     <link rel="stylesheet" type="text/css" media="all" href="../css/reset.css"   />
     <link rel="stylesheet" type="text/css" media="all" href="../css/trunk.css"   />
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
 
 <!-- Scripts --> 
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
