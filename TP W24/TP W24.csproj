@@ -48,6 +48,9 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Providers">
+      <HintPath>..\..\Users\1336287\Google Drive\multihexa\Bloq 3\w24\26marsMembership\26marsMembership\System.Web.Providers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -70,8 +73,6 @@
     <Content Include="images\tirage\quebec2.jpg" />
     <Content Include="images\tirage\rightArrow.png" />
     <Content Include="css\LoginPopup.css" />
-    <Content Include="LoginPopup\LoginPopup.aspx" />
-    <Content Include="LoginPopup\test.aspx" />
     <Content Include="RegisteredUsers\CreateNewTopic.aspx" />
     <Content Include="RegisteredUsers\CreateNewTopic.css" />
     <Content Include="Default.aspx" />
@@ -106,7 +107,9 @@
     <Content Include="css\SeeMessages.css" />
     <Content Include="SendMessage.aspx" />
     <Content Include="css\SendMessage.css" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.aspx.cs">
@@ -122,20 +125,6 @@
     </Compile>
     <Compile Include="ContactAdmin.aspx.designer.cs">
       <DependentUpon>ContactAdmin.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="LoginPopup\LoginPopup.aspx.cs">
-      <DependentUpon>LoginPopup.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="LoginPopup\LoginPopup.aspx.designer.cs">
-      <DependentUpon>LoginPopup.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="LoginPopup\test.aspx.cs">
-      <DependentUpon>test.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="LoginPopup\test.aspx.designer.cs">
-      <DependentUpon>test.aspx</DependentUpon>
     </Compile>
     <Compile Include="RegisteredUsers\CreateNewTopic.aspx.cs">
       <DependentUpon>CreateNewTopic.aspx</DependentUpon>
