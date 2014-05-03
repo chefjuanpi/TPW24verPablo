@@ -1,5 +1,11 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="TP_W24.MasterPage" %>
 
+<!--Site Web Fait par: Pablo Aguilar-Lliguin et Mickael Bergeron-Morin
+Commentaires:
+    
+    -->
+
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -7,29 +13,87 @@
 
 <!--Élements Meta-->
     <meta charset="utf-8" />
-    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 568px)">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 568px)" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
 <!-- title -->
     <title>Les Coulisses du Québec</title>
     
 <!-- Style Sheets --> 
-    <link rel="stylesheet" type="text/css" media="all" href="../css/Default.css" />
-    <link rel="stylesheet" type="text/css" media="all" href="../css/reset.css"   />
-    <link rel="stylesheet" type="text/css" media="all" href="../css/trunk.css"   />
+    <link rel="stylesheet" type="text/css" media="all" href="~/css/Default.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="~/css/reset.css"   />
+    <link rel="stylesheet" type="text/css" media="all" href="~/css/trunk.css"   />
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
-    <link href="../css/LoginPopup.css" rel="stylesheet" />
+    <link href="~/css/LoginPopup.css" rel="stylesheet" />
 
 <!-- Scripts --> 
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-    <script type="text/javascript" src="js/trunk.js"></script>
-    <script type="text/javascript">
-        if (typeof jQuery == 'undefined')
-            document.write(unescape("%3Cscript src='js/jquery-1.9.js'" +
-															"type='text/javascript'%3E%3C/script%3E"))
+    <script type="text/javascript" src="../js/trunk.js"></script> <!--	Controle du systeme Responsive  -->
+    <script> <!--	Controle du ecran Modal de Login  -->
+        (function ($) {
+            $.fn.extend({
+                leanModal: function (options) {
+                    var defaults = {
+                        top: 100,
+                        overlay: 0.5,
+                        closeButton: null
+                    };
+                    var overlay = $("<div id='lean_overlay'></div>");
+                    $("body").append(overlay);
+                    options = $.extend(defaults, options);
+                    return this.each(function () {
+                        var o = options;
+                        var modal_id = $(this).attr("href");
+
+                        function showModal() {
+                            $("#lean_overlay").click(function () {
+                                close_modal(modal_id);
+                            });
+                            $(o.closeButton).click(function () {
+                                close_modal(modal_id);
+                            });
+
+                            var modal_height = $(modal_id).outerHeight();
+                            var modal_width = $(modal_id).outerWidth();
+
+                            $("#lean_overlay").css({
+                                "display": "block",
+                                opacity: 0
+                            });
+
+                            $("#lean_overlay").fadeTo(100, o.overlay);
+
+                            $(modal_id).css({
+                                "display": "block",
+                                "position": "fixed",
+                                "opacity": 0,
+                                "z-index": 11000,
+                                "left": 50 + "%",
+                                "margin-left": -(modal_width / 2) + "px",
+                                "top": o.top + "px"
+                            });
+
+                            $(modal_id).fadeTo(200, 1);
+                        };
+
+                        $(this).click(function (e) {
+                            showModal();
+                            e.preventDefault();
+                        });
+                    });
+
+                    function close_modal(modal_id) {
+                        $("#lean_overlay").fadeOut(200);
+                        $(modal_id).css({
+                            "display": "none"
+                        });
+                    }
+                }
+            });
+        })(jQuery);
     </script>
 <!--[if lt IE 9]>
 <script src="js/html5shiv.js"></script>
@@ -50,21 +114,19 @@
             
 	            <nav class="slide" >
                     <ul>                    
-                    <asp:LoginView ID="LoginView1" runat="server" ViewStateMode="Disabled">
+                    <asp:LoginView ID="LoginView1" runat="server" ViewStateMode="Enabled">
                     <AnonymousTemplate>
                         <ul>
-			                <li><a href="Default.aspx" accesskey="1" title="">Accueil</a></li>
-			                <li><a href="ForumBoards.aspx" accesskey="2" title="">Forum</a></li>
-			                <li><a class="modal_trigger" href="#modal" accesskey="3" title="">Compte</a></li>
-			                <li><a href="Members.aspx" accesskey="4" title="">Membres</a></li>
+			                <li><a href="../Default.aspx" accesskey="1" title="">Accueil</a></li>
+			                <li><a href="../ForumBoards.aspx" accesskey="2" title="">Forum</a></li>
+			                <li><a class="modal_trigger" href="#modal" accesskey="3" title="">Conecter</a></li>
 		                </ul>
                     </AnonymousTemplate>
                     <LoggedInTemplate>
                         <ul>
 			                <li><a href="Default.aspx" accesskey="1" title="">Accueil</a></li>
 			                <li><a href="ForumBoards.aspx" accesskey="2" title="">Forum</a></li>
-                            <li><a class="modal_trigger" href="#modal" accesskey="3" title="">Compte</a></li>
-			                <li><a href="Account.aspx" accesskey="3" title="">Compte2</a></li>
+			                <li><a href="RegisteredUsers/Account.aspx" accesskey="3" title="">Ma Compte</a></li>
 			                <li><a href="Members.aspx" accesskey="4" title="">Membres</a></li>
 		                </ul>
                     </LoggedInTemplate>
@@ -74,7 +136,7 @@
                                 <ul>
 			                        <li><a href="Default.aspx" accesskey="1" title="">Accueil</a></li>
 			                        <li><a href="ForumBoards.aspx" accesskey="2" title="">Forum</a></li>
-			                        <li><a href="Account.aspx" accesskey="3" title="">Compte3</a></li>
+			                        <li><a href="RegisteredUsers/Account.aspx" accesskey="3" title="">Ma Compte</a></li>
 			                        <li><a href="Members.aspx" accesskey="4" title="">Membres</a></li>
 			                        <li><a href="Management.aspx" accesskey="5" title="" style="color:#715558;">Gestion</a></li>
 		                        </ul>
@@ -109,69 +171,7 @@
 	   </div>
 
 
-        <script>
-            (function ($) {
-                $.fn.extend({
-                    leanModal: function (options) {
-                        var defaults = {
-                            top: 100,
-                            overlay: 0.5,
-                            closeButton: null
-                        };
-                        var overlay = $("<div id='lean_overlay'></div>");
-                        $("body").append(overlay);
-                        options = $.extend(defaults, options);
-                        return this.each(function () {
-                            var o = options;
-                            var modal_id = $(this).attr("href");
-
-                            function showModal() {
-                                $("#lean_overlay").click(function () {
-                                    close_modal(modal_id);
-                                });
-                                $(o.closeButton).click(function () {
-                                    close_modal(modal_id);
-                                });
-
-                                var modal_height = $(modal_id).outerHeight();
-                                var modal_width = $(modal_id).outerWidth();
-
-                                $("#lean_overlay").css({
-                                    "display": "block",
-                                    opacity: 0
-                                });
-
-                                $("#lean_overlay").fadeTo(200, o.overlay);
-
-                                $(modal_id).css({
-                                    "display": "block",
-                                    "position": "fixed",
-                                    "opacity": 0,
-                                    "z-index": 11000,
-                                    "left": 50 + "%",
-                                    "margin-left": -(modal_width / 2) + "px",
-                                    "top": o.top + "px"
-                                });
-
-                                $(modal_id).fadeTo(200, 1);
-                            };
-
-                            $(this).click(function (e) {
-                                showModal();
-                                e.preventDefault();
-                            });
-                        });
-
-                        function close_modal(modal_id) {
-                            $("#lean_overlay").fadeOut(200);
-                            $(modal_id).css({
-                                "display": "none"
-                            });
-                        }
-                    }
-                });
-            })(jQuery);
-</script>
+        
 
 <div id="fb-root"></div>
 <script>
@@ -210,7 +210,7 @@
 
             <div class="action_btns">
                 <div class="one_half"><a href="#" id="login_form" class="btn">Se connecter</a></div>
-                <div class="one_half last"><a href="#" id="register_form" class="btn">S'inscrire</a></div>
+                <div class="one_half last"><a href="../Account/Registrer.aspx" id="register_form" class="btn btn_blue">S'inscrire</a></div>
             </div>
         </div>
 
@@ -232,31 +232,11 @@
 
                 <div class="action_btns">
                     <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Retour</a></div>
-                    <div class="one_half last"><a href="#" class="btn btn_red">Se connecter</a></div>
-                </div>
-            
-
+                    <div class="one_half last"><a href="#" class="btn btn_blue">Se connecter</a></div>
+                </div>            
             <!--<a href="#" class="forgot_password">Mot de passe oublié?</a>-->
         </div>
 
-        <!-- Register Form -->
-        <div class="user_register">
-           
-                <label>Nom d'utilisateur</label><asp:textbox runat="server" id="txtUser" />
-
-                <br />
-
-                <label>Mot de passe</label><asp:textbox runat="server" id="txtpass" TextMode="Password" />
-                <br />
-
-                <label>Courriel</label><asp:TextBox runat="server" ID="txtemail" />
-                <br />
-
-                <div class="action_btns">
-                    <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Retour</a></div>
-                    <div class="one_half last"> <asp:LinkButton ID="LinkButton1" runat="server" CssClass="btn btn_red" OnClick="cmdRegister_Click" Text="S'inscrire" /></div>
-        </div>
-            </div>
     </section>
 </div>
 
@@ -273,14 +253,6 @@
         $("#login_form").click(function () {
             $(".social_login").hide();
             $(".user_login").show();
-            return false;
-        });
-
-        // Calling Register Form
-        $("#register_form").click(function () {
-            $(".social_login").hide();
-            $(".user_register").show();
-            $(".header_title").text('Register');
             return false;
         });
 
