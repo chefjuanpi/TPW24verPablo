@@ -23,7 +23,12 @@
 }
 
 .btn {padding:10px 20px; background: #F4F4F2;}
-.btn_blue {background: #3B5998; color: #FFF;}
+.btn_blue {background: #3B5998;
+           color: #FFF;
+           max-width:370px;
+           font-size:18px;
+           font-weight: bold;
+}
 
 .btn:hover {background: #E4E4E2;}
 .btn_blue:hover {background: #d00b01;}

@@ -27,7 +27,7 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="header1" runat="server">
-    <div style="zoom: 130%; margin-left:20%; margin-right:20%;"> 
+    <div style="zoom: 130%; margin-left:15%; margin-right:10%;"> 
             <img class="fleche" src="images/tirage/leftArrow.png" alt="gauche" />
             <img id="tirage" src="images/tirage/quebec0.jpg" aria-busy="True" />
             <img class="fleche" src="images/tirage/rightArrow.png" alt="droit"/>
@@ -36,38 +36,9 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="body" runat="server">
-    <div id="content">
+    <ul class="sub-container">
         
-        <br />
-		<div id="posts">
-			<div class="post">
-				<h2 class="title">Qu'est-ce qu'est ce site?</h2>
-				<div class="story">
-					<p><strong>Les Coulisses du Québec</strong> est un forum sur la culture québécoise. Les internautes y sont invités pour
-                        en apprendre sur cette province, et pour partager les légendes, recettes, moeurs et autres particularitées de la
-                        seule province canadienne Francophone.
-					</p>
-				</div>
-			</div>
-			<div class="post">
-				<h2 class="title">Par où commencer?</h2>
-				<div class="story">
-					<p>Pourquoi pas vous  <a href="Account.aspx">inscrire</a>!? Vous pourrez ensuite créer des sujet et répondre aux messages.
-                        Si vous êtes déja inscrit, nous vous invitons donc à visiter le <a href="ForumBoards.aspx">forum</a> et prendre part à notre communauté.
-					</p>
-				</div>
-			</div>
-			<div class="post">
-				<h2 class="title">Questions? Commentaires?</h2>
-				<div class="story">
-					<p>Vous pouvez contacter l'administrateur en cliquant <a href="~/ContactAdmin.aspx">ici.</a> Prévoyez un délai pouvant atteindre 48h avant
-                        de recevoir une réponse.
-					</p>
-				</div>
-			</div>
-		</div>
-		<!-- end #posts -->
-		<div id="links">
+		<li class="sujets">
 			<ul>
 				<li>
 					<h2>Récents sujets</h2>
@@ -100,10 +71,38 @@
 					</ul>
 				</li>
 			</ul>
-		</div>
+		</li>
 		<!-- end #links -->
-		<div style="clear: both;">&nbsp;</div>
-	</div>
+        <li class="sub-info">
+			<ul class="post">
+				<li><h2 class="title">Qu'est-ce qu'est ce site?</h2></li>
+				<li class="story">
+					<p><strong>Les Coulisses du Québec</strong> est un forum sur la culture québécoise. Les internautes y sont invités pour
+                        en apprendre sur cette province, et pour partager les légendes, recettes, moeurs et autres particularitées de la
+                        seule province canadienne Francophone.
+					</p>
+				</li>
+			</ul>
+			<ul class="post">
+				<li><h2 class="title">Par où commencer?</h2></li>
+				<li class="story">
+					<p>Pourquoi pas vous  <a href="Account.aspx">inscrire</a>!? Vous pourrez ensuite créer des sujet et répondre aux messages.
+                        Si vous êtes déja inscrit, nous vous invitons donc à visiter le <a href="ForumBoards.aspx">forum</a> et prendre part à notre communauté.
+					</p>
+				</li>
+			</ul>
+			<ul class="post">
+				<li><h2 class="title">Questions? Commentaires?</h2></li>
+				<li class="story">
+					<p>Vous pouvez contacter l'administrateur en cliquant <a href="~/ContactAdmin.aspx">ici.</a> Prévoyez un délai pouvant atteindre 48h avant
+                        de recevoir une réponse.
+					</p>
+				</li>
+			</ul>
+		</li>
+		<!-- end #posts -->
+	</ul>
+    <div style="clear: both;">&nbsp;</div>
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="footer" runat="server">

@@ -8,15 +8,13 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	margin: 0;
-	padding: 0;
-	color: #715558;
+	color: #fff;
 }
 
 h2 {
-	padding-left: 20px;
-	background: url(../images/img07.jpg) no-repeat left center;
-	font-size: 22px;
+	padding: 6px 0px 6px 20px;
+	font-size: 20px;
+    background-color: #28242f;
 }
 
 h3 {
@@ -105,7 +103,7 @@ a:hover {
 	padding: 13px 0 0 0;
 }
 
-#header h1 {
+#header #Frapeau {
 	float: left;
 	width: 140px;
 	height: 110px;
@@ -125,95 +123,66 @@ a:hover {
 }
 
 #header #chasseGalerieContainer {
-	float: right;
+	float: left;
 	width: 494px;
 	height: 34px;
 	padding: 180px 20px 0 0;
 	background: url(../images/Banner.jpg) no-repeat;
 }
 
-#header h2 {
-    margin-top: -170px;
-	letter-spacing: -1px;
-	font-size: 29px;
-	/*font-weight: normal;*/
-	line-height: 26px;
-	font-style: italic;
-	color: #715558;
-}
-
 /* Content */
 
-#content {
+/*#content {
 	width: 750px;
 	margin: 0 auto;
-}
+}*/
 
 /* Posts */
 
-#posts {
-	float: right;
-	width: 510px;
-}
 
-#posts .post {
+.post {
 	padding-bottom: 30px;
 }
 
-#posts .story {
-	padding: 15px 20px 0 20px;
-	background: url(../images/img08.jpg) repeat-x;
+.story {
+	padding: 15px 20px 20PX 20px;
+	background-color: #FFFFFF;
 }
 
-#posts .meta {
+.meta {
 	padding: 5px 0 0 20px;
 	background: url(../images/img06.gif) repeat-x;
 }
 
-#posts .meta p {
+.meta p {
 	margin: 0;
 	line-height: normal;
 	font-size: smaller;
 }
 
-#posts ul {
-}
 
-#posts ul li {
-}
 
 /* Links */
 
-#links {
-	float: left;
-	width: 220px;
-}
 
-#links ul {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-
-#links li ul {
+.sujets ul li ul {
 	padding: 15px 20px 30px 20px;
-	background: url(../images/img08.jpg) repeat-x;
 }
 
-#links li li {
+.sujets ul li ul li {
 	padding: 3px 0;
 	background: url(../images/img06.gif) repeat-x left bottom;
 }
 
-#links li a {
+.sujets li a {
 	background: none;
 }
 
-#links li i {
+.sujets li i {
 	font-size: smaller;
 }
 
-#links h2 {
+.sujets h2 {
 	font-size: 1.2em;
     /* text-decoration:underline; */
 }
@@ -247,6 +216,34 @@ a:hover {
 	padding: 10px 0 0 0;
 	letter-spacing: -1px;
 	font-size: 24px;
+}
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #e80c4d;
+    font-weight: bold;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #e80c4d;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #e80c4d;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.validation-summary-valid {
+    display: none;
 }
 
 /*#tirage {

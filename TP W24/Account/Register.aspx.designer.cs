@@ -40,6 +40,15 @@ namespace TP_W24.Account {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator Val_User;
         
         /// <summary>
+        /// valUser control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator valUser;
+        
+        /// <summary>
         /// txtpass control.
         /// </summary>
         /// <remarks>
@@ -49,13 +58,22 @@ namespace TP_W24.Account {
         protected global::System.Web.UI.WebControls.TextBox txtpass;
         
         /// <summary>
-        /// RequiredFieldValidator2 control.
+        /// valPass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valPass;
+        
+        /// <summary>
+        /// ValPass2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator ValPass2;
         
         /// <summary>
         /// txtpass2 control.
@@ -67,13 +85,13 @@ namespace TP_W24.Account {
         protected global::System.Web.UI.WebControls.TextBox txtpass2;
         
         /// <summary>
-        /// valPass2 control.
+        /// ValConfirm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator valPass2;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ValConfirm;
         
         /// <summary>
         /// txtCourriel control.
@@ -85,49 +103,22 @@ namespace TP_W24.Account {
         protected global::System.Web.UI.WebControls.TextBox txtCourriel;
         
         /// <summary>
-        /// RequiredFieldValidator1 control.
+        /// valEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator valEmail;
         
         /// <summary>
-        /// txtprenom control.
+        /// valcourriel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtprenom;
-        
-        /// <summary>
-        /// valPrenom control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator valPrenom;
-        
-        /// <summary>
-        /// txtnom control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtnom;
-        
-        /// <summary>
-        /// RequiredFieldValidator3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valcourriel;
         
         /// <summary>
         /// Sexe control.
@@ -146,6 +137,24 @@ namespace TP_W24.Account {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
+        
+        /// <summary>
+        /// txtprenom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtprenom;
+        
+        /// <summary>
+        /// txtnom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtnom;
         
         /// <summary>
         /// txtville control.

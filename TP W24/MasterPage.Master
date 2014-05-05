@@ -22,8 +22,8 @@ Commentaires:
     <title>Les Coulisses du Québec</title>
     
 <!-- Style Sheets --> 
-    <link rel="stylesheet" type="text/css" media="all" href="~/css/Default.css" />
     <link rel="stylesheet" type="text/css" media="all" href="~/css/reset.css"   />
+    <link rel="stylesheet" type="text/css" media="all" href="~/css/Default.css" />
     <link rel="stylesheet" type="text/css" media="all" href="~/css/trunk.css"   />
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
     <link href="~/css/LoginPopup.css" rel="stylesheet" />
@@ -98,8 +98,10 @@ Commentaires:
 <!--[if lt IE 9]>
 <script src="js/html5shiv.js"></script>
 <![endif]-->
-
     <asp:ContentPlaceHolder ID="head" runat="server">
+
+
+
     </asp:ContentPlaceHolder>
 </head>
 <body>
@@ -109,7 +111,7 @@ Commentaires:
 		        <ul id="navToggle" class="burger slide">    <!--	Add "slideRight" class to items that move right when viewing Nav Drawer  -->
 			        <li></li><li></li><li></li>
 		        </ul>
-		        <h1>Les Coulisses du Québec</h1>
+                <h1>Les Coulisses du Québec</h1>
 	        </header>
             
 	            <nav class="slide" >
@@ -124,10 +126,10 @@ Commentaires:
                     </AnonymousTemplate>
                     <LoggedInTemplate>
                         <ul>
-			                <li><a href="Default.aspx" accesskey="1" title="">Accueil</a></li>
-			                <li><a href="ForumBoards.aspx" accesskey="2" title="">Forum</a></li>
-			                <li><a href="RegisteredUsers/Account.aspx" accesskey="3" title="">Ma Compte</a></li>
-			                <li><a href="Members.aspx" accesskey="4" title="">Membres</a></li>
+			                <li><a href="../Default.aspx" accesskey="1" title="">Accueil</a></li>
+			                <li><a href="../ForumBoards.aspx" accesskey="2" title="">Forum</a></li>
+			                <li><a href="../RegisteredUsers/Account.aspx" accesskey="3" title="">Ma Compte</a></li>
+			                <li><a href="../Members.aspx" accesskey="4" title="">Membres</a></li>
 		                </ul>
                     </LoggedInTemplate>
                     <RoleGroups>
@@ -149,18 +151,19 @@ Commentaires:
 	            <!-- end #menu -->
             <div class="content slide">     <!--	Add "slideRight" class to items that move right when viewing Nav Drawer  -->
 		        <ul class="responsive">
-			        <li class="header-section">
+			        <li class="header-section main">
                         <div id="header">
-		                    <h1></h1> <!-- Texte apparaissant sur la 1ere image du header -->
-		                    <div id="chasseGalerieContainer"><h2></h2></div> <!-- Texte apparaissant sur la 2e image du header -->
+		                    <div id="Frapeau"><h1></h1></div><!-- Texte apparaissant sur la 1ere image du header -->
+		                    <div id="chasseGalerieContainer"></div> <!-- Texte apparaissant sur la 2e image du header -->
 	                    </div>
                         <asp:ContentPlaceHolder ID="header1" runat="server">  </asp:ContentPlaceHolder>
 	                <!-- end #header -->
 			        </li>
-			        <li class="body-section">
+			        <li class="body-section sub">
                          <asp:ContentPlaceHolder ID="body" runat="server">    </asp:ContentPlaceHolder>
 			        </li>
                     <!-- end #body -->
+                    <li class="clear-fix"></li>
 			        <li class="footer-section">
                         <asp:ContentPlaceHolder ID="footer" runat="server">    </asp:ContentPlaceHolder>
 				        <p class="placefiller">FOOTER</p>
@@ -171,17 +174,18 @@ Commentaires:
 	   </div>
 
 
+
+
         
 
 <div id="fb-root"></div>
-<script>
-    (function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/fr_CA/all.js#xfbml=1&appId=155567074550166";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
+<script>(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/fr_CA/sdk.js#xfbml=1&appId=155567074550166&version=v2.0";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 <div id="modal" class="popupContainer" style="display:none;">
     <header class="popupHeader">
@@ -195,7 +199,7 @@ Commentaires:
             <div class="">
                 <a href="#" class="social_box fb">
                     <!--<span class="icon"><i class="fa fa-facebook"></i></span>-->
-                    <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="true"></div>
+                    <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="false"></div>
                 </a>
 
                 <a href="#" class="social_box google">
@@ -210,7 +214,7 @@ Commentaires:
 
             <div class="action_btns">
                 <div class="one_half"><a href="#" id="login_form" class="btn">Se connecter</a></div>
-                <div class="one_half last"><a href="../Account/Registrer.aspx" id="register_form" class="btn btn_blue">S'inscrire</a></div>
+                <div class="one_half last"><a href="../Account/Register.aspx" id="register_form" class="btn btn_blue">S'inscrire</a></div>
             </div>
         </div>
 

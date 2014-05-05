@@ -86,8 +86,10 @@
                 </div>
 
                 <a href="SeeMessages.aspx">Voir messages</a> <br />
-                <a href="SendMessage.aspx">Envoyer message</a>
+                <a href="SendMessage.aspx">Envoyer message</a><br />
+                <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutAction="Redirect" LogoutText="Se déconnecter" LogoutPageUrl="~/" />
             </LoggedInTemplate>
         </asp:LoginView>
+
     </div>
 </asp:Content>
