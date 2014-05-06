@@ -18,12 +18,20 @@
                         <li>
                             <asp:Label runat="server" AssociatedControlID="UserName">Nom d'utilisateur</asp:Label>
                             <asp:TextBox runat="server" ID="UserName" />
+<<<<<<< HEAD
+                     <%--       <asp:RequiredFieldValidator runat="server" ControlToValidate="UserName" CssClass="field-validation-error" ErrorMessage="Le champ nom d'utilisateur est requis." />--%>
+=======
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="UserName" CssClass="field-validation-error" ErrorMessage="Le champ nom d'utilisateur est requis." />
+>>>>>>> 270f3fd40fdf538ee0e859fce18a7d98d492d631
                         </li>
                         <li>
                             <asp:Label runat="server" AssociatedControlID="Password">Mot de passe</asp:Label>
                             <asp:TextBox runat="server" ID="Password" TextMode="Password" />
+<<<<<<< HEAD
+                       <%--     <asp:RequiredFieldValidator runat="server" ControlToValidate="Password" CssClass="field-validation-error" ErrorMessage="Le champ mot de passe est requis." />--%>
+=======
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="Password" CssClass="field-validation-error" ErrorMessage="Le champ mot de passe est requis." />
+>>>>>>> 270f3fd40fdf538ee0e859fce18a7d98d492d631
                         </li>
                         <li>
                             <asp:CheckBox runat="server" ID="RememberMe" />

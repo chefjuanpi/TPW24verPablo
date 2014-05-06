@@ -36,7 +36,12 @@ namespace lab6.Account
         protected void Page_PreRenderComplete(object sender, EventArgs e)
         {
 
+<<<<<<< HEAD
+            providersList.DataSource = OpenAuth.AuthenticationClients.GetAll();
+            OpenAuth.AuthenticationClients.GetByProviderName("facebook");
+=======
             string f = OpenAuth.AuthenticationClients.GetByProviderName("facebook");
+>>>>>>> 270f3fd40fdf538ee0e859fce18a7d98d492d631
             providersList.DataBind();
             
 
@@ -45,6 +50,11 @@ namespace lab6.Account
        
         }
 
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> 270f3fd40fdf538ee0e859fce18a7d98d492d631
         protected T Item<T>() where T : class
         {
             return Page.GetDataItem() as T ?? default(T);
@@ -55,4 +65,9 @@ namespace lab6.Account
 
 
     }
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> 270f3fd40fdf538ee0e859fce18a7d98d492d631
 }

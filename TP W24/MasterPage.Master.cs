@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Membership.OpenAuth;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -63,6 +64,12 @@ namespace TP_W24
                 }
             }
         }
+
+        protected void FBConnect(object sender, EventArgs e)
+        {
+            OpenAuth.RequestAuthentication("facebook", "~/Account/RegisterExternalLogin");
+        }
+
 
         protected void Page_Load(object sender, EventArgs e)
         {

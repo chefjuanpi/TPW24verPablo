@@ -2,6 +2,9 @@
 <%@ Import Namespace="Microsoft.AspNet.Membership.OpenAuth" %>
 <fieldset class="loginPopUp">
     <legend>loginPopUP</legend>
+<<<<<<< HEAD
+    
+=======
     <script> <!--	Controle du ecran Modal de Login  -->
         (function ($) {
             $.fn.extend({
@@ -172,6 +175,7 @@
 
 
 </script>
+>>>>>>> 270f3fd40fdf538ee0e859fce18a7d98d492d631
 
 
 </fieldset>

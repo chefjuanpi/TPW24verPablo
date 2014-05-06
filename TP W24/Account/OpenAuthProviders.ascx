@@ -1,6 +1,12 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="OpenAuthProviders.ascx.cs" Inherits="lab6.Account.OpenAuthProviders" %>
 <%@ Import Namespace="Microsoft.AspNet.Membership.OpenAuth" %>
 <fieldset class="open-auth-providers">
+<<<<<<< HEAD
+
+
+
+=======
+>>>>>>> 270f3fd40fdf538ee0e859fce18a7d98d492d631
     <legend>Connexion à l'aide d'un autre service</legend>
     
     <asp:ListView runat="server" ID="providersList" ViewStateMode="Disabled">
@@ -18,6 +24,9 @@
         </EmptyDataTemplate>
     </asp:ListView>
 
+<<<<<<< HEAD
+=======
     <asp:Label ID="lbl" runat="server" Text=""></asp:Label>
+>>>>>>> 270f3fd40fdf538ee0e859fce18a7d98d492d631
 
 </fieldset>

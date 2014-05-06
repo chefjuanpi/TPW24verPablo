@@ -67,12 +67,29 @@ namespace TP_W24 {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder footer;
         
         /// <summary>
+<<<<<<< HEAD
+        /// Contrôle Button2.
+=======
         /// Contrôle LoginPopUp1.
+>>>>>>> 270f3fd40fdf538ee0e859fce18a7d98d492d631
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
+<<<<<<< HEAD
+        protected global::System.Web.UI.WebControls.Button Button2;
+        
+        /// <summary>
+        /// Contrôle Login1.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Login Login1;
+=======
         protected global::TP_W24.Account.WebUserControl1 LoginPopUp1;
+>>>>>>> 270f3fd40fdf538ee0e859fce18a7d98d492d631
     }
 }
