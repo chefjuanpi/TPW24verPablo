@@ -14,8 +14,8 @@ namespace TPW24
             // afin qu'elle prenne en charge la connexion par l'intermédiaire de services externes.
 
             //OpenAuth.AuthenticationClients.AddTwitter(
-            //    consumerKey: "votre consumer key Twitter",
-            //    consumerSecret: "votre consumer secret Twitter");
+            //    consumerKey: "90e9e6df005f20b5a193c36d23fd713f",
+            //    consumerSecret: "90e9e6df005f20b5a193c36d23fd713f");
 
             OpenAuth.AuthenticationClients.AddFacebook(
                 appId: "155567074550166",
@@ -24,8 +24,8 @@ namespace TPW24
 
 
             //OpenAuth.AuthenticationClients.AddMicrosoft(
-            //    clientId: "votre ID client pour votre compte Microsoft",
-            //    clientSecret: "votre client secret pour votre compte Microsoft");
+            //    clientId: "155567074550166",
+            //    clientSecret: "90e9e6df005f20b5a193c36d23fd713f");
 
             //OpenAuth.AuthenticationClients.AddGoogle();
         }

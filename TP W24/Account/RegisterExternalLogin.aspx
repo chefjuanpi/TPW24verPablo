@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" Title="Inscrire une connexion externe" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="RegisterExternalLogin.aspx.cs" Inherits="lab6.Account.RegisterExternalLogin" %>
-<asp:Content ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ContentPlaceHolderID="body" runat="server">
     <hgroup class="title">
         <h1>Inscrivez-vous avec votre compte <%: ProviderDisplayName %></h1>
         <h2><%: ProviderUserName %>.</h2>

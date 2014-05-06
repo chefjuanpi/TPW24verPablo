@@ -5,7 +5,7 @@
     
     <asp:ListView runat="server" ID="providersList" ViewStateMode="Disabled">
         <ItemTemplate>
-            <button type="submit" name="provider" value="<%# HttpUtility.HtmlAttributeEncode(Item<ProviderDetails>().ProviderName) %>"
+            <button style="background:url(../images/fb.png)" type="submit" name="provider" value="<%# HttpUtility.HtmlAttributeEncode(Item<ProviderDetails>().ProviderName) %>"
                 title="Connexion à l'aide de votre <%# HttpUtility.HtmlAttributeEncode(Item<ProviderDetails>().ProviderDisplayName) %> compte.">
                 <%# HttpUtility.HtmlEncode(Item<ProviderDetails>().ProviderDisplayName) %>
             </button>
@@ -17,4 +17,7 @@
             </div>
         </EmptyDataTemplate>
     </asp:ListView>
+
+    <asp:Label ID="lbl" runat="server" Text=""></asp:Label>
+
 </fieldset>

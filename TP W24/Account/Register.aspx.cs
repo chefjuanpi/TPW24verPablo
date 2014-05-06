@@ -27,8 +27,7 @@ namespace TP_W24.Account
                     SqlConnection cn = new SqlConnection(conection);
                     cn.Open();
                     string query = "INSERT INTO Utilisateurs(UserID, FirstName, LastName, Sexe, Country,"
-                                    + " Province, City, CreationDate, DateLastLogin) Values(@id, @prenom,"
-                                    + " @nom, @sexe, @country, @province, @city, @creation, @lastLogin)";
+                                    + " Province, City) Values(@id, @prenom, @nom, @sexe, @country, @province, @city)";
                     SqlCommand com = new SqlCommand(query, cn);
                     com.Parameters.AddWithValue("@id", u.ProviderUserKey);
                     com.Parameters.AddWithValue("@prenom", txtprenom.Text);
@@ -37,8 +36,6 @@ namespace TP_W24.Account
                     com.Parameters.AddWithValue("@country", txtpays.Text);
                     com.Parameters.AddWithValue("@province", txtprovince.Text);
                     com.Parameters.AddWithValue("@city", txtville.Text);
-                    com.Parameters.AddWithValue("@creation", DateTime.Now);
-                    com.Parameters.AddWithValue("@lastLogin", DateTime.Now);
                     com.ExecuteNonQuery();
                     cn.Close();
                     FormsAuthentication.SetAuthCookie(txtUser.Text, createPersistentCookie: false);

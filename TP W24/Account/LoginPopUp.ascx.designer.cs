@@ -7,27 +7,18 @@
 // </généré automatiquement>
 //------------------------------------------------------------------------------
 
-namespace lab6.Account {
+namespace TP_W24.Account {
     
     
-    public partial class Login {
+    public partial class WebUserControl1 {
         
         /// <summary>
-        /// Contrôle RegisterHyperLink.
+        /// Contrôle Login1.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink RegisterHyperLink;
-        
-        /// <summary>
-        /// Contrôle OpenAuthLogin.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::lab6.Account.OpenAuthProviders OpenAuthLogin;
+        protected global::System.Web.UI.WebControls.Login Login1;
     }
 }

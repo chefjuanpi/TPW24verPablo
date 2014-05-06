@@ -1,13 +1,13 @@
 ﻿<%@ Page Title="Se connecter" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="lab6.Account.Login" %>
 <%@ Register Src="~/Account/OpenAuthProviders.ascx" TagPrefix="uc" TagName="OpenAuthProviders" %>
 
-<asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
+<asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="body">
     <hgroup class="title">
         <h1><%: Title %>.</h1>
     </hgroup>
     <section id="loginForm">
         <h2>Connectez-vous à l'aide d'un compte local.</h2>
-        <asp:Login runat="server" ViewStateMode="Disabled" RenderOuterTable="false">
+        <asp:Login runat="server" ViewStateMode="Disabled" RenderOuterTable="false">    
             <LayoutTemplate>
                 <p class="validation-summary-errors">
                     <asp:Literal runat="server" ID="FailureText" />
@@ -43,5 +43,6 @@
     <section id="socialLoginForm">
         <h2>Connectez-vous à l'aide d'un autre service.</h2>
         <uc:OpenAuthProviders runat="server" ID="OpenAuthLogin" />
+
     </section>
 </asp:Content>

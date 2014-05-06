@@ -35,8 +35,14 @@ namespace lab6.Account
 
         protected void Page_PreRenderComplete(object sender, EventArgs e)
         {
-            providersList.DataSource = OpenAuth.AuthenticationClients.GetAll();
+
+            string f = OpenAuth.AuthenticationClients.GetByProviderName("facebook");
             providersList.DataBind();
+            
+
+
+
+       
         }
 
         protected T Item<T>() where T : class

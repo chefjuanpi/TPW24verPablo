@@ -136,7 +136,7 @@
             </div>
             <div>
                 <div class="action_btns">
-                    <asp:LinkButton ID="LinkButton1" runat="server" CssClass="btn btn_blue"
+                    <asp:LinkButton ID="LinkButton1" runat="server" CssClass="btn btn_blue" Style="font-size: 18px; font-weight: bold;"
                         OnClick="cmdRegister_Click" Text="S'inscrire" />
                 </div>
             </div>

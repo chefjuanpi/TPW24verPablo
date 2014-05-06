@@ -102,6 +102,7 @@
     <Content Include="Account\OpenAuthProviders.ascx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\RegisterExternalLogin.aspx" />
+    <Content Include="Account\LoginPopUp.ascx" />
     <Content Include="Error.aspx" />
     <Content Include="Global.asax" />
     <Content Include="RegisteredUsers\Account.aspx" />
@@ -189,6 +190,13 @@
     </Compile>
     <Compile Include="Account\RegisterExternalLogin.aspx.designer.cs">
       <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\LoginPopUp.ascx.cs">
+      <DependentUpon>LoginPopUp.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\LoginPopUp.ascx.designer.cs">
+      <DependentUpon>LoginPopUp.ascx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\AuthConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
