@@ -43,15 +43,9 @@
                     <div><asp:textbox runat="server" id="txtUser" /></div>
                     <div>
                         <asp:RequiredFieldValidator Display="Dynamic" ID="Val_User" runat="server" ControlToValidate="txtUser"
-<<<<<<< HEAD
                               CssClass="field-validation-error" ErrorMessage="  * écrit le nom d'utilisateur"  ValidationGroup="register" />
                         <asp:RegularExpressionValidator Display="Dynamic" ID="valUser" runat="server" ErrorMessage="Seulement Accepte a-z, 0-9 et _"
                               CssClass="field-validation-error" ControlToValidate="txtUser" ValidationExpression ="([a-zA-Z0-9_]{2,50})" ValidationGroup="register" />
-=======
-                              CssClass="field-validation-error" ErrorMessage="  * écrit le nom d'utilisateur" />
-                        <asp:RegularExpressionValidator Display="Dynamic" ID="valUser" runat="server" ErrorMessage="Seulement Accepte a-z, 0-9 et _"
-                              CssClass="field-validation-error" ControlToValidate="txtUser" ValidationExpression ="([a-zA-Z0-9_]{2,50})" />
->>>>>>> 270f3fd40fdf538ee0e859fce18a7d98d492d631
                     </div>
                 </div>
                 <div>
@@ -61,12 +55,7 @@
                         <asp:RequiredFieldValidator Display="Dynamic" ID="valPass" runat="server" ControlToValidate="txtpass"
                               CssClass="field-validation-error" ErrorMessage="* écrit un mot de passe" />
                         <asp:RegularExpressionValidator Display="Dynamic" ID="ValPass2" runat="server" ErrorMessage="minimum 6 Caracteres, a-z, 0-9 et _"
-<<<<<<< HEAD
                               CssClass="field-validation-error" ControlToValidate="txtpass" ValidationExpression ="([a-zA-Z0-9_]{6,50})" ValidationGroup="register" />
-=======
-                              CssClass="field-validation-error" ControlToValidate="txtpass" ValidationExpression ="([a-zA-Z0-9_]{6,50})" />
->>>>>>> 270f3fd40fdf538ee0e859fce18a7d98d492d631
-
                     </div>
                 </div>
                 <div>
@@ -74,11 +63,7 @@
                     <div><asp:textbox runat="server" id="txtpass2" TextMode="Password" /></div>
                     <div>
                         <asp:RequiredFieldValidator Display="Dynamic" ID="ValConfirm" runat="server" ControlToValidate="txtpass2"
-<<<<<<< HEAD
                               CssClass="field-validation-error" ErrorMessage="* Confirmation de mot de passe obligatoire."  ValidationGroup="register"/>
-=======
-                              CssClass="field-validation-error" ErrorMessage="* Confirmation de mot de passe obligatoire." />
->>>>>>> 270f3fd40fdf538ee0e859fce18a7d98d492d631
                     </div>
                 </div>
                 <div>
@@ -87,15 +72,9 @@
                     <div>
                         <asp:RegularExpressionValidator Display="Dynamic" ID="valEmail" runat="server" ErrorMessage="Courriel invalide"
                               CssClass="field-validation-error" ControlToValidate="txtCourriel" 
-<<<<<<< HEAD
                               ValidationExpression ="([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})"  ValidationGroup="register"/>
                         <asp:RequiredFieldValidator Display="Dynamic" ID="valcourriel" runat="server" ControlToValidate="txtCourriel"
                               CssClass="field-validation-error" ErrorMessage="* Le champ Courriel est requis." ForeColor="Red"  ValidationGroup="register"/>
-=======
-                              ValidationExpression ="([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})" />
-                        <asp:RequiredFieldValidator Display="Dynamic" ID="valcourriel" runat="server" ControlToValidate="txtCourriel"
-                              CssClass="field-validation-error" ErrorMessage="* Le champ Courriel est requis." ForeColor="Red" />
->>>>>>> 270f3fd40fdf538ee0e859fce18a7d98d492d631
                     </div>
                 </div>
                 <div>
@@ -109,11 +88,7 @@
                     </div>
                     <div>
                         <asp:RequiredFieldValidator Display="Dynamic" ID="RequiredFieldValidator4" runat="server" ControlToValidate="sexe"
-<<<<<<< HEAD
                             CssClass="field-validation-error" ErrorMessage="* Selectioner un valeur" ValidationGroup="register" />
-=======
-                            CssClass="field-validation-error" ErrorMessage="* Selectioner un valeur" />
->>>>>>> 270f3fd40fdf538ee0e859fce18a7d98d492d631
                     </div>
                 </div>
             </div>
@@ -123,16 +98,9 @@
                     <div><asp:TextBox runat="server" ID="txtprenom" /></div>
                     <div>
                         <asp:RegularExpressionValidator Display="Dynamic" runat="server" ControlToValidate="txtprenom"
-<<<<<<< HEAD
                               ErrorMessage="acepted a-z ou - et _" ValidationExpression="([a-zA-Z_\-]+)"  ValidationGroup="register"/>
                         <asp:RequiredFieldValidator Display="Dynamic" runat="server" ControlToValidate="txtprenom"
                               CssClass="field-validation-error" ErrorMessage="* Le Prenom est requis"  ValidationGroup="register"/>
-=======
-                              ErrorMessage="acepted a-z ou - et _" ValidationExpression="([a-zA-Z_\-]+)" />
-                        <asp:RequiredFieldValidator Display="Dynamic" runat="server" ControlToValidate="txtprenom"
-                              CssClass="field-validation-error" ErrorMessage="* Le Prenom est requis" />
->>>>>>> 270f3fd40fdf538ee0e859fce18a7d98d492d631
-
                     </div>
                 </div>
                 <div>
@@ -140,15 +108,9 @@
                     <div><asp:TextBox runat="server" ID="txtnom" /></div>
                     <div>
                         <asp:RegularExpressionValidator Display="Dynamic"  runat="server" ControlToValidate="txtnom"
-<<<<<<< HEAD
                               ErrorMessage="acepted a-z ou - et _" ValidationExpression="[a-zA-Z_\-]+"  ValidationGroup="register"/>
                         <asp:RequiredFieldValidator Display="Dynamic" runat="server" ControlToValidate="txtnom"
                               CssClass="field-validation-error" ErrorMessage="* Le Nom est requis"  ValidationGroup="register"/>
-=======
-                              ErrorMessage="acepted a-z ou - et _" ValidationExpression="[a-zA-Z_\-]+" />
-                        <asp:RequiredFieldValidator Display="Dynamic" runat="server" ControlToValidate="txtnom"
-                              CssClass="field-validation-error" ErrorMessage="* Le Nom est requis" />
->>>>>>> 270f3fd40fdf538ee0e859fce18a7d98d492d631
                     </div>
                 </div>
                 <div>
@@ -173,11 +135,7 @@
             <div>
                 <div class="action_btns">
                     <asp:LinkButton ID="LinkButton1" runat="server" CssClass="btn btn_blue" Style="font-size: 18px; font-weight: bold;"
-<<<<<<< HEAD
                         OnClick="cmdRegister_Click" Text="S'inscrire"  ValidationGroup="register"/>
-=======
-                        OnClick="cmdRegister_Click" Text="S'inscrire" />
->>>>>>> 270f3fd40fdf538ee0e859fce18a7d98d492d631
                 </div>
             </div>
         </div>

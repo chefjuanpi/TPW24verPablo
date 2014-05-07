@@ -18,27 +18,19 @@
                         <li>
                             <asp:Label runat="server" AssociatedControlID="UserName">Nom d'utilisateur</asp:Label>
                             <asp:TextBox runat="server" ID="UserName" />
-<<<<<<< HEAD
-                     <%--       <asp:RequiredFieldValidator runat="server" ControlToValidate="UserName" CssClass="field-validation-error" ErrorMessage="Le champ nom d'utilisateur est requis." />--%>
-=======
-                            <asp:RequiredFieldValidator runat="server" ControlToValidate="UserName" CssClass="field-validation-error" ErrorMessage="Le champ nom d'utilisateur est requis." />
->>>>>>> 270f3fd40fdf538ee0e859fce18a7d98d492d631
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="UserName" CssClass="field-validation-error" ErrorMessage="Le champ nom d'utilisateur est requis."  ValidationGroup="old" />
                         </li>
                         <li>
                             <asp:Label runat="server" AssociatedControlID="Password">Mot de passe</asp:Label>
                             <asp:TextBox runat="server" ID="Password" TextMode="Password" />
-<<<<<<< HEAD
-                       <%--     <asp:RequiredFieldValidator runat="server" ControlToValidate="Password" CssClass="field-validation-error" ErrorMessage="Le champ mot de passe est requis." />--%>
-=======
-                            <asp:RequiredFieldValidator runat="server" ControlToValidate="Password" CssClass="field-validation-error" ErrorMessage="Le champ mot de passe est requis." />
->>>>>>> 270f3fd40fdf538ee0e859fce18a7d98d492d631
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="Password" CssClass="field-validation-error" ErrorMessage="Le champ mot de passe est requis."  ValidationGroup="old" />
                         </li>
                         <li>
                             <asp:CheckBox runat="server" ID="RememberMe" />
                             <asp:Label runat="server" AssociatedControlID="RememberMe" CssClass="checkbox">Mémoriser le mot de passe ?</asp:Label>
                         </li>
                     </ol>
-                    <asp:Button runat="server" CommandName="Login" Text="Se connecter" />
+                    <asp:Button runat="server" CommandName="Login" Text="Se connecter"  ValidationGroup="old" />
                 </fieldset>
             </LayoutTemplate>
         </asp:Login>

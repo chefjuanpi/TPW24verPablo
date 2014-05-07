@@ -1,10 +1,9 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="LoginPopUp.ascx.cs" Inherits="TP_W24.Account.WebUserControl1" %>
 <%@ Import Namespace="Microsoft.AspNet.Membership.OpenAuth" %>
+
+
 <fieldset class="loginPopUp">
     <legend>loginPopUP</legend>
-<<<<<<< HEAD
-    
-=======
     <script> <!--	Controle du ecran Modal de Login  -->
         (function ($) {
             $.fn.extend({
@@ -94,6 +93,8 @@
                         <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="false"></div>
                     </a>
 
+                     <asp:Button ID="Button2" runat="server" Text="Button" OnClick="FBConnect" ValidationGroup="FB" />
+
                     <a href="#" class="social_box google">
                         <span class="icon"><i class="fa fa-google-plus"></i></span>
                         <span class="icon_title">Utiliser Google</span>
@@ -137,12 +138,14 @@
                         </ol>
                         <div class="action_btns">
                             <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Retour</a></div>
-                            <div class="one_half last"><asp:LinkButton ID="Button1" runat="server" CommandName="Login" Text="Se connecter" class="btn btn_blue" /></div>
+                            <div class="one_half last"><asp:LinkButton ID="Button1" runat="server" CommandName="Login" Text="Se connecter" CssClass="btn btn_blue" /></div>
                         </div>            
                         <!--<a href="#" class="forgot_password">Mot de passe oublié?</a>-->
                     </fieldset>
                </LayoutTemplate>
             </asp:Login>
+        </section>
+
         </section>
     </div>
 
@@ -175,7 +178,5 @@
 
 
 </script>
->>>>>>> 270f3fd40fdf538ee0e859fce18a7d98d492d631
-
 
 </fieldset>

@@ -20,17 +20,6 @@ namespace lab6.Account {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListView providersList;
-<<<<<<< HEAD
-=======
-        
-        /// <summary>
-        /// Contrôle lbl.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl;
->>>>>>> 270f3fd40fdf538ee0e859fce18a7d98d492d631
+
     }
 }

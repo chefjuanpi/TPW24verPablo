@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-﻿using Microsoft.AspNet.Membership.OpenAuth;
 using System;
-=======
-﻿using System;
->>>>>>> 270f3fd40fdf538ee0e859fce18a7d98d492d631
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -25,29 +20,6 @@ namespace TP_W24.Account
         }
         protected void cmdRegister_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-            if (!Page.IsValid) return;
-            if (Valider_Ecran())
-            {
-                MembershipUser u = Membership.CreateUser(txtUser.Text, txtpass.Text, txtCourriel.Text);
-                SqlConnection cn = new SqlConnection(conection);
-                cn.Open();
-                string query = "INSERT INTO Utilisateurs(UserID, FirstName, LastName, Sexe, Country,"
-                                + " Province, City) Values(@id, @prenom, @nom, @sexe, @country, @province, @city)";
-                SqlCommand com = new SqlCommand(query, cn);
-                com.Parameters.AddWithValue("@id", u.ProviderUserKey);
-                com.Parameters.AddWithValue("@prenom", txtprenom.Text);
-                com.Parameters.AddWithValue("@nom", txtnom.Text);
-                com.Parameters.AddWithValue("@sexe", Sexe.SelectedValue);
-                com.Parameters.AddWithValue("@country", txtpays.Text);
-                com.Parameters.AddWithValue("@province", txtprovince.Text);
-                com.Parameters.AddWithValue("@city", txtville.Text);
-                com.ExecuteNonQuery();
-                cn.Close();
-                FormsAuthentication.SetAuthCookie(txtUser.Text, createPersistentCookie: false);
-                Response.Redirect("../RegisteredUsers/Account.aspx");
-            }
-=======
                 if (!Page.IsValid) return;
                 if (Valider_Ecran())
                 {
@@ -69,7 +41,6 @@ namespace TP_W24.Account
                     FormsAuthentication.SetAuthCookie(txtUser.Text, createPersistentCookie: false);
                     Response.Redirect("../RegisteredUsers/Account.aspx");
                 }
->>>>>>> 270f3fd40fdf538ee0e859fce18a7d98d492d631
         }  
                                               
         protected bool  Valider_Ecran()                 
