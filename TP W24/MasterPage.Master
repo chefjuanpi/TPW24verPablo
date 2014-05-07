@@ -113,7 +113,7 @@ Commentaires:
 	   </div>
 
        <uc:LoginPopUp ID="LoginPopUp1" runat="server" />
-        <!-- end # ecran modal de login / registre -->
+        <!-- end # ecran modal de login, login externe et registre -->
 
     </form>
 </body>

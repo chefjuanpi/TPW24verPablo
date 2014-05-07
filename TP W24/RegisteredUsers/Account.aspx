@@ -10,65 +10,7 @@
 
                 </script>
 
-                <%--<fieldset>
-                    <legend>Se connecter</legend>
-                    <div>
-                        <div class="label">Nom d'utilisateur:</div>
-                        <asp:TextBox id="txtLogInUsername" runat="server" />
-                        <asp:RequiredFieldValidator ID="rfvLogInUsername" runat="server" ErrorMessage="*" ControlToValidate="txtLogInUsername" />
-                    </div>
-                    <div>
-                        <div class="label">Mot de passe:</div>
-                        <asp:TextBox id="txtLogInPassword" runat="server" />
-                        <asp:RequiredFieldValidator ID="rfvLogInPassword" runat="server" ErrorMessage="*" ControlToValidate="txtLogInPassword" />
-                    </div>
-                    <div>
-                        <asp:Button id="cmdLogin" Text="Se connecter" runat="server" />
-                    </div>
-                </fieldset>
 
-                <fieldset>
-                    <legend>S'inscrire</legend>
-                    <div>
-                        <div class="label">Nom d'utilisateur:</div>
-                        <div class="inputField"><asp:TextBox id="txtRegUsername" runat="server" />
-                        <asp:RequiredFieldValidator ID="rfvRegUsername" runat="server" ErrorMessage="*" ControlToValidate="txtRegUsername" /></div>
-                    </div>
-                    <div>
-                        <div class="label">Mot de passe:</div>
-                        <div class="inputField"><asp:TextBox id="txtRegPassword" runat="server" />
-                        <asp:RequiredFieldValidator ID="rfvRegPassword" runat="server" ErrorMessage="*" ControlToValidate="txtRegPassword" /></div>
-                    </div>
-                    <div>
-                        <div class="label">Courriel:</div>
-                        <div class="inputField"><asp:TextBox id="txtEmail" runat="server" />
-                        <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ErrorMessage="*" ControlToValidate="txtEmail" /></div>
-                    </div>
-                    <div>
-                        <div class="label">Date d'aniversaire:</div>
-                        <asp:TextBox id="txtBirthDate" runat="server" />
-                    </div>
-                    <div>
-                        <div class="label">Sexe:</div>
-                        <asp:RadioButton GroupName="Sex" ID="optSexM" Text="Homme" runat="server" Checked="true" />
-                        <asp:RadioButton GroupName="Sex" ID="optSexF" Text="Femme" runat="server" />
-                    </div>
-                    <div>
-                        <div class="label">Ville:</div>
-                        <asp:TextBox id="txtCity" runat="server" />
-                    </div>
-                    <div>
-                        <div class="label">Province:</div>
-                        <asp:TextBox id="txtProvince" runat="server" />
-                    </div>
-                    <div>
-                        <div class="label">Pays:</div>
-                        <asp:TextBox id="txtCountry" runat="server" />
-                    </div>
-                    <div>
-                        <asp:Button id="cmdRegister" Text="S'inscrire" runat="server" />
-                    </div>
-                </fieldset>--%>
             </AnonymousTemplate>
             <LoggedInTemplate>
                 <div id="profileImage">
@@ -88,6 +30,8 @@
                 <a href="SeeMessages.aspx">Voir messages</a> <br />
                 <a href="SendMessage.aspx">Envoyer message</a><br />
                 <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutAction="Redirect" LogoutText="Se déconnecter" LogoutPageUrl="~/" />
+                <asp:LinkButton ID="LinkButton1" runat="server" CssClass="btn btn_blue" Style="font-size: 18px; font-weight: bold;"
+                         Text="Modifier Mot de passe"  ValidationGroup="accountPassManager" PostBackUrl="~/Account/Manage.aspx"/>
             </LoggedInTemplate>
         </asp:LoginView>
 

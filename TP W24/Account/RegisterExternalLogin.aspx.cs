@@ -3,6 +3,8 @@ using System.Web;
 using System.Web.Security;
 using DotNetOpenAuth.AspNet;
 using Microsoft.AspNet.Membership.OpenAuth;
+using System.Configuration;
+using System.Data.SqlClient;
 
 namespace lab6.Account
 {
@@ -119,6 +121,26 @@ namespace lab6.Account
             }
 
             var createResult = OpenAuth.CreateUser(ProviderName, ProviderUserId, ProviderUserName, userName.Text);
+            
+            string conection = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            SqlConnection cn = new SqlConnection(conection);
+            cn.Open();
+            string query = "UPDATE Memberships SET Email = '" + ProviderUserName + "' WHERE UserID = (SELECT " 
+                            + " u.UserId FROM Users u WHERE u.UserName = @User)";
+            SqlCommand com = new SqlCommand(query, cn);
+            com.Parameters.AddWithValue("@User", userName.Text);
+            com.ExecuteNonQuery();
+            cn.Close();
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             if (!createResult.IsSuccessful)
             {
 
@@ -144,7 +166,7 @@ namespace lab6.Account
             }
             else
             {
-                Response.Redirect("~/");
+                Response.Redirect("../RegisteredUsers/Account.aspx");
             }
         }
     }

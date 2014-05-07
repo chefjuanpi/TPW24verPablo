@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="Gérer le compte" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Manage.aspx.cs" Inherits="lab6.Account.Manage" %>
-<%@ Register Src="~/Account/OpenAuthProviders.ascx" TagPrefix="uc" TagName="OpenAuthProviders" %>
+
 <%@ Import Namespace="Microsoft.AspNet.Membership.OpenAuth" %>
 <asp:Content ContentPlaceHolderID="body" runat="server">
     <hgroup class="title">
@@ -119,7 +119,7 @@
             </ItemTemplate>
         </asp:ListView>
 
-        <h3>Ajouter une connexion externe</h3>
-        <uc:OpenAuthProviders runat="server" ReturnUrl="~/Account/Manage" />
+        <h3>Ajouter un'outre connexion externe</h3>
+
     </section>
 </asp:Content>

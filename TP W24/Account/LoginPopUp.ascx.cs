@@ -18,5 +18,9 @@ namespace TP_W24.Account
         {
             OpenAuth.RequestAuthentication("facebook", "~/Account/RegisterExternalLogin");
         }
+        protected void GoogleConnect(object sender, EventArgs e)
+        {
+            OpenAuth.RequestAuthentication("google", "~/Account/RegisterExternalLogin");
+        }
     }
 }

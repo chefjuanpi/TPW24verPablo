@@ -27,7 +27,7 @@ namespace TPW24
             //    clientId: "155567074550166",
             //    clientSecret: "90e9e6df005f20b5a193c36d23fd713f");
 
-            //OpenAuth.AuthenticationClients.AddGoogle();
+            OpenAuth.AuthenticationClients.AddGoogle();
         }
     }
 }

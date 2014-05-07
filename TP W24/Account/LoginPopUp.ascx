@@ -67,16 +67,6 @@
             });
         })(jQuery);
     </script>
-<%--    <div id="fb-root"></div>
-    <script>
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/fr_CA/sdk.js#xfbml=1&appId=155567074550166&version=v2.0";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    </script>--%>
 
     <div id="modal" class="popupContainer" style="display:none;">
         <header class="popupHeader">
@@ -88,17 +78,17 @@
             <!-- Social Login -->
             <div class="social_login">
                 <div class="">
-                    <a href="#" class="social_box fb">
-                        <!--<span class="icon"><i class="fa fa-facebook"></i></span>-->
-                        <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="false"></div>
-                    </a>
+                    <asp:LinkButton ID="Buttonfb" runat="server" OnClick="FBConnect" 
+                        ValidationGroup="FB" CssClass="social_box fb">
+                        <span class="icon"><i class="fa fa-facebook"></i></span>
+                        <span class="icon_title">Utiliser Facebook</span>
+                    </asp:LinkButton>
 
-                     <asp:Button ID="Button2" runat="server" Text="Button" OnClick="FBConnect" ValidationGroup="FB" />
-
-                    <a href="#" class="social_box google">
+                    <asp:LinkButton ID="ButtonGoogle" runat="server" OnClick="GoogleConnect" 
+                        ValidationGroup="FB" CssClass="social_box google">
                         <span class="icon"><i class="fa fa-google-plus"></i></span>
                         <span class="icon_title">Utiliser Google</span>
-                    </a>
+                    </asp:LinkButton>
                 </div>
 
                 <div class="centeredText">
