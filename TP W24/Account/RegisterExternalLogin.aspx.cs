@@ -131,21 +131,10 @@ namespace lab6.Account
             com.Parameters.AddWithValue("@User", userName.Text);
             com.ExecuteNonQuery();
             cn.Close();
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+
             if (!createResult.IsSuccessful)
             {
-
                 userNameMessage.Text = createResult.ErrorMessage;
-
             }
             else
             {
@@ -166,7 +155,7 @@ namespace lab6.Account
             }
             else
             {
-                Response.Redirect("../RegisteredUsers/Account.aspx");
+                Response.Redirect("../Default.aspx");
             }
         }
     }

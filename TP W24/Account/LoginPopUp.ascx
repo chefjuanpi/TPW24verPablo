@@ -122,8 +122,7 @@
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="Password" CssClass="field-validation-error" ErrorMessage="Le champ mot de passe est requis." />
                             </li>
                             <li>
-                                <asp:CheckBox runat="server" ID="RememberMe" />
-                                <asp:Label ID="Label3" runat="server" AssociatedControlID="RememberMe" CssClass="checkbox">Mémoriser le mot de passe ?</asp:Label>
+                                <asp:CheckBox runat="server" ID="RememberMe" Text="Rester Connectée ?" CssClass="checkbox" />
                             </li>
                         </ol>
                         <div class="action_btns">

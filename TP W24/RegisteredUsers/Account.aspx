@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <div id="content">
-        <asp:LoginView ID="accountLoginView" runat="server" ViewStateMode="Disabled">
+<%--        <asp:LoginView ID="accountLoginView" runat="server" ViewStateMode="Disabled">
             <AnonymousTemplate>
                 <script type="text/javascript">
 
@@ -12,8 +12,13 @@
 
 
             </AnonymousTemplate>
-            <LoggedInTemplate>
-                <div id="profileImage">
+            <LoggedInTemplate>--%>
+                <asp:ImageButton id="profileImages" runat="server" OnClick="UploadImage_Click" BorderStyle="Double" Width="300" Height="300" ImageUrl="~/images/Lachassegalerie.jpg" /><br />
+                <asp:FileUpload ID="FileUpload1" runat="server" />
+                <asp:LinkButton ID="UploadImage" runat="server" CssClass="btn btn_blue" 
+                         Text="Image de Profil"  ValidationGroup="accountPassManager" OnClick="UploadImage_Click" />
+
+                <div id="profileIm">
                     <img src="images/img04.jpg" />
                 </div>
 
@@ -30,10 +35,10 @@
                 <a href="SeeMessages.aspx">Voir messages</a> <br />
                 <a href="SendMessage.aspx">Envoyer message</a><br />
                 <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutAction="Redirect" LogoutText="Se déconnecter" LogoutPageUrl="~/" />
-                <asp:LinkButton ID="LinkButton1" runat="server" CssClass="btn btn_blue" Style="font-size: 18px; font-weight: bold;"
+                <asp:LinkButton ID="LinkButton1" runat="server" CssClass="btn btn_blue" 
                          Text="Modifier Mot de passe"  ValidationGroup="accountPassManager" PostBackUrl="~/Account/Manage.aspx"/>
-            </LoggedInTemplate>
-        </asp:LoginView>
+<%--            </LoggedInTemplate>
+        </asp:LoginView>--%>
 
     </div>
 </asp:Content>
