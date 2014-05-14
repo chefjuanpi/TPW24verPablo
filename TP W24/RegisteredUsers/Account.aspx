@@ -4,41 +4,54 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <div id="content">
-<%--        <asp:LoginView ID="accountLoginView" runat="server" ViewStateMode="Disabled">
-            <AnonymousTemplate>
-                <script type="text/javascript">
+                <asp:Label ID="errmsg" runat="server" Text=""></asp:Label>
+                <div>
+                    <div class="moitie">
+                        <div><asp:Image id="profileImage" runat="server" BorderStyle="Double" Width="200" 
+                            Height="200" ImageUrl="~/images/Lachassegalerie.jpg" 
+                            ImageAlign="Middle" />
 
-                </script>
+                        </div>
+                        <div>
+                            <asp:FileUpload ID="FileUpload1" runat="server"/>
+                            <asp:RegularExpressionValidator id="ImageValidator1" Display="Dynamic" runat="server" 
+                                ErrorMessage="Seulement archives jpg sont acceptées!" 
+                                ValidationExpression="^.*\.(jpg|JPG|jpeg|JPEG)$" 
+                                ControlToValidate="FileUpload1" ValidationGroup="Image" CssClass="field-validation-error" />
+                            <asp:RequiredFieldValidator id="image1" runat="server" Display="Dynamic"
+                                ErrorMessage="Selectioner un image!" ControlToValidate="FileUpload1" 
+                                ValidationGroup="Image" CssClass="field-validation-error" />
+                        </div>
+                        <div>
+                            <br />
+                            <asp:LinkButton ID="UploadImage" runat="server" CssClass="btn btn_blue" 
+                                 Text="Image de Profil"  ValidationGroup="Image" OnClick="UploadImage_Click" />
+                        </div>
+                    </div>
+                    <div id="profileInfos">
+                    Utilisateur : <strong style="font-size: 16px;"><asp:Label ID="lblUtilisateur" runat="server" Text="" /></strong><br />
+                    Prenom : <asp:TextBox ID="txtPrenom" runat="server" Enabled="false" />
+                    Nom : <asp:TextBox ID="txtNom" runat="server" Enabled="false" /><br />
+                    Ville : <asp:TextBox ID="txtcity" runat="server" Enabled="false" />
+                    Province : <asp:TextBox ID="txtProvince" runat="server" Enabled="false" />
+                    Pays: <asp:TextBox ID="txtPays" runat="server" Enabled="false" /><br />
+                    <asp:TextBox ID="txtCourriel" runat="server" Enabled="false" /><br />
+                    <asp:TextBox ID="txtCreated" runat="server" Enabled="false" /><br />
+                    <asp:TextBox ID="txtLast" runat="server" Enabled="false" /><br />
 
-
-            </AnonymousTemplate>
-            <LoggedInTemplate>--%>
-                <asp:ImageButton id="profileImages" runat="server" OnClick="UploadImage_Click" BorderStyle="Double" Width="300" Height="300" ImageUrl="~/images/Lachassegalerie.jpg" /><br />
-                <asp:FileUpload ID="FileUpload1" runat="server" />
-                <asp:LinkButton ID="UploadImage" runat="server" CssClass="btn btn_blue" 
-                         Text="Image de Profil"  ValidationGroup="accountPassManager" OnClick="UploadImage_Click" />
-
-                <div id="profileIm">
-                    <img src="images/img04.jpg" />
-                </div>
-
-                <div id="profileInfos">
-                    <strong style="font-size: 16px;">nomMembre</strong> <br />
-                    Homme, 29 ans <br />
-                    Jonquière, Québec, Canada <br />
-                    unCourriel@hotmail.ca <br />
                     66 messages (0.212 par jours) <br />
-                    Enrégistré le 2014-03-13 <br />
-                    Dernière activité le 2014-04-02 à 14:52
+
+                    </div>
+
                 </div>
+                
+
+
 
                 <a href="SeeMessages.aspx">Voir messages</a> <br />
                 <a href="SendMessage.aspx">Envoyer message</a><br />
                 <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutAction="Redirect" LogoutText="Se déconnecter" LogoutPageUrl="~/" />
                 <asp:LinkButton ID="LinkButton1" runat="server" CssClass="btn btn_blue" 
                          Text="Modifier Mot de passe"  ValidationGroup="accountPassManager" PostBackUrl="~/Account/Manage.aspx"/>
-<%--            </LoggedInTemplate>
-        </asp:LoginView>--%>
-
     </div>
 </asp:Content>

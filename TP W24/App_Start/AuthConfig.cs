@@ -28,6 +28,7 @@ namespace TPW24
             //    clientSecret: "90e9e6df005f20b5a193c36d23fd713f");
 
             OpenAuth.AuthenticationClients.AddGoogle();
+
         }
     }
 }

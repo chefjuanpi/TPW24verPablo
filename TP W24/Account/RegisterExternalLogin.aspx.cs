@@ -96,6 +96,10 @@ namespace lab6.Account
             ProviderName = authResult.Provider;
             ProviderUserId = authResult.ProviderUserId;
             ProviderUserName = authResult.UserName;
+            var extra = authResult.ExtraData;
+
+                        
+
 
             // Enlever la chaîne de requête de l'action
             Form.Action = ResolveUrl(redirectUrl);
@@ -109,7 +113,7 @@ namespace lab6.Account
             else
             {
                 // Il s'agit d'un nouvel utilisateur, demander quel est le nom de membre souhaité
-                userName.Text = authResult.UserName;
+                userName.Text = extra["name"];
             }
         }
 
@@ -121,6 +125,7 @@ namespace lab6.Account
             }
 
             var createResult = OpenAuth.CreateUser(ProviderName, ProviderUserId, ProviderUserName, userName.Text);
+          
             
             string conection = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             SqlConnection cn = new SqlConnection(conection);
