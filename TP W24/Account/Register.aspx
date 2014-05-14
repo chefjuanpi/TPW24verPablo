@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="TP_W24.Account.Registrer" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href="../css/jquery.ui.all.css" type="text/css" rel="stylesheet" />
     <style type="text/css" media="all">
         h1 {
             color: #000;
@@ -20,12 +21,25 @@
             text-align: left;
             font-weight:bold;
             font-size: 12px;
+            margin-left:35px;
         }
 
         #body_errmsg {
             color: #A00;
         }
-    </style>     
+    </style>
+    <script type="text/javascript" >
+        $(function () {
+            $(".txtDate").datepicker({
+                dateformat: "mm/dd/yyyy",
+                changeMonth: true,
+                changeYear: true,
+                showOn: "button",
+                buttonImage: "../Images/calendar.gif",
+                buttonImageOnly: true
+            });
+        });
+</script>     
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="header1" runat="server">
     <div style="margin-left:20%; margin-right:20%; text-align:center;"> 
@@ -36,7 +50,6 @@
     <div style="margin-left:20%; margin-right:20%;"> 
         <br />
         <asp:Label ID="errmsg" runat="server" Text=""></asp:Label>
-        <div>
             <div class="moitie">
                 <div>
                     <div class="titre">Nom d'utilisateur :</div>
@@ -80,9 +93,9 @@
                 <div>
                     <div  class="titre">Sexe :</div>
                     <div>
-                        <asp:RadioButtonList ID="Sexe" CssClass="lstBT" runat="server" RepeatDirection="Horizontal">
-                            <asp:ListItem Value="H" >Homme |</asp:ListItem>
-                            <asp:ListItem Value="F" >Femme |</asp:ListItem>
+                        <asp:RadioButtonList ID="Sexe" CssClass="lstBT" runat="server" RepeatDirection="Vertical">
+                            <asp:ListItem Value="H" >Homme </asp:ListItem>
+                            <asp:ListItem Value="F" >Femme </asp:ListItem>
                             <asp:ListItem Value="O" >Outres</asp:ListItem>
                         </asp:RadioButtonList>
                     </div>
@@ -114,6 +127,12 @@
                     </div>
                 </div>
                 <div>
+                    <div  class="titre">Date de Naissance :</div>
+                    <div>
+                        <asp:TextBox runat="server" CssClass="txtDate" ID="txtNais" ReadOnly="True" />
+                </div>
+                </div>
+                <div>
                     <div  class="titre">Ville :</div>
                     <div>
                         <asp:TextBox runat="server" ID="txtville" />
@@ -139,7 +158,6 @@
                 </div>
             </div>
         </div>
-     </div>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="footer" runat="server">
 </asp:Content>

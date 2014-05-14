@@ -101,6 +101,7 @@
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\RegisterExternalLogin.aspx" />
     <Content Include="Account\LoginPopUp.ascx" />
+    <Content Include="css\jquery.ui.all.css" />
     <Content Include="Error.aspx" />
     <Content Include="Global.asax" />
     <Content Include="RegisteredUsers\Account.aspx" />

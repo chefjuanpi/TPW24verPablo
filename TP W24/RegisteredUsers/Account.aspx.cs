@@ -20,8 +20,8 @@ namespace TP_W24
 
                 cn.Open();
                 string query = "select u.UserName, m.CreateDate, m.Email, m.LastLoginDate, ut.City, ut.Country, "
-                                + " ut.FirstName, ut.LastName, ut.photoProfil, ut.Province, ut.Sexe from users u "
-                                + " INNER JOIN Memberships m ON m.UserId = u.UserId LEFT JOIN utilisateurs ut "
+                                + " ut.FirstName, ut.LastName, ut.photoProfil, ut.Province, ut.Sexe, ut.DateNais "
+                                + "from users u INNER JOIN Memberships m ON m.UserId = u.UserId LEFT JOIN utilisateurs ut "
                                 + " ON ut.UserId = u.UserId WHERE u.UserName = @username";
                 SqlCommand comuser = new SqlCommand(query, cn);
                 comuser.Parameters.AddWithValue("@username", User.Identity.Name);
@@ -38,9 +38,8 @@ namespace TP_W24
                     txtPrenom.Text = dr["FirstName"].ToString();
                     txtNom.Text = dr["LastName"].ToString();
                     txtProvince.Text = dr["Province"].ToString();
-
-
-
+                    txtNais.Text = dr["DateNais"].ToString();
+                    Sexe.SelectedValue = dr["sexe"].ToString();
                 }
                 cn.Close();
             }
@@ -69,6 +68,42 @@ namespace TP_W24
                 cn.Close();
             }
             else errmsg.Text = "Selectioner un fichier de image avant";
+        }
+
+        protected void modINFO_Click(object sender, EventArgs e)
+        {
+            if (modINFO.Text != "Enregistrer")
+            {
+                txtNais.CssClass = "txtDate";
+                txtPrenom.Enabled = true;
+                txtNom.Enabled = true;
+                txtcity.Enabled = true;
+                txtProvince.Enabled = true;
+                txtPays.Enabled = true;
+                Sexe.Enabled = true;
+                modINFO.Text = "Enregistrer";
+            }
+            else
+            {
+                modINFO.Text = "Modifier Info";
+                SqlConnection cn = new SqlConnection(conection);
+                cn.Open();
+                string query = "Update Utilisateurs set FirstName = @Prenom, LastName = @Nom, sexe = @sexe,"
+                                + " Country = @country, Province = @province, city = @City, DateNais = @datenais "
+                                + " WHERE UserID = (SELECT u.UserId FROM Users u WHERE u.UserName = @User)";
+                SqlCommand com = new SqlCommand(query, cn);
+                com.Parameters.AddWithValue("@Prenom", txtPrenom.Text);
+                com.Parameters.AddWithValue("@Nom", txtNom.Text);
+                com.Parameters.AddWithValue("@sexe", Sexe.SelectedValue);
+                com.Parameters.AddWithValue("@country", txtPays.Text);
+                com.Parameters.AddWithValue("@province", txtProvince.Text);
+                com.Parameters.AddWithValue("@Cityr", txtcity.Text);
+                com.Parameters.AddWithValue("@datenais", txtNais.Text);
+                com.Parameters.AddWithValue("@User", User.Identity.Name);
+                com.ExecuteNonQuery();
+                cn.Close();
+            }
+
         }
     }
 }
