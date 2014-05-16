@@ -20,7 +20,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="header1" runat="server">
    <div style="margin-left:20%; margin-right:20%; text-align:center;"> 
-        <h1>Manager les conections</h1>
+        <h1>Gerer les conections</h1>
     </div>
 </asp:Content>
 
@@ -31,7 +31,7 @@
             <p class="message-success"><%: SuccessMessage %></p>
         </asp:PlaceHolder>
 
-        <p>Vous êtes connecté en tant que <strong><%: User.Identity.Name %></strong>.</p>
+        <p>Vous êtes connecté en tant que :&nbsp<strong style="font-size: x-large; font-weight: bold;"><%: User.Identity.Name %></strong>.</p>
 
         <asp:PlaceHolder runat="server" ID="setPassword" Visible="false">
             <p>
@@ -78,7 +78,7 @@
         </asp:PlaceHolder>
 
         <asp:PlaceHolder runat="server" ID="changePassword" Visible="false">
-            <h3>Modifier le mot de passe</h3>
+            <h2>Modifier le mot de passe</h2>
             <asp:ChangePassword runat="server" CancelDestinationPageUrl="~/" ViewStateMode="Disabled" RenderOuterTable="false" SuccessPageUrl="Manage?m=ChangePwdSuccess">
                 <ChangePasswordTemplate>
                     <p class="validation-summary-errors">
@@ -145,7 +145,7 @@
             DataKeyNames="ProviderName,ProviderUserId" OnItemDeleting="externalLoginsList_ItemDeleting">
         
             <LayoutTemplate>
-                <h3>Connexions externes inscrites</h3>
+                <h2>Connexions externes inscrites</h2>
                 <table>
                     <thead><tr><th>Service</th><th>Nom d'utilisateur</th><th>Dernière utilisation</th><th>&nbsp;</th></tr></thead>
                     <tbody>
@@ -169,8 +169,24 @@
             </ItemTemplate>
         </asp:ListView>
 
-        <h3>Ajouter un'outre connexion externe</h3>
+        <h2>Ajouter un'outre connexion </h2>
+
+      <div class="social_login">
+                <div>
+                    <asp:LinkButton ID="Buttonfb" runat="server"  
+                        ValidationGroup="FB" CssClass="social_box fb">
+                        <span class="icon"><i class="fa fa-facebook"></i></span>
+                        <span class="icon_title">Utiliser Facebook</span>
+                    </asp:LinkButton>
+
+                    <asp:LinkButton ID="ButtonGoogle" runat="server" 
+                        ValidationGroup="FB" CssClass="social_box google">
+                        <span class="icon"><i class="fa fa-google-plus"></i></span>
+                        <span class="icon_title">Utiliser Google</span>
+                    </asp:LinkButton>
+                </div>
+          </div>
 
     </section>
-        </div>
+  </div>
 </asp:Content>

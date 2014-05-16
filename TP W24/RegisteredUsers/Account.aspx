@@ -102,7 +102,7 @@
                 <div>
                     <div  class="titre">Date de Naissance :</div>
                     <div>
-                        <asp:TextBox runat="server" ID="txtNais" ReadOnly="True" Enabled="false" />
+                        <asp:TextBox runat="server" ID="txtNais" Enabled="false" />
                     </div>
                 </div>
                 <div  class="titre">Sexe :</div>

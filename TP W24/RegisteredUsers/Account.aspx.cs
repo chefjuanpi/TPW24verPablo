@@ -16,34 +16,39 @@ namespace TP_W24
         {
             if (!IsPostBack)
             {
-                SqlConnection cn = new SqlConnection(conection);
-
-                cn.Open();
-                string query = "select u.UserName, m.CreateDate, m.Email, m.LastLoginDate, ut.City, ut.Country, "
-                                + " ut.FirstName, ut.LastName, ut.photoProfil, ut.Province, ut.Sexe, ut.DateNais "
-                                + "from users u INNER JOIN Memberships m ON m.UserId = u.UserId LEFT JOIN utilisateurs ut "
-                                + " ON ut.UserId = u.UserId WHERE u.UserName = @username";
-                SqlCommand comuser = new SqlCommand(query, cn);
-                comuser.Parameters.AddWithValue("@username", User.Identity.Name);
-                SqlDataReader dr = comuser.ExecuteReader();
-                if (dr.Read())
-                {
-                    lblUtilisateur.Text = dr["UserName"].ToString();
-                    txtCreated.Text = dr["CreateDate"].ToString();
-                    txtCourriel.Text = dr["Email"].ToString();
-                    txtLast.Text = dr["LastLoginDate"].ToString();
-                    txtcity.Text = dr["City"].ToString();
-                    profileImage.ImageUrl = dr["photoProfil"].ToString();
-                    txtPays.Text = dr["Country"].ToString();
-                    txtPrenom.Text = dr["FirstName"].ToString();
-                    txtNom.Text = dr["LastName"].ToString();
-                    txtProvince.Text = dr["Province"].ToString();
-                    txtNais.Text = dr["DateNais"].ToString();
-                    Sexe.SelectedValue = dr["sexe"].ToString();
-                }
-                cn.Close();
+                afficherInfo();
             }
 
+        }
+
+        private void afficherInfo()
+        {
+            SqlConnection cn = new SqlConnection(conection);
+
+            cn.Open();
+            string query = "select u.UserName, m.CreateDate, m.Email, m.LastLoginDate, ut.City, ut.Country, "
+                            + " ut.FirstName, ut.LastName, ut.photoProfil, ut.Province, ut.Sexe, ut.DateNais "
+                            + "from users u INNER JOIN Memberships m ON m.UserId = u.UserId LEFT JOIN utilisateurs ut "
+                            + " ON ut.UserId = u.UserId WHERE u.UserName = @username";
+            SqlCommand comuser = new SqlCommand(query, cn);
+            comuser.Parameters.AddWithValue("@username", User.Identity.Name);
+            SqlDataReader dr = comuser.ExecuteReader();
+            if (dr.Read())
+            {
+                lblUtilisateur.Text = dr["UserName"].ToString();
+                txtCreated.Text = dr["CreateDate"].ToString();
+                txtCourriel.Text = dr["Email"].ToString();
+                txtLast.Text = dr["LastLoginDate"].ToString();
+                txtcity.Text = dr["City"].ToString();
+                profileImage.ImageUrl = dr["photoProfil"].ToString();
+                txtPays.Text = dr["Country"].ToString();
+                txtPrenom.Text = dr["FirstName"].ToString();
+                txtNom.Text = dr["LastName"].ToString();
+                txtProvince.Text = dr["Province"].ToString();
+                txtNais.Text = dr["DateNais"].ToString();
+                Sexe.SelectedValue = dr["sexe"].ToString();
+            }
+            cn.Close();
         }
         protected void byebye()
         {
@@ -74,18 +79,13 @@ namespace TP_W24
         {
             if (modINFO.Text != "Enregistrer")
             {
-                txtNais.CssClass = "txtDate";
-                txtPrenom.Enabled = true;
-                txtNom.Enabled = true;
-                txtcity.Enabled = true;
-                txtProvince.Enabled = true;
-                txtPays.Enabled = true;
-                Sexe.Enabled = true;
+                Barrer_debarrer(true);
                 modINFO.Text = "Enregistrer";
+                modINFO.ValidationGroup = "modPersonalInfo";
+                txtNais.CssClass = "txtDate";
             }
             else
             {
-                modINFO.Text = "Modifier Info";
                 SqlConnection cn = new SqlConnection(conection);
                 cn.Open();
                 string query = "Update Utilisateurs set FirstName = @Prenom, LastName = @Nom, sexe = @sexe,"
@@ -97,13 +97,28 @@ namespace TP_W24
                 com.Parameters.AddWithValue("@sexe", Sexe.SelectedValue);
                 com.Parameters.AddWithValue("@country", txtPays.Text);
                 com.Parameters.AddWithValue("@province", txtProvince.Text);
-                com.Parameters.AddWithValue("@Cityr", txtcity.Text);
+                com.Parameters.AddWithValue("@City", txtcity.Text);
                 com.Parameters.AddWithValue("@datenais", txtNais.Text);
                 com.Parameters.AddWithValue("@User", User.Identity.Name);
                 com.ExecuteNonQuery();
                 cn.Close();
+                afficherInfo();
+                modINFO.Text = "Modifier Info";
+                modINFO.ValidationGroup = "123";
+                txtNais.CssClass = "";
             }
 
+        }
+
+        private void Barrer_debarrer(bool choix)
+        {
+            txtNais.Enabled = choix;
+            txtPrenom.Enabled = choix;
+            txtNom.Enabled = choix;
+            txtcity.Enabled = choix;
+            txtProvince.Enabled = choix;
+            txtPays.Enabled = choix;
+            Sexe.Enabled = choix;
         }
     }
 }

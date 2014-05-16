@@ -77,7 +77,7 @@
         <section class="popupBody">
             <!-- Social Login -->
             <div class="social_login">
-                <div class="">
+                <div>
                     <asp:LinkButton ID="Buttonfb" runat="server" OnClick="FBConnect" 
                         ValidationGroup="FB" CssClass="social_box fb">
                         <span class="icon"><i class="fa fa-facebook"></i></span>

@@ -94,7 +94,7 @@
 			<ul class="post">
 				<li><h2 class="title">Questions? Commentaires?</h2></li>
 				<li class="story">
-					<p>Vous pouvez contacter l'administrateur en cliquant <a href="~/ContactAdmin.aspx">ici.</a> Prévoyez un délai pouvant atteindre 48h avant
+					<p>Vous pouvez contacter l'administrateur en cliquant <a href="../ContactAdmin.aspx">ici.</a> Prévoyez un délai pouvant atteindre 48h avant
                         de recevoir une réponse.
 					</p>
 				</li>

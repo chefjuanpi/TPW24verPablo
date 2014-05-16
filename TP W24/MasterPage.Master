@@ -105,8 +105,24 @@ Commentaires:
                     <li class="clear-fix"></li>
 			        <li class="footer-section">
                         <asp:ContentPlaceHolder ID="footer" runat="server">    </asp:ContentPlaceHolder>
-				        <p class="placefiller">FOOTER</p>
+				        <ul class="sub-container">
+        
+		<li class="sujets">
+			<ul>
+				<li>
+                            <p style="margin-left:10%; margin-top:20px; font-size:20px; overflow:auto;" >
+                                Site Fait par : Pablo Aguilar-Lliguin et Mickael Bergeron Néron<br />
+                                Cours : TPW24 <br />
+                                Presenté a: Dave Côté
+				            </p>
+				        </li>
+                </ul>
+            </li>
+        <li class="sub-info">
+                        Contactéz-Nous
+
 			        </li>
+                </ul>
                     <!-- end #footer -->
 		        </ul>
 	        </div>
