@@ -45,10 +45,6 @@ namespace TP_W24
             }
 
         }
-        protected void byebye()
-        {
-
-        }
 
         protected void UploadImage_Click(object sender, EventArgs e)
         {
@@ -57,6 +53,9 @@ namespace TP_W24
                 string fileExtension = System.IO.Path.GetExtension(FileUpload1.FileName).ToLower();
                 string addresse = "~/images/utilisateurs/" + User.Identity.Name + fileExtension;
                 FileUpload1.SaveAs(MapPath(addresse));
+
+                string test = MapPath(addresse);
+
                 profileImage.ImageUrl = addresse;
                 SqlConnection cn = new SqlConnection(conection);
                 cn.Open();
@@ -74,18 +73,13 @@ namespace TP_W24
         {
             if (modINFO.Text != "Enregistrer")
             {
+                barrer_debarrer(true);
                 txtNais.CssClass = "txtDate";
-                txtPrenom.Enabled = true;
-                txtNom.Enabled = true;
-                txtcity.Enabled = true;
-                txtProvince.Enabled = true;
-                txtPays.Enabled = true;
-                Sexe.Enabled = true;
                 modINFO.Text = "Enregistrer";
+                modINFO.ValidationGroup = "modPersonalInfo";
             }
             else
             {
-                modINFO.Text = "Modifier Info";
                 SqlConnection cn = new SqlConnection(conection);
                 cn.Open();
                 string query = "Update Utilisateurs set FirstName = @Prenom, LastName = @Nom, sexe = @sexe,"
@@ -97,13 +91,27 @@ namespace TP_W24
                 com.Parameters.AddWithValue("@sexe", Sexe.SelectedValue);
                 com.Parameters.AddWithValue("@country", txtPays.Text);
                 com.Parameters.AddWithValue("@province", txtProvince.Text);
-                com.Parameters.AddWithValue("@Cityr", txtcity.Text);
+                com.Parameters.AddWithValue("@City", txtcity.Text);
                 com.Parameters.AddWithValue("@datenais", txtNais.Text);
                 com.Parameters.AddWithValue("@User", User.Identity.Name);
                 com.ExecuteNonQuery();
                 cn.Close();
+                barrer_debarrer(true);
+                txtNais.CssClass = "";
+                modINFO.Text = "Modifier Info";
+                modINFO.ValidationGroup = "123";
             }
 
+        }
+
+        protected void barrer_debarrer(bool choix)
+        {
+            txtPrenom.Enabled = choix;
+            txtNom.Enabled = choix;
+            txtcity.Enabled = choix;
+            txtProvince.Enabled = choix;
+            txtPays.Enabled = choix;
+            Sexe.Enabled = choix;
         }
     }
 }
