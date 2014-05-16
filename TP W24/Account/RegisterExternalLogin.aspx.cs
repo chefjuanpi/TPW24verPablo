@@ -124,17 +124,33 @@ namespace lab6.Account
             }
 
             var createResult = OpenAuth.CreateUser(ProviderName, ProviderUserId, ProviderUserName, userName.Text);
-          
+                      
             
             string conection = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             SqlConnection cn = new SqlConnection(conection);
             cn.Open();
-            string query = "UPDATE Memberships SET Email = '" + ProviderUserName + "' WHERE UserID = (SELECT " 
-                            + " u.UserId FROM Users u WHERE u.UserName = @User)";
-            SqlCommand com = new SqlCommand(query, cn);
-            com.Parameters.AddWithValue("@User", userName.Text);
-            com.ExecuteNonQuery();
+            string superID = "";
+            string queryID = "SELECT UserID FROM Users WHERE UserName = @user";
+            SqlCommand RecID = new SqlCommand(queryID, cn);
+            RecID.Parameters.AddWithValue("@User", userName.Text);
+            SqlDataReader dr = RecID.ExecuteReader();
+            if (dr.Read())
+            {
+                superID = dr["UserID"].ToString();
+            }
+            dr.Close();
+
+            string query = "UPDATE Memberships SET Email = '" + ProviderUserName + "' WHERE UserID = @User";
+            SqlCommand InsertCourriel = new SqlCommand(query, cn);
+            InsertCourriel.Parameters.AddWithValue("@User", superID);
+            InsertCourriel.ExecuteNonQuery();
+            
+            query = "INSERT INTO Utilisateurs(UserID) VALUES(@User)";
+            SqlCommand CreerUtilisateur = new SqlCommand(query, cn);
+            CreerUtilisateur.Parameters.AddWithValue("@User", superID);
+            CreerUtilisateur.ExecuteNonQuery();
             cn.Close();
+
 
             if (!createResult.IsSuccessful)
             {
