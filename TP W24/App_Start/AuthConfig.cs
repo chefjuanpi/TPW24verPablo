@@ -18,8 +18,8 @@ namespace TPW24
             //    consumerSecret: "90e9e6df005f20b5a193c36d23fd713f");
 
             OpenAuth.AuthenticationClients.AddFacebook(
-                appId: "155567074550166",
-                appSecret: "90e9e6df005f20b5a193c36d23fd713f");
+                appId: "438081452993871",
+                appSecret: "a9554c3576c681b47b8d350555459a81");
 
 
 
