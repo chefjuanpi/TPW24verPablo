@@ -9,7 +9,42 @@
             <div style="float: right;">Dernier message</div>
         </div>
 
-        <div class="topic">
+        <asp:Repeater ID="rptTopics" runat="server">
+            <ItemTemplate>
+                <div class="topic">
+                    <div class="title">
+                        <strong>
+                            <a href='ForumMessages.aspx?Topic=<%# Eval("TopicID") %>'>
+                                <%# Eval("TopicTitle") %>
+                            </a>
+                        </strong> <br />
+
+                        <div class="startedBy">
+                            Sujet commencé par
+                            <a href=''>
+                                <%# Eval("UserName") %>
+                            </a> le <%# Eval("StartedDate") %> <!-- Colonne à créer dans Topics -->
+                        </div>
+                    </div>
+
+                    <div class="stats">
+                        <%# Eval("MessageCount") %> Messages<br />
+                        <%# Eval("t.ViewCount") %> Vues
+                    </div>
+
+                    <div class="lastPost"> par 
+                        <i>
+                            <a>
+                                <%# Eval("lastPoster") %>
+                            </a>
+                        </i>.<br />
+                        le <i><%# Eval("m.DateWritten") %></i>
+                    </div>
+                </div>
+            </ItemTemplate>
+        </asp:Repeater>
+
+        <%--<div class="topic">
             <div class="title">
                 <strong><a href="ForumMessages.aspx?Topic=SomeTopic">Cuisine</a></strong> <br />
                 <div class="startedBy">
@@ -64,7 +99,7 @@
                 par <i><a>nomMembre</a></i>.<br />
                 le <i>2014-04-15</i>
             </div>
-        </div>
+        </div>--%>
 
         <asp:LinkButton CssClass="newTopicBtn" Text="Nouveau sujet" runat="server" PostBackUrl="~/RegisteredUsers/CreateNewTopic.aspx" />
     </div>

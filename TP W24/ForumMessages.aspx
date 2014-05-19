@@ -9,7 +9,32 @@
             <div style="float: left; width: 600px;">Message</div>
         </div>
 
-        <div class="message">
+        <asp:Repeater ID="rptMessages" runat="server">
+            <ItemTemplate>
+                <div class="message">
+                    <div class="poster">
+                        <strong>
+                            <a href='Account.aspx?Member=<%# Eval("m.WrittenBy") %>'>
+                                <%# Eval("u.UserName") %>
+                            </a>
+                        </strong> <br />
+                        <img class="profileImg" src='<%# Eval("util.photoProfil") %>' /> <br />
+                        Messages: <%# Eval("messageCount") %>
+                    </div>
+
+                    <div class="msgContent">
+                        <p><%# Eval("m.Content") %></p>
+                    </div>
+
+                    <div class="msgFooter">
+                        Envoyé le: <%# Eval("m.DateWritten") %> <br />
+                        Dernière mise-à-jour: <%# Eval("m.DateLastEdited") %>
+                    </div>
+                </div>
+            </ItemTemplate>
+        </asp:Repeater>
+
+        <%--<div class="message">
             <div class="poster">
                 <strong><a>nomMembre</a></strong> <br />
                 <img class="profileImg" src="images/img04.jpg" /> <br />
@@ -53,12 +78,12 @@
             <div class="msgFooter">
                 Envoyé le: 2014-04-14
             </div>
-        </div>
+        </div>--%>
 
         <div id="answerArea">
             Répondre: <br />
             <asp:TextBox ID="txtMessage" runat="server" Rows="12" Columns="91" TextMode="MultiLine"></asp:TextBox>
-            <asp:Button ID="Button1" Text="Répondre" runat="server" />
+            <asp:Button ID="cmdReply" Text="Répondre" runat="server" />
         </div>
     </div>
 </asp:Content>
