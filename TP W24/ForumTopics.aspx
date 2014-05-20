@@ -21,7 +21,7 @@
 
                         <div class="startedBy">
                             Sujet commencé par
-                            <a href=''>
+                            <a href='#'>
                                 <%# Eval("UserName") %>
                             </a> le <%# Eval("StartedDate") %> <!-- Colonne à créer dans Topics -->
                         </div>
@@ -101,6 +101,6 @@
             </div>
         </div>--%>
 
-        <asp:LinkButton CssClass="newTopicBtn" Text="Nouveau sujet" runat="server" PostBackUrl="~/RegisteredUsers/CreateNewTopic.aspx" />
+        <asp:LinkButton ID="LinkButton1" CssClass="newTopicBtn" Text="Nouveau sujet" runat="server" PostBackUrl="~/RegisteredUsers/CreateNewTopic.aspx" />
     </div>
 </asp:Content>

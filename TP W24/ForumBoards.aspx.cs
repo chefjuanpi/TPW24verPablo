@@ -19,25 +19,35 @@ namespace TP_W24
 
             SqlDataAdapter daBoards = new SqlDataAdapter(
                 "SELECT * FROM BoardCategories;" +
-                "SELECT b.BoardID, " + // Changer requête en vue? -> plus performance, code plus simple
-                       "BoardCategoryID, " +
-                       "BoardName, " +
-                       "COUNT(t.TopicID) TopicCount, " +
-                       "COUNT(m.MessageID) MessageCount, " +
-                       "(SELECT TOP 1 sm.DateWritten, sm.WrittenBy, sm.MessageID, sm.TopicID, st.TopicTitle, su.UserName " +
-                       " FROM Messages sm " +
-                       " INNER JOIN Topics st " +
-                       " ON sm.TopicID = st.TopicID " +
-                       " INNER JOIN Users su " +
-                       " ON sm.WrittenBy = su.UserName " +
-                       " WHERE st.BoardID = b.BoardID " +
-                       " ORDER BY sm.DateWritten DESC) " +
-                "FROM Boards b " +
-                "INNER JOIN Topics t " +
-                "ON b.BoardID = t.BoardID " +
-                "INNER JOIN [Messages] m " +
-                "ON t.TopicID = m.TopicID " +
-                "GROUP BY b.BoardID, BoardCategoryID, BoardName;",
+               @"SELECT b.BoardID, b.BoardCategoryID, b.BoardName,
+		                m.DateWritten, m.WrittenBy, m.MessageID, m.TopicID,
+		                t.TopicTitle,
+		                u.UserName,
+		                (SELECT COUNT(*) FROM Topics WHERE TopicID = t.TopicID) AS TopicCount,
+		                (SELECT COUNT(*) FROM Topics st INNER JOIN Messages sm ON st.TopicID = sm.TopicID WHERE st.TopicID = t.TopicID) AS MessageCount
+                FROM Boards b 
+                LEFT JOIN Topics t 
+                ON b.BoardID = t.BoardID 
+                LEFT JOIN [Messages] m 
+                ON t.TopicID = m.TopicID
+                LEFT JOIN Users u
+                ON u.UserId = m.WrittenBy
+                WHERE t.topicID = (
+	                SELECT TOP 1 st.TopicID FROM Topics st
+	                LEFT JOIN [Messages] sm
+	                ON st.TopicID = sm.MessageID
+	                WHERE st.BoardID = b.BoardID
+	                ORDER BY sm.DateWritten DESC
+                ) AND m.TopicID = (
+	                SELECT TOP 1 st.TopicID FROM Topics st
+	                LEFT JOIN [Messages] sm
+	                ON st.TopicID = sm.MessageID
+	                WHERE st.BoardID = b.BoardID
+	                ORDER BY sm.DateWritten DESC
+                ) AND m.DateWritten = (
+	                SELECT MAX(DateWritten) FROM [Messages]
+	                WHERE TopicID = t.TopicID
+                )",
                 DB.Con);
 
             daBoards.Fill(dsBoards);

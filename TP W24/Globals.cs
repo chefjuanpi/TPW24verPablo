@@ -17,7 +17,7 @@ namespace TP_W24
         public static SqlDataReader DR {get; private set;}
 
         public static bool OpenCon() {
-            if (Con.State == System.Data.ConnectionState.Open)
+            if (Con != null && Con.State == System.Data.ConnectionState.Open)
                 return true;
 
             try {
