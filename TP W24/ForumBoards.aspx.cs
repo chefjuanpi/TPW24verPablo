@@ -38,13 +38,13 @@ namespace TP_W24
 	                ON st.TopicID = sm.MessageID
 	                WHERE st.BoardID = b.BoardID
 	                ORDER BY sm.DateWritten DESC
-                ) AND m.TopicID = (
+                ) /*AND m.TopicID = (
 	                SELECT TOP 1 st.TopicID FROM Topics st
 	                LEFT JOIN [Messages] sm
 	                ON st.TopicID = sm.MessageID
 	                WHERE st.BoardID = b.BoardID
 	                ORDER BY sm.DateWritten DESC
-                ) AND m.DateWritten = (
+                )*/ AND m.DateWritten = (
 	                SELECT MAX(DateWritten) FROM [Messages]
 	                WHERE TopicID = t.TopicID
                 )",
