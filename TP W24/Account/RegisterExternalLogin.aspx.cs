@@ -144,7 +144,7 @@ namespace lab6.Account
             SqlCommand InsertCourriel = new SqlCommand(query, cn);
             InsertCourriel.Parameters.AddWithValue("@User", superID);
             InsertCourriel.ExecuteNonQuery();
-            
+
             query = "INSERT INTO Utilisateurs(UserID) VALUES(@User)";
             SqlCommand CreerUtilisateur = new SqlCommand(query, cn);
             CreerUtilisateur.Parameters.AddWithValue("@User", superID);
