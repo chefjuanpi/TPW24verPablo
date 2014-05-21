@@ -150,9 +150,11 @@
     <Content Include="css\SeeMessages.css" />
     <Content Include="SendMessage.aspx" />
     <Content Include="css\SendMessage.css" />
+    <Content Include="Topics.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\Manage.aspx.cs">
@@ -287,6 +289,20 @@
     </Compile>
     <Compile Include="SendMessage.aspx.designer.cs">
       <DependentUpon>SendMessage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Topics.aspx.cs">
+      <DependentUpon>Topics.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Topics.aspx.designer.cs">
+      <DependentUpon>Topics.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

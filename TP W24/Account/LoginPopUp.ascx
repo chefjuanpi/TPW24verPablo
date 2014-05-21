@@ -113,13 +113,13 @@
                         <ol>
                             <li>
                                 <asp:Label ID="Label1" runat="server" AssociatedControlID="UserName">Nom d'utilisateur</asp:Label>
-                                <asp:TextBox runat="server" ID="UserName" />
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="UserName" CssClass="field-validation-error" ErrorMessage="Le champ nom d'utilisateur est requis." />
+                                <asp:TextBox runat="server" ID="UserName" ValidationGroup="userInfos" />
+                                <asp:RequiredFieldValidator ID="usernameValidator" runat="server" ControlToValidate="UserName" CssClass="field-validation-error" ErrorMessage="Le champ nom d'utilisateur est requis." ValidationGroup="userInfos"  />
                             </li>
                             <li>
                                 <asp:Label ID="Label2" runat="server" AssociatedControlID="Password">Mot de passe</asp:Label>
-                                <asp:TextBox runat="server" ID="Password" TextMode="Password" />
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="Password" CssClass="field-validation-error" ErrorMessage="Le champ mot de passe est requis." />
+                                <asp:TextBox runat="server" ID="Password" ValidationGroup="userInfos" TextMode="Password" />
+                                <asp:RequiredFieldValidator ID="passwordValidator" runat="server" ControlToValidate="Password" CssClass="field-validation-error" ErrorMessage="Le champ mot de passe est requis." ValidationGroup="userInfos"  />
                             </li>
                             <li>
                                 <asp:CheckBox runat="server" ID="RememberMe" Text="Rester Connectée ?" CssClass="checkbox" />

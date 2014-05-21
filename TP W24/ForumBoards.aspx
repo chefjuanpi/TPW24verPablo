@@ -19,7 +19,7 @@
                             <div class="board">
                                 <div class="title">
                                     <strong>
-                                        <a href='ForumTopics.aspx?Board=<%# DataBinder.Eval(Container.DataItem, "[\"BoardID\"]") %>'>
+                                        <a href='Topics.aspx?Board=<%# DataBinder.Eval(Container.DataItem, "[\"BoardID\"]") %>'>
                                             <%# DataBinder.Eval(Container.DataItem, "[\"BoardName\"]") %>
                                         </a>
                                     </strong> <br />
@@ -40,12 +40,12 @@
                                         </a>
                                     </strong>par
                                     <i>
-                                        <a href='Account.aspx?Member=<%# DataBinder.Eval(Container.DataItem, "[\"WrittenBy\"]") %>'>
+                                        <a href='<%= Page.ResolveUrl("~/RegisteredUsers/Account.aspx?Member=")%><%# DataBinder.Eval(Container.DataItem, "[\"WrittenBy\"]") %>'>
                                             <%# DataBinder.Eval(Container.DataItem, "[\"UserName\"]") %>
                                         </a>
                                     </i><br />dans 
                                     <b>
-                                        <a>
+                                        <a href='ForumMessages.aspx?Topic=<%# DataBinder.Eval(Container.DataItem, "[\"TopicID\"]") %>'>
                                             <%# DataBinder.Eval(Container.DataItem, "[\"TopicTitle\"]") %>
                                         </a>
                                     </b><br />

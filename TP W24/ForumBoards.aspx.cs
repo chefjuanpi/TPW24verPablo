@@ -21,10 +21,13 @@ namespace TP_W24
                 "SELECT * FROM BoardCategories;" +
                @"SELECT b.BoardID, b.BoardCategoryID, b.BoardName,
 		                m.DateWritten, m.WrittenBy, m.MessageID, m.TopicID,
-		                t.TopicTitle,
+		                t.topicID, t.TopicTitle,
 		                u.UserName,
-		                (SELECT COUNT(*) FROM Topics WHERE TopicID = t.TopicID) AS TopicCount,
-		                (SELECT COUNT(*) FROM Topics st INNER JOIN Messages sm ON st.TopicID = sm.TopicID WHERE st.TopicID = t.TopicID) AS MessageCount
+		                (SELECT COUNT(*) FROM Topics WHERE BoardID = t.BoardID) AS TopicCount,
+		                (SELECT COUNT(*) FROM Topics st 
+                         INNER JOIN Messages sm 
+                         ON st.TopicID = sm.TopicID 
+                         WHERE st.BoardID = t.BoardID) AS MessageCount
                 FROM Boards b 
                 LEFT JOIN Topics t 
                 ON b.BoardID = t.BoardID 
@@ -64,9 +67,9 @@ namespace TP_W24
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack) {
+            //if (!Page.IsPostBack) {
                 FillRepeaters();
-            }
+            //}
         }
     }
 }

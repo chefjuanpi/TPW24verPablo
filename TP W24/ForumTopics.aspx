@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="ForumTopics.aspx.cs" Inherits="TP_W24.Forum" %>
+﻿<%--<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="ForumTopics.aspx.cs" Inherits="TP_W24.Forum" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="../css/ForumTopics.css" type="text/css" rel="stylesheet" />
 </asp:Content>
@@ -99,8 +99,8 @@
                 par <i><a>nomMembre</a></i>.<br />
                 le <i>2014-04-15</i>
             </div>
-        </div>--%>
+        </div>
 
         <asp:LinkButton ID="LinkButton1" CssClass="newTopicBtn" Text="Nouveau sujet" runat="server" PostBackUrl="~/RegisteredUsers/CreateNewTopic.aspx" />
     </div>
-</asp:Content>
+</asp:Content>--%>

@@ -10,33 +10,24 @@
 namespace TP_W24 {
     
     
-    public partial class ForumMessages {
+    public partial class Topics {
         
         /// <summary>
-        /// Contrôle rptMessages.
+        /// Contrôle rptTopics.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptMessages;
+        protected global::System.Web.UI.WebControls.Repeater rptTopics;
         
         /// <summary>
-        /// Contrôle txtMessage.
+        /// Contrôle cmdNewTopic.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMessage;
-        
-        /// <summary>
-        /// Contrôle cmdReply.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button cmdReply;
+        protected global::System.Web.UI.WebControls.LinkButton cmdNewTopic;
     }
 }

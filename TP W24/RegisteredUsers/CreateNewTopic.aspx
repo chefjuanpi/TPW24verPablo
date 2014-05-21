@@ -4,6 +4,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <div id="content">
+        <asp:RequiredFieldValidator ID="subjectValidator" ErrorMessage="Le sujet est manquant<br/>" ControlToValidate="txtSubject" runat="server" validationgroup="newTopicValidationGroup" />
+        <asp:RequiredFieldValidator ID="messageValidator" ErrorMessage="Le message est manquant<br/>" ControlToValidate="txtMessage" runat="server" validationgroup="newTopicValidationGroup" />
+
         <div id="subject">
             <div class="label">Sujet:</div>
             <asp:TextBox ID="txtSubject" runat="server" Columns="41"></asp:TextBox> <br />
@@ -11,7 +14,8 @@
         
         Message: <br />
         <asp:TextBox ID="txtMessage" runat="server" Rows="12" Columns="91" TextMode="MultiLine"></asp:TextBox>
-        <asp:Button Text="Envoyer" runat="server" />
-        <asp:Button Text="Annuler" runat="server" />
+
+        <asp:Button ID="cmdCreateTopic" Text="Envoyer" runat="server" OnClick="cmdCreateTopic_Click" validationgroup="newTopicValidationGroup" />
+        <asp:Button ID="cmdCancel" Text="Annuler" runat="server" onclick="cmdCancel_Click" />
     </div>
 </asp:Content>

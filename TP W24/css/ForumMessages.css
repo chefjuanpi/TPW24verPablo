@@ -26,6 +26,7 @@ a:hover {
 .message {
     border-bottom: 1px solid #715558;
     margin-top:10px;
+    min-height:100px;
 }
 
 .message .msgFooter {

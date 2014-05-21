@@ -17,11 +17,15 @@ namespace TP_W24
         public static SqlDataReader DR {get; private set;}
 
         public static bool OpenCon() {
-            if (Con != null && Con.State == System.Data.ConnectionState.Open)
+            if (Con == null) {
+                Con = new SqlConnection(ConString);
+            }
+
+            if (Con.State == System.Data.ConnectionState.Open)
                 return true;
 
             try {
-                Con = new SqlConnection(ConString);
+                Con.Open();
             }
             catch (Exception) {
                 return false;
@@ -65,12 +69,57 @@ namespace TP_W24
 
             return true;
         }
+        public static int ExecuteNonQuery(SqlCommand com)
+        {
+            int affectedLines = -1;
+
+            com.Connection = Con;
+
+            try {
+                affectedLines = com.ExecuteNonQuery();
+            }
+            catch (Exception) {
+                
+            }
+
+            return affectedLines;
+        }
+        public static bool ExecuteScalar(SqlCommand com, out object scalarResult)
+        {
+           scalarResult = "";
+
+            com.Connection = Con;
+
+            try {
+                scalarResult = com.ExecuteScalar();
+            }
+            catch (Exception) {
+                return false;
+            }
+
+            return true;
+        }
+        public static bool ExecuteScalar(SqlCommand com, out int scalarResult)
+        {
+            scalarResult = -1;
+
+            com.Connection = Con;
+
+            try {
+                scalarResult = (int)com.ExecuteScalar();
+            }
+            catch (Exception) {
+                return false;
+            }
+
+            return true;
+        }
 
         public static bool BindRepeater(Repeater rpt, DataSet ds)
         {
-            rpt.DataSource = ds;
-                
             try {
+                rpt.DataSource = ds;
+
                 rpt.DataBind();
             }
             catch (Exception) {
