@@ -55,11 +55,11 @@ namespace TP_W24
 
         public static bool ExecuteReader(SqlCommand com)
         {
-            if (!DR.IsClosed)
+            if (DR != null && !DR.IsClosed)
                 DR.Close();
 
             com.Connection = Con;
-
+            
             try {
                 DR = com.ExecuteReader();
             }

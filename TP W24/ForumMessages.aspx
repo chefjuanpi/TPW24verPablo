@@ -28,7 +28,6 @@
 
                     <div class="msgFooter">
                         Envoyé le: <%# Eval("DateWritten") %> <br />
-                        Dernière mise-à-jour: <%# Eval("DateLastEdited") %>
                     </div>
                 </div>
             </ItemTemplate>
@@ -37,7 +36,8 @@
         <div id="answerArea">
             Répondre: <br />
             <asp:TextBox ID="txtMessage" runat="server" Rows="12" Columns="91" TextMode="MultiLine"></asp:TextBox>
-            <asp:Button ID="cmdReply" Text="Répondre" runat="server" />
+            <asp:Button ID="cmdReply" Text="Répondre" runat="server" OnClick="cmdReply_Click" ValidationGroup="replyValidationGroup" />
+            <asp:RequiredFieldValidator ErrorMessage="* Le message est manquant<br/>" ControlToValidate="txtMessage" runat="server" ValidationGroup="replyValidationGroup" />
         </div>
     </div>
 </asp:Content>

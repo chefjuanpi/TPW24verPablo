@@ -11,58 +11,32 @@
             <div style="float: right;">Dernier message</div>
         </div>
 
-        <div class="member">
-            <div class="name">
-                <strong><a href="Account.aspx?Member=nomMembre">user123</a></strong>
-            </div>
+        <asp:Repeater runat="server" id="rptMembers">
+            <ItemTemplate>
+                <div class="member">
+                    <div class="name">
+                        <strong>
+                            <a href='<%= Page.ResolveUrl("~/RegisteredUsers/Account.aspx?Member=")%><%# Eval("UserID") %>'>
+                                <%# Eval("UserName") %>
+                            </a>
+                        </strong>
+                    </div>
 
-            <div class="dateRegistered">
-                2014-04-13
-            </div>
+                    <div class="dateRegistered">
+                        <%# Eval("CreateDate") %>
+                    </div>
 
-            <div class="stats">
-                22 Messages
-            </div>
+                    <div class="stats">
+                        <%# Eval("MessageCount") %> Messages
+                    </div>
 
-            <div class="lastPost">
-                <a>nomSujet</a> - 2014-04-15
-            </div>
-        </div>
-
-        <div class="member">
-            <div class="name">
-                <strong><a href="Account.aspx?Member=nomMembre">user123</a></strong>
-            </div>
-
-            <div class="dateRegistered">
-                2014-04-13
-            </div>
-
-            <div class="stats">
-                22 Messages
-            </div>
-
-            <div class="lastPost">
-                <a>nomSujet</a> - 2014-04-15
-            </div>
-        </div>
-
-        <div class="member">
-            <div class="name">
-                <strong><a href="Account.aspx?Member=nomMembre">user123</a></strong>
-            </div>
-
-            <div class="dateRegistered">
-                2014-04-13
-            </div>
-
-            <div class="stats">
-                22 Messages
-            </div>
-
-            <div class="lastPost">
-                <a>nomSujet</a> - 2014-04-15
-            </div>
-        </div>
+                    <div class="lastPost">
+                        <a href='ForumMessages.aspx?Topic=<%# Eval("TopicID") %>'>
+                            <%# Eval("TopicTitle") %>
+                        </a> <%# Eval("DateWritten") %>
+                    </div>
+                </div>
+            </ItemTemplate>
+        </asp:Repeater>
     </div>
 </asp:Content>

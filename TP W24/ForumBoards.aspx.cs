@@ -47,8 +47,8 @@ namespace TP_W24
 	                ON st.TopicID = sm.MessageID
 	                WHERE st.BoardID = b.BoardID
 	                ORDER BY sm.DateWritten DESC
-                )*/ AND m.DateWritten = (
-	                SELECT MAX(DateWritten) FROM [Messages]
+                )*/ AND m.messageID = (
+	                SELECT MAX(messageID) FROM [Messages]
 	                WHERE TopicID = t.TopicID
                 )",
                 DB.Con);
