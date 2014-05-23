@@ -127,7 +127,7 @@
                         </ol>
                         <div class="action_btns">
                             <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Retour</a></div>
-                            <div class="one_half last"><asp:LinkButton ID="Button1" runat="server" CommandName="Login" Text="Se connecter" CssClass="btn btn_blue" /></div>
+                            <div class="one_half last"><asp:LinkButton ID="Button1" runat="server" CommandName="Login" Text="Se connecter" CssClass="btn btn_blue" ValidationGroup="userInfos" /></div>
                         </div>            
                         <!--<a href="#" class="forgot_password">Mot de passe oublié?</a>-->
                     </fieldset>

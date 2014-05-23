@@ -95,7 +95,7 @@ namespace lab6.Account
             ProviderName = authResult.Provider;
             ProviderUserId = authResult.ProviderUserId;
             ProviderUserName = authResult.UserName;
-            var extra = authResult.ExtraData;
+
 
                         
 
@@ -112,7 +112,7 @@ namespace lab6.Account
             else
             {
                 // Il s'agit d'un nouvel utilisateur, demander quel est le nom de membre souhaité
-                userName.Text = extra["name"];
+                userName.Text = authResult.UserName;
             }
         }
 
