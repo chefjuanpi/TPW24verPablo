@@ -43,30 +43,55 @@
 				<li>
 					<h2>Récents sujets</h2>
 					<ul>
-						<li><a href="#">Sujet 1</a> <i>Autheur 1</i></li>
-						<li><a href="#">Sujet 2</a> <i>Autheur 2</i></li>
-						<li><a href="#">Sujet 3</a> <i>Autheur 3</i></li>
-						<li><a href="#">Sujet 4</a> <i>Autheur 4</i></li>
+                        <asp:Repeater ID="rptRecentTopics" runat="server">
+                            <ItemTemplate>
+                                <li>
+                                    <a href='ForumMessages.aspx?Topic=<%# Eval("TopicID") %>'>
+                                        <%# Eval("TopicTitle") %>
+                                    </a>
+                                    <a href='<%= Page.ResolveUrl("~/RegisteredUsers/Account.aspx?Member=")%><%# Eval("StartedBy") %>'>
+                                        <i>
+                                            <%# Eval("UserName") %>
+                                        </i>
+                                    </a>
+                                </li>
+                            </ItemTemplate>
+                        </asp:Repeater>
 						<li><a href="#">Sujet 5</a> <i>Autheur 5</i></li>
 					</ul>
 				</li>
 				<li>
 					<h2>Récents messages</h2>
 					<ul>
-						<li><a href="#">Sujet du message 1</a> <i>Autheur 1</i></li>
-						<li><a href="#">Sujet du message 2</a> <i>Autheur 2</i></li>
-						<li><a href="#">Sujet du message 3</a> <i>Autheur 3</i></li>
-						<li><a href="#">Sujet du message 4</a> <i>Autheur 4</i></li>
+                        <asp:Repeater ID="rptRecentMessages" runat="server">
+                            <ItemTemplate>
+                                <li>
+                                    <a href='ForumMessages.aspx?Topic=<%# Eval("TopicID") %>'>
+                                        <%# Eval("TopicTitle") %>
+                                    </a>
+                                    <a href='<%= Page.ResolveUrl("~/RegisteredUsers/Account.aspx?Member=")%><%# Eval("WrittenBy") %>'>
+                                        <i>
+                                            <%# Eval("UserName") %>
+                                        </i>
+                                    </a>
+                                </li>
+                            </ItemTemplate>
+                        </asp:Repeater>
 						<li><a href="#">Sujet du message 5</a> <i>Autheur 5</i></li>
 					</ul>
 				</li>
 				<li>
 					<h2>Nouveaux membres</h2>
 					<ul>
-						<li><a href="#">Nom membre 1</a></li>
-						<li><a href="#">Nom membre 2</a></li>
-						<li><a href="#">Nom membre 3</a></li>
-						<li><a href="#">Nom membre 4</a></li>
+                        <asp:Repeater ID="rptNewMembers" runat="server">
+                            <ItemTemplate>
+                                <li>
+                                    <a href='<%= Page.ResolveUrl("~/RegisteredUsers/Account.aspx?Member=")%><%# Eval("UserID") %>'>
+                                        <%# Eval("UserName") %>
+                                    </a>
+                                </li>
+                            </ItemTemplate>
+                        </asp:Repeater>
 						<li><a href="#">Nom membre 5</a></li>
 					</ul>
 				</li>

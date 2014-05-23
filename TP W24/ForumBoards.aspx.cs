@@ -53,7 +53,7 @@ namespace TP_W24
                 )",
                 DB.Con);
 
-            daBoards.Fill(dsBoards);
+            DB.FillDataSet(daBoards, dsBoards);
 
             dsBoards.Relations.Add(
                 "BoardsBoardsCategories",

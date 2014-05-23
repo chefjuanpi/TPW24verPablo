@@ -16,27 +16,27 @@ a:hover {
     font-size: 22px;
 }
 
-.message {
+#message {
     /*border-top: 1px solid #715558;*/
     margin-top: 30px;
 }
 
-.message .msgFooter {
+#message #msgFooter {
     text-align: right;
     margin-top: -10px;
 }
 
-.message .poster{
+#message #poster{
     width: 154px;
     float: left;
 }
 
-.message .poster .profileImg {
+#message #poster #profileImg {
     width: 60px;
     height: 60px;
 }
 
-.message .msgContent{
+#message #msgContentContainer{
     font-size: 12px;
     margin-top: -4px;
 }

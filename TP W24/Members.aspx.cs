@@ -49,7 +49,7 @@ namespace TP_W24
 
             SqlDataAdapter daMessages = new SqlDataAdapter(getMembers);
 
-            daMessages.Fill(dsMessages);
+            DB.FillDataSet(daMessages, dsMessages);
 
             DB.BindRepeater(rptMembers, dsMessages);
 

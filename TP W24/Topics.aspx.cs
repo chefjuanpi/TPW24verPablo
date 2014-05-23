@@ -39,7 +39,7 @@ namespace TP_W24
 
             daTopics.SelectCommand.Parameters.AddWithValue("@boardID", boardID);
 
-            daTopics.Fill(dsTopics);
+            DB.FillDataSet(daTopics, dsTopics);
 
             DB.BindRepeater(rptTopics, dsTopics);
 

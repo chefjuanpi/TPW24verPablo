@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="header1" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="body" runat="server">
-        <h1 style="color:#A00; text-align:center; font-size:40px;">Le service demandé n'été pas disponible actualement</h1>
+        <h1 style="color:#A00; text-align:center; font-size:40px;">Le service demandé est actuelement indisponible</h1>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="footer" runat="server">
 </asp:Content>

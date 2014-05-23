@@ -115,6 +115,20 @@ namespace TP_W24
             return true;
         }
 
+        public static bool FillDataSet(SqlDataAdapter da, DataSet ds)
+        {
+            da.SelectCommand.Connection = Con;
+
+            try {
+                da.Fill(ds);
+            }
+            catch (Exception) {
+                return false;
+            }
+
+            return true;
+        }
+
         public static bool BindRepeater(Repeater rpt, DataSet ds)
         {
             try {

@@ -32,8 +32,7 @@ namespace TP_W24
 
             daMessages.SelectCommand.Parameters.AddWithValue("@topicID", topicID);
 
-            daMessages.Fill(dsMessages);
-
+            DB.FillDataSet(daMessages, dsMessages);
             DB.BindRepeater(rptMessages, dsMessages);
 
             DB.CloseCon();
