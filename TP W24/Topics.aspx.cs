@@ -18,7 +18,7 @@ namespace TP_W24
             DataSet dsTopics = new DataSet();
 
             SqlDataAdapter daTopics = new SqlDataAdapter(
-                "SELECT t.TopicID, t.TopicTitle, /*t.StartedDate,*/ t.StartedBy, t.BoardID, /*t.ViewCount,*/ " +
+                "SELECT t.TopicID, t.TopicTitle, t.StartedDate, t.StartedBy, t.BoardID, t.ViewCount, " +
                        "topicStarter.Username topicStarterUsername, " +
                        "lastPoster.Username lastPosterUsername, " +
                        "m.DateWritten, " +

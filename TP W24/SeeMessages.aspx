@@ -33,33 +33,5 @@
                 </div>
             </ItemTemplate>
         </asp:Repeater>
-
-        <div class="message">
-            <div class="title">
-                <strong><a href="ReadMessage.aspx?msg=idMsg">titreMessage</a></strong>
-            </div>
-
-            <div class="sender">
-                <a>nomMembre</a>
-            </div>
-
-            <div class="sentDate">
-                2014-04-15
-            </div>
-        </div>
-
-        <div class="message">
-            <div class="title">
-                <strong><a>titreMessage</a></strong>
-            </div>
-
-            <div class="sender">
-                <a>nomMembre</a>
-            </div>
-
-            <div class="sentDate">
-                2014-04-15
-            </div>
-        </div>
     </div>
 </asp:Content>

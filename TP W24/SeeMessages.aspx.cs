@@ -21,10 +21,10 @@ namespace TP_W24
             SqlCommand getMessages = new SqlCommand(
               @"SELECT PrivateMsgID, PrivateMsgTitle, WrittenBy, UserName, DateWritten FROM PrivateMsgs m
                 INNER JOIN Users u
-                ON m.WrittenBy = m.UserID
+                ON m.WrittenBy = u.UserID
                 WHERE SentTo = @currentUser",
                 DB.Con
-              );
+                );
             getMessages.Parameters.AddWithValue("@currentUser", Membership.GetUser().ProviderUserKey);
 
             SqlDataAdapter daMessages = new SqlDataAdapter(getMessages);

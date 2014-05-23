@@ -7,7 +7,7 @@
         <div id="membersHeader">
             <div style="float: left; width: 200px;">Sujets</div>
             <div style="float: left; width: 154px;">Enrégistré le</div>
-            <div style="float: left;">Messages envoyés</div>
+            <div style="float: left;">Messages écrits</div>
             <div style="float: right;">Dernier message</div>
         </div>
 
@@ -38,5 +38,9 @@
                 </div>
             </ItemTemplate>
         </asp:Repeater>
+
+        <div>
+            * Seules les membres actifs sont affiché. Pour être considéré actif, un membre doit avoir posté au moins un message. <br />
+        </div>
     </div>
 </asp:Content>

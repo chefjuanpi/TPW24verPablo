@@ -19,7 +19,7 @@ namespace TP_W24
 
             SqlDataAdapter daBoards = new SqlDataAdapter(
                 "SELECT * FROM BoardCategories;" +
-               @"SELECT b.BoardID, b.BoardCategoryID, b.BoardName,
+               @"SELECT b.BoardID, b.BoardCategoryID, b.BoardName, b.Description,
 		                m.DateWritten, m.WrittenBy, m.MessageID, m.TopicID,
 		                t.topicID, t.TopicTitle,
 		                u.UserName,
@@ -41,13 +41,7 @@ namespace TP_W24
 	                ON st.TopicID = sm.MessageID
 	                WHERE st.BoardID = b.BoardID
 	                ORDER BY sm.DateWritten DESC
-                ) /*AND m.TopicID = (
-	                SELECT TOP 1 st.TopicID FROM Topics st
-	                LEFT JOIN [Messages] sm
-	                ON st.TopicID = sm.MessageID
-	                WHERE st.BoardID = b.BoardID
-	                ORDER BY sm.DateWritten DESC
-                )*/ AND m.messageID = (
+                ) AND m.messageID = (
 	                SELECT MAX(messageID) FROM [Messages]
 	                WHERE TopicID = t.TopicID
                 )",
@@ -67,9 +61,9 @@ namespace TP_W24
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (!Page.IsPostBack) {
+            if (!Page.IsPostBack) {
                 FillRepeaters();
-            //}
+            }
         }
     }
 }

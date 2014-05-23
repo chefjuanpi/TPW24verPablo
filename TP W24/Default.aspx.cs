@@ -34,7 +34,7 @@ namespace TP_W24
                 "INNER JOIN Messages m " + 
                 "ON t.TopicID = m.TopicID " +
                 "INNER JOIN Users u " +
-                "ON t.StartedBy = u.UserID " +
+                "ON m.WrittenBy = u.UserID " +
                 "ORDER BY DateWritten DESC",
                 DB.Con);
 
@@ -45,16 +45,15 @@ namespace TP_W24
         {
             DataSet ds = new DataSet();
             SqlDataAdapter da = new SqlDataAdapter(
-                "SELECT TOP 5 UserID, UserName " +
+                "SELECT TOP 5 u.UserID, UserName " +
                 "FROM Users u " +
-                "ON t.StartedBy = u.UserID " +
                 "INNER JOIN Memberships m " +
                 "ON u.UserID = m.UserID " +
                 "ORDER BY CreateDate DESC",
                 DB.Con);
 
             DB.FillDataSet(da, ds);
-            DB.BindRepeater(rptRecentMessages, ds);
+            DB.BindRepeater(rptNewMembers, ds);
         }
 
         protected void Page_Load(object sender, EventArgs e)

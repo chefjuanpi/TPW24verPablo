@@ -15,7 +15,6 @@ namespace TP_W24
         {
             if (Request.QueryString["Board"] == null)
                 Response.Redirect(Page.ResolveUrl("~/Default.aspx"));
-
         }
 
         protected void cmdCreateTopic_Click(object sender, EventArgs e)

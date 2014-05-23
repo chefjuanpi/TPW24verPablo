@@ -57,7 +57,6 @@
                                 </li>
                             </ItemTemplate>
                         </asp:Repeater>
-						<li><a href="#">Sujet 5</a> <i>Autheur 5</i></li>
 					</ul>
 				</li>
 				<li>
@@ -77,7 +76,6 @@
                                 </li>
                             </ItemTemplate>
                         </asp:Repeater>
-						<li><a href="#">Sujet du message 5</a> <i>Autheur 5</i></li>
 					</ul>
 				</li>
 				<li>
@@ -92,7 +90,6 @@
                                 </li>
                             </ItemTemplate>
                         </asp:Repeater>
-						<li><a href="#">Nom membre 5</a></li>
 					</ul>
 				</li>
 			</ul>

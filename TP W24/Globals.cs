@@ -27,7 +27,9 @@ namespace TP_W24
             try {
                 Con.Open();
             }
-            catch (Exception) {
+            catch (Exception ex) {
+                AddErrorToLog(ex, "Méthode DB.OpenCon()");
+
                 return false;
             }
 
@@ -40,7 +42,9 @@ namespace TP_W24
             try {
                 Con.Close();
             }
-            catch (Exception) {
+            catch (Exception ex) {
+                AddErrorToLog(ex, "Méthode DB.CloseCon()");
+
                 return false;
             }
 
@@ -63,7 +67,9 @@ namespace TP_W24
             try {
                 DR = com.ExecuteReader();
             }
-            catch (Exception) {
+            catch (Exception ex) {
+                AddErrorToLog(ex, "Méthode ExecuteReader()");
+
                 return false;
             }
 
@@ -71,6 +77,9 @@ namespace TP_W24
         }
         public static int ExecuteNonQuery(SqlCommand com)
         {
+            if (DR != null && !DR.IsClosed)
+                DR.Close();
+
             int affectedLines = -1;
 
             com.Connection = Con;
@@ -78,14 +87,17 @@ namespace TP_W24
             try {
                 affectedLines = com.ExecuteNonQuery();
             }
-            catch (Exception) {
-                
+            catch (Exception ex) {
+                AddErrorToLog(ex, "Méthode DB.ExecuteNonQuery()");
             }
 
             return affectedLines;
         }
         public static bool ExecuteScalar(SqlCommand com, out object scalarResult)
         {
+            if (DR != null && !DR.IsClosed)
+                DR.Close();
+
            scalarResult = "";
 
             com.Connection = Con;
@@ -93,7 +105,9 @@ namespace TP_W24
             try {
                 scalarResult = com.ExecuteScalar();
             }
-            catch (Exception) {
+            catch (Exception ex) {
+                AddErrorToLog(ex, "Méthode DB.ExecuteScalar(SqlCommand, out object)");
+
                 return false;
             }
 
@@ -101,6 +115,9 @@ namespace TP_W24
         }
         public static bool ExecuteScalar(SqlCommand com, out int scalarResult)
         {
+            if (DR != null && !DR.IsClosed)
+                DR.Close();
+
             scalarResult = -1;
 
             com.Connection = Con;
@@ -108,7 +125,9 @@ namespace TP_W24
             try {
                 scalarResult = (int)com.ExecuteScalar();
             }
-            catch (Exception) {
+            catch (Exception ex) {
+                AddErrorToLog(ex, "Méthode DB.ExecuteScalar(SqlCommand, out int)");
+
                 return false;
             }
 
@@ -122,7 +141,10 @@ namespace TP_W24
             try {
                 da.Fill(ds);
             }
-            catch (Exception) {
+            catch (Exception ex) {
+                AddErrorToLog(ex, "Méthode DB.FillDataSet()");
+
+                
                 return false;
             }
 
@@ -136,11 +158,31 @@ namespace TP_W24
 
                 rpt.DataBind();
             }
-            catch (Exception) {
+            catch (Exception ex) {
+                AddErrorToLog(ex, "Méthode DB.BindRepeater()");
+
                 return false;
             }
 
             return true;
+        }
+
+        private static void AddErrorToLog(Exception ex, string additionalInfos = "")
+        {
+            try {
+                SqlConnection cn = new SqlConnection(ConString);
+                cn.Open();
+
+                SqlCommand com = new SqlCommand("INSERT INTO ErrorLog (ErrorType, ErrorMsg, AdditionalInfo) VALUES (@errorType, @errorMsg, @additionaInfo)", cn);
+                com.Parameters.AddWithValue("@errorType", ex.GetType().ToString());
+                com.Parameters.AddWithValue("@errorMsg", ex.Message);
+                com.Parameters.AddWithValue("@additionaInfo", additionalInfos);
+
+                com.ExecuteNonQuery();
+
+                cn.Close();
+            }
+            catch (Exception) {}
         }
     }
 }

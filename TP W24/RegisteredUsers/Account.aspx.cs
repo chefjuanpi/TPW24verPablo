@@ -22,14 +22,29 @@ namespace TP_W24
         {
             if (!IsPostBack)
             {
-                if (Request.QueryString["Member"] == null) {
+                string requestedMemberID = Request.QueryString["Member"];
+
+                if (requestedMemberID == null || requestedMemberID == Membership.GetUser().ProviderUserKey.ToString()) {
+                    sendMessageLink.Visible = false;
                     afficherInfo();
                 }
                 else {
-                    afficherInfo(Request.QueryString["Member"]);
+                    HideEditControls();
+                    afficherInfo(requestedMemberID);
+                    sendMessageLink.HRef = Page.ResolveUrl("~/SendMessage.aspx?Member=" + requestedMemberID);
                 }
             }
 
+        }
+
+        private void HideEditControls()
+        {
+            seeMessagesLink.Visible = false;
+            LoginStatus1.Visible = false;
+            modPass.Visible = false;
+            UploadImage.Visible = false;
+            FileUpload1.Visible = false;
+            modINFO.Visible = false;
         }
 
         private void afficherInfo(string userID)

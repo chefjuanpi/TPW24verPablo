@@ -23,13 +23,13 @@
                             Sujet commencé par
                             <a href='<%= Page.ResolveUrl("~/RegisteredUsers/Account.aspx?Member=")%><%# DataBinder.Eval(Container.DataItem, "[\"StartedBy\"]") %>'>
                                 <%# Eval("topicStarterUsername") %>
-                            </a> le <%--<%# Eval("StartedDate") %>--%> <!-- Colonne à créer dans Topics -->
+                            </a> le <%# Eval("StartedDate") %>
                         </div>
                     </div>
 
                     <div class="stats">
                         <%# Eval("MessageCount") %> Messages<br />
-                        <%--<%# Eval("t.ViewCount") %>--%> Vues
+                        <%# Eval("ViewCount") %> Vues
                     </div>
 
                     <div class="lastPost"> par 
