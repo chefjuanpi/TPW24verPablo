@@ -18,6 +18,10 @@ a:hover {
     font-size: 18px;
 }
 
+#customSearchDiv {
+    margin-top: 16px;
+}
+
 .member {
     border-top: 1px solid #715558;
     height: 26px;

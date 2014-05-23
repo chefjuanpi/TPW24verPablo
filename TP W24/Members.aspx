@@ -4,6 +4,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <div id="content">
+        <div style="margin-bottom: 4px;">
+            * Seules les membres actifs sont affiché. Pour être considéré actif, un membre doit avoir posté au moins un message.
+        </div>
+
         <div id="membersHeader">
             <div style="float: left; width: 200px;">Sujets</div>
             <div style="float: left; width: 154px;">Enrégistré le</div>
@@ -38,9 +42,27 @@
                 </div>
             </ItemTemplate>
         </asp:Repeater>
+        
+        Rafiner la recherche: <br />
+        <table>
+            <tr>
+                <td>
+                    Nom:
+                </td>
+                <td>
+                    <asp:TextBox ID="txtCriteriaName" runat="server" /> <br />
+                </td>
+            </tr>
 
-        <div>
-            * Seules les membres actifs sont affiché. Pour être considéré actif, un membre doit avoir posté au moins un message. <br />
-        </div>
+            <tr>
+                <td>
+                    Messages minimum:
+                </td>
+                <td>
+                    <asp:TextBox ID="txtCriterianMsgMin" runat="server" /> <br />
+                </td>
+            </tr>
+        </table>
+        <asp:Button ID="cmdRefinedSearch" Text="Rechercher" runat="server" OnClick="cmdRefinedSearch_Click" />
     </div>
 </asp:Content>

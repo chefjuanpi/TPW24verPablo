@@ -166,6 +166,10 @@ namespace TP_W24
 
             return true;
         }
+        //public static bool EmptyRepeater(Repeater rpt)
+        //{
+            
+        //}
 
         private static void AddErrorToLog(Exception ex, string additionalInfos = "")
         {

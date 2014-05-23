@@ -11,7 +11,7 @@ namespace TP_W24
 {
     public partial class Membres : System.Web.UI.Page
     {
-        private void FillRepeater(string usernameLike = "", int msgCountMin = 1)
+        private void FillRepeater(string usernameLike, int msgCountMin)
         {
             DB.OpenCon();
 
@@ -58,9 +58,25 @@ namespace TP_W24
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            string usernameLike = Request.QueryString["usernameLike"] == null ? "" : Request.QueryString["usernameLike"];
+            int minMsg = 1;
+
+            if (Request.QueryString["minMsg"] != null)
+                int.TryParse(Request.QueryString["minMsg"], out minMsg);
+
             if (!Page.IsPostBack) {
-                FillRepeater();
+                FillRepeater(usernameLike, minMsg);
             }
+        }
+
+        protected void cmdRefinedSearch_Click(object sender, EventArgs e)
+        {
+            int minMsg = 1;
+
+            if (txtCriterianMsgMin.Text != "")
+                int.TryParse(txtCriterianMsgMin.Text, out minMsg);
+
+            Response.Redirect(string.Format("Members.aspx?usernameLike={0}&minMsg={1}", txtCriteriaName.Text, minMsg));
         }
     }
 }

@@ -18,12 +18,12 @@ namespace TP_W24
             DataSet dsTopics = new DataSet();
 
             SqlDataAdapter daTopics = new SqlDataAdapter(
-                "SELECT t.TopicID, t.TopicTitle, t.StartedDate, t.StartedBy, t.BoardID, t.ViewCount, " +
+                "SELECT DISTINCT t.TopicID, t.TopicTitle, t.StartedDate, t.StartedBy, t.BoardID, t.ViewCount, " +
                        "topicStarter.Username topicStarterUsername, " +
                        "lastPoster.Username lastPosterUsername, " +
                        "m.DateWritten, " +
                        "m.WrittenBy, " + 
-                       "(SELECT COUNT(*) FROM [Messages] WHERE TopicID = t.TopicID) AS MessageCount " +
+                       "(SELECT COUNT(*) FROM Messages WHERE TopicID = t.TopicID) AS MessageCount " +
                 "FROM Topics t " + 
                 "INNER JOIN [Messages] m " +
                 "ON t.TopicID = m.TopicID " +
@@ -32,7 +32,7 @@ namespace TP_W24
                 "INNER JOIN Users lastPoster " +
                 "ON m.WrittenBy = lastPoster.UserID " +
                 "WHERE m.DateWritten = (" +
-	                "SELECT MAX(DateWritten) FROM [Messages] " +
+	                "SELECT MAX(DateWritten) FROM Messages " +
 	                "WHERE TopicID = t.TopicID " +
                 ") AND t.BoardID = @boardID",
                 DB.Con);

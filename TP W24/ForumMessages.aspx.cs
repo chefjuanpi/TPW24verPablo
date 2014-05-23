@@ -38,11 +38,21 @@ namespace TP_W24
             DB.CloseCon();
         }
 
+        private void IncrementTopicViewCount(string topicID)
+        {
+            DB.OpenCon();
+
+            DB.ExecuteNonQuery(new SqlCommand("UPDATE Topics SET ViewCount = ViewCount + 1 WHERE TopicID = '" + topicID + "'"));
+
+            DB.CloseCon();
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack) {
                 if (Request.QueryString["Topic"] == null)
                     Response.Redirect("Default.aspx");
+                IncrementTopicViewCount(Request.QueryString["Topic"]);
                 FillRepeaters(Request.QueryString["Topic"]);
             }
         }
