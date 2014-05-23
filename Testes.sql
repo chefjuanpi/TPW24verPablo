@@ -12,12 +12,21 @@ LEFT JOIN (SELECT WrittenBy, COUNT(MessageID) MessageCount FROM Messages GROUP B
 ON u.UserID = MessageCount.WrittenBy
 LEFT JOIN Messages mess
 ON mess.WrittenBy = u.UserID
-WHERE Mess.MessageID = (
+WHERE t.TopicID = (
+	SELECT TOP 1 st.TopicID FROM Topics st
+	LEFT JOIN [Messages] sm
+	ON st.TopicID = sm.MessageID
+	WHERE st.StartedBy = u.UserID
+	ORDER BY sm.DateWritten DESC
+)
+AND Mess.MessageID = (
 	SELECT MAX(messageID) FROM [Messages]
 	WHERE TopicID = t.TopicID
 	AND StartedBy = u.UserID
 )
 
+
+select * from users u INNER JOIN Memberships m ON m.UserId = u.UserId LEFT JOIN utilisateurs ut ON ut.UserId = u.UserId
 
 
 
@@ -31,11 +40,9 @@ ON u.UserID = MessageCount.WrittenBy
 LEFT JOIN Messages mess
 ON mess.WrittenBy = u.UserID
 WHERE t.TopicID = (
-	SELECT TOP 1 st.TopicID FROM Topics st
-	LEFT JOIN [Messages] sm
-	ON st.TopicID = sm.MessageID
-	WHERE st.BoardID = b.BoardID
-	ORDER BY sm.DateWritten DESC
+	SELECT TOP 1 TopicID FROM Topics
+	WHERE StartedBy = u.UserId
+	ORDER BY t.TopicID DESC
 )
 AND Mess.MessageID = (
 	SELECT MAX(messageID) FROM [Messages]
