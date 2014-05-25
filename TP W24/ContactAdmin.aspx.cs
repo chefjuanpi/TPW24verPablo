@@ -26,10 +26,10 @@ namespace TP_W24
 
                 emailHeader += "Courriel: " + txtEmail + "\n\r";
 
-                MailMessage mail = new MailMessage("industwetrust@live.ca", "industwetrust@live.ca", txtSubject.Text, txtMessage.Text);
+                MailMessage mail = new MailMessage("w24tp2admin@gmail.com", "w24tp2admin@gmail.com", txtSubject.Text, emailHeader + txtMessage.Text);
 
-                SmtpClient smtp = new SmtpClient("smtp.live.com");
-                smtp.Credentials = new System.Net.NetworkCredential("industwetrust@live.ca", "my real password");
+                SmtpClient smtp = new SmtpClient("smtp.gmail.com");
+                smtp.Credentials = new System.Net.NetworkCredential("w24tp2admin@gmail.com", "myPassword");
 
                 smtp.EnableSsl = true;
 

@@ -21,6 +21,7 @@
             </div>
         </div>
         
+        Réponse: <br />
         <asp:TextBox ID="txtMessage" runat="server" Rows="12" Columns="91" TextMode="MultiLine"></asp:TextBox>
         <asp:Button ID="cmdReply" Text="Répondre" runat="server" />
     </div>

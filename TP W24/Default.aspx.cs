@@ -23,7 +23,7 @@ namespace TP_W24
                 DB.Con);
 
             DB.FillDataSet(da, ds);
-            DB.BindRepeater(rptRecentTopics, ds);
+            DB.BindControl(rptRecentTopics, ds);
         }
         private void FillReventMessagesRepeater()
         {
@@ -39,7 +39,7 @@ namespace TP_W24
                 DB.Con);
 
             DB.FillDataSet(da, ds);
-            DB.BindRepeater(rptRecentMessages, ds);
+            DB.BindControl(rptRecentMessages, ds);
         }
         private void FillNewMembersRepeater()
         {
@@ -53,7 +53,7 @@ namespace TP_W24
                 DB.Con);
 
             DB.FillDataSet(da, ds);
-            DB.BindRepeater(rptNewMembers, ds);
+            DB.BindControl(rptNewMembers, ds);
         }
 
         protected void Page_Load(object sender, EventArgs e)

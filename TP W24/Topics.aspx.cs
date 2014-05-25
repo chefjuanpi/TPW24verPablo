@@ -11,7 +11,7 @@ namespace TP_W24
 {
     public partial class Topics : System.Web.UI.Page
     {
-        private void FillRepeater(string boardID)
+        private void FillListView(string boardID)
         {
             DB.OpenCon();
 
@@ -40,8 +40,9 @@ namespace TP_W24
             daTopics.SelectCommand.Parameters.AddWithValue("@boardID", boardID);
 
             DB.FillDataSet(daTopics, dsTopics);
-
-            DB.BindRepeater(rptTopics, dsTopics);
+            
+            DB.BindControl(lvTopics, dsTopics.Tables[0]);
+            //DB.BindControl(rptTopics, dsTopics);
 
             DB.CloseCon();
         }
@@ -52,7 +53,8 @@ namespace TP_W24
                 if (Request.QueryString["Board"] == null)
                     Response.Redirect("Default.aspx");
                 else
-                    FillRepeater(Request.QueryString["Board"]);
+                    FillListView(Request.QueryString["Board"]);
+                    //FillRepeater(Request.QueryString["Board"]);
             }
         }
 

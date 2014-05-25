@@ -4,7 +4,51 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <div id="content">
-        <div id="topicsHeader">
+        <asp:ListView ID="lvTopics" ItemPlaceholderID="itemPlaceHolder" runat="server">
+            <LayoutTemplate>
+                <table>
+                    <tr>
+                        <td>Sujets</td>
+                        <td>Stats</td>
+                        <td>Dernier message</td>
+                    </tr>
+                </table>
+            </LayoutTemplate>
+            <ItemTemplate>
+                <tr>
+                    <td>
+                        <strong>
+                            <a href='ForumMessages.aspx?Topic=<%# Eval("TopicID") %>'>
+                                <%# Eval("TopicTitle") %>
+                            </a>
+                        </strong> <br />
+
+                        <div class="startedBy">
+                            Sujet commencé par
+                            <a href='<%= Page.ResolveUrl("~/RegisteredUsers/Account.aspx?Member=")%><%# DataBinder.Eval(Container.DataItem, "[\"StartedBy\"]") %>'>
+                                <%# Eval("topicStarterUsername") %>
+                            </a> le <%# Eval("StartedDate") %>
+                        </div>
+                    </td>
+
+                    <td>
+                        <%# Eval("MessageCount") %> Messages<br />
+                        <%# Eval("ViewCount") %> Vues
+                    </td>
+
+                    <td> par 
+                        <i>
+                            <a href='<%= Page.ResolveUrl("~/RegisteredUsers/Account.aspx?Member=")%><%# DataBinder.Eval(Container.DataItem, "[\"WrittenBy\"]") %>'>
+                                <%# Eval("lastPosterUsername") %>
+                            </a>
+                        </i>.<br />
+                        le <i><%# Eval("DateWritten") %></i>
+                    </td>
+                </tr>
+            </ItemTemplate>
+        </asp:ListView>
+
+        <%--<div id="topicsHeader">
             <div style="float: left;">Sujets</div>
             <div style="float: right;">Dernier message</div>
         </div>
@@ -42,7 +86,7 @@
                     </div>
                 </div>
             </ItemTemplate>
-        </asp:Repeater>
+        </asp:Repeater>--%>
         
         <asp:LinkButton ID="cmdNewTopic" CssClass='newTopicBtn' Text="Nouveau sujet" runat="server" OnClick="cmdNewTopic_Click" />
     </div>

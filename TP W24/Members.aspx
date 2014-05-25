@@ -8,7 +8,55 @@
             * Seules les membres actifs sont affiché. Pour être considéré actif, un membre doit avoir posté au moins un message.
         </div>
 
-        <div id="membersHeader">
+        <asp:ListView ID="lvMembers" ItemPlaceholderID="itemPlaceHolder" runat="server">
+            <LayoutTemplate>
+                <table>
+                    <tr>
+                        <td>Sujets</td>
+                        <td>Enrégistré le</td>
+                        <td>Messages écrits</td>
+                        <td>Dernier message</td>
+                    </tr>
+                    <div id="itemPlaceHolder" runat="server"></div>
+                </table>
+            </LayoutTemplate>
+
+            <ItemTemplate>
+                <tr>
+                    <td>
+                        <strong>
+                            <a href='<%= Page.ResolveUrl("~/RegisteredUsers/Account.aspx?Member=")%><%# Eval("UserID") %>'>
+                                <%# Eval("UserName") %>
+                            </a>
+                        </strong>
+                    </td>
+
+                    <td>
+                        <%# Eval("CreateDate") %>
+                    </td>
+
+                    <td>
+                        <%# Eval("MessageCount") %> Messages
+                    </td>
+
+                    <td>
+                        <a href='ForumMessages.aspx?Topic=<%# Eval("TopicID") %>'>
+                            <%# Eval("TopicTitle") %>
+                        </a> <%# Eval("DateWritten") %>
+                    </td>
+                </tr>
+            </ItemTemplate>
+        </asp:ListView>
+
+        <div>
+            <asp:DataPager ID="membersPager" PageSize="20" PagedControlID="lvMembers" runat="server">
+                <Fields>
+                    <asp:NumericPagerField />
+                </Fields>
+            </asp:DataPager>
+        </div>
+
+        <%--<div id="membersHeader">
             <div style="float: left; width: 200px;">Sujets</div>
             <div style="float: left; width: 154px;">Enrégistré le</div>
             <div style="float: left;">Messages écrits</div>
@@ -41,7 +89,7 @@
                     </div>
                 </div>
             </ItemTemplate>
-        </asp:Repeater>
+        </asp:Repeater>--%>
         
         Rafiner la recherche: <br />
         <table>

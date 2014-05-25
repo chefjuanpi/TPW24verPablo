@@ -144,14 +144,13 @@ namespace TP_W24
             catch (Exception ex) {
                 AddErrorToLog(ex, "Méthode DB.FillDataSet()");
 
-                
                 return false;
             }
 
             return true;
         }
 
-        public static bool BindRepeater(Repeater rpt, DataSet ds)
+        public static bool BindControl(Repeater rpt, DataSet ds)
         {
             try {
                 rpt.DataSource = ds;
@@ -159,17 +158,28 @@ namespace TP_W24
                 rpt.DataBind();
             }
             catch (Exception ex) {
-                AddErrorToLog(ex, "Méthode DB.BindRepeater()");
+                AddErrorToLog(ex, "Méthode DB.BindControl(Repeater, DataSet)");
 
                 return false;
             }
 
             return true;
         }
-        //public static bool EmptyRepeater(Repeater rpt)
-        //{
-            
-        //}
+        public static bool BindControl(ListView lv, DataTable t)
+        {
+            try {
+                lv.DataSource = t;
+
+                lv.DataBind();
+            }
+            catch (Exception ex) {
+                AddErrorToLog(ex, "Méthode DB.BindListView(ListView, DataTable)");
+
+                return false;
+            }
+
+            return true;
+        }
 
         private static void AddErrorToLog(Exception ex, string additionalInfos = "")
         {

@@ -53,41 +53,41 @@ Commentaires:
                 <h1>Les Coulisses du Québec</h1>
 	        </header>
             
-	            <nav class="slide" >
-                    <ul>                    
+	        <nav class="slide" >
+                <ul>                    
                     <asp:LoginView ID="LoginView1" runat="server" ViewStateMode="Enabled">
-                    <AnonymousTemplate>
-                        <ul>
-			                <li><a href="../Default.aspx" accesskey="1" title="">Accueil</a></li>
-			                <li><a href="../ForumBoards.aspx" accesskey="2" title="">Forum</a></li>
-			                <li><a class="modal_trigger" href="#modal" accesskey="3" title="">Conecter</a></li>
-		                </ul>
-                    </AnonymousTemplate>
-                    <LoggedInTemplate>
-                        <ul>
-			                <li><a href="../Default.aspx" accesskey="1" title="">Accueil</a></li>
-			                <li><a href="../ForumBoards.aspx" accesskey="2" title="">Forum</a></li>
-			                <li><a href="../RegisteredUsers/Account.aspx" accesskey="3" title="">Mon Compte</a></li>
-			                <li><a href="../Members.aspx" accesskey="4" title="">Membres</a></li>
-		                </ul>
-                    </LoggedInTemplate>
-                    <RoleGroups>
-                        <asp:RoleGroup Roles="Admin">
-                            <ContentTemplate>
-                                <ul>
-			                        <li><a href="../Default.aspx" accesskey="1" title="">Accueil</a></li>
-			                        <li><a href="../ForumBoards.aspx" accesskey="2" title="">Forum</a></li>
-			                        <li><a href="../RegisteredUsers/Account.aspx" accesskey="3" title="">Mon Compte</a></li>
-			                        <li><a href="../Members.aspx" accesskey="4" title="">Membres</a></li>
-			                        <li><a href="../Management.aspx" accesskey="5" title="" style="color:#715558;">Gestion</a></li>
-		                        </ul>
-                            </ContentTemplate>
-                        </asp:RoleGroup>
-                    </RoleGroups>
-                </asp:LoginView>
-                    </ ul>
-	            </nav>
-	            <!-- end #menu -->
+                        <AnonymousTemplate>
+                            <ul>
+			                    <li><a href="../Default.aspx" accesskey="1" title="">Accueil</a></li>
+			                    <li><a href="../ForumBoards.aspx" accesskey="2" title="">Forum</a></li>
+			                    <li><a class="modal_trigger" href="#modal" accesskey="3" title="">Conecter</a></li>
+		                    </ul>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            <ul>
+			                    <li><a href="../Default.aspx" accesskey="1" title="">Accueil</a></li>
+			                    <li><a href="../ForumBoards.aspx" accesskey="2" title="">Forum</a></li>
+			                    <li><a href="../RegisteredUsers/Account.aspx" accesskey="3" title="">Mon Compte</a></li>
+			                    <li><a href="../Members.aspx" accesskey="4" title="">Membres</a></li>
+		                    </ul>
+                        </LoggedInTemplate>
+                        <RoleGroups>
+                            <asp:RoleGroup Roles="Admin">
+                                <ContentTemplate>
+                                    <ul>
+			                            <li><a href="../Default.aspx" accesskey="1" title="">Accueil</a></li>
+			                            <li><a href="../ForumBoards.aspx" accesskey="2" title="">Forum</a></li>
+			                            <li><a href="../RegisteredUsers/Account.aspx" accesskey="3" title="">Mon Compte</a></li>
+			                            <li><a href="../Members.aspx" accesskey="4" title="">Membres</a></li>
+			                            <li><a href="../Management.aspx" accesskey="5" title="" style="color:#715558;">Gestion</a></li>
+		                            </ul>
+                                </ContentTemplate>
+                            </asp:RoleGroup>
+                        </RoleGroups>
+                    </asp:LoginView>
+                </ ul>
+	        </nav>
+	        <!-- end #menu -->
             <div class="content slide">     <!--	Add "slideRight" class to items that move right when viewing Nav Drawer  -->
 		        <ul class="responsive">
 			        <li class="header-section main">
@@ -117,7 +117,11 @@ Commentaires:
 				                    </li>
                                 </ul>
                             </li>
-                        <li class="sub-info">Contactez-Nous</li>
+                            <li class="sub-info">
+                                <a href="ContactAdmin.aspx">
+                                    Contactez-Nous
+                                </a>
+                            </li>
                         </ul>
                         <!-- end #footer -->
                     </li>

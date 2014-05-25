@@ -33,7 +33,7 @@ namespace TP_W24
             daMessages.SelectCommand.Parameters.AddWithValue("@topicID", topicID);
 
             DB.FillDataSet(daMessages, dsMessages);
-            DB.BindRepeater(rptMessages, dsMessages);
+            DB.BindControl(rptMessages, dsMessages);
 
             DB.CloseCon();
         }
@@ -76,6 +76,17 @@ namespace TP_W24
 
                 Response.Redirect(Page.ResolveUrl("~/ForumMessages.aspx?Topic=" + Request.QueryString["Topic"]));
             }
+        }
+
+        protected void cmdDeleteMsg_Click(object sender, EventArgs e)
+        {
+            int messageID = int.Parse(((Button)sender).CommandArgument);
+
+            DB.OpenCon();
+            DB.ExecuteNonQuery(new SqlCommand("UPDATE Messages SET IsBlocked = 1 WHERE MessageID = " + messageID));
+            DB.CloseCon();
+
+            Response.Redirect("ForumMessages.aspx?Topic=" + Request.QueryString["Topic"]);
         }
     }
 }

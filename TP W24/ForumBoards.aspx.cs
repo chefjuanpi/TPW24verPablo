@@ -54,7 +54,7 @@ namespace TP_W24
                 dsBoards.Tables[0].Columns["BoardCategoryID"],
                 dsBoards.Tables[1].Columns["BoardCategoryID"]);
 
-            DB.BindRepeater(rptBoardCategories, dsBoards);
+            DB.BindControl(rptBoardCategories, dsBoards);
 
             DB.CloseCon();
         }

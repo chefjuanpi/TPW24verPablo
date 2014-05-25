@@ -30,7 +30,7 @@ namespace TP_W24
             SqlDataAdapter daMessages = new SqlDataAdapter(getMessages);
 
             DB.FillDataSet(daMessages, dsMessages);
-            DB.BindRepeater(rptPrivateMessages, dsMessages);
+            DB.BindControl(rptPrivateMessages, dsMessages);
 
             DB.CloseCon();
         }
