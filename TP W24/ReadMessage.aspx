@@ -10,7 +10,7 @@
         <div id="message">
             <div id="poster">
                 <strong><a id="senderLink" runat="server"></a></strong> <br />
-                <img id="profileImg" runat="server" /> <br />
+                <img id="profileImg" runat="server" width="64" height="64" /> <br />
             </div>
 
             <div id="msgContentContainer">
@@ -21,8 +21,8 @@
             </div>
         </div>
         
-        Réponse: <br />
-        <asp:TextBox ID="txtMessage" runat="server" Rows="12" Columns="91" TextMode="MultiLine"></asp:TextBox>
+        Répondre: <br />
+        <asp:TextBox ID="txtMessage" runat="server" Rows="12" Columns="91" TextMode="MultiLine" />
         <asp:Button ID="cmdReply" Text="Répondre" runat="server" />
     </div>
 </asp:Content>

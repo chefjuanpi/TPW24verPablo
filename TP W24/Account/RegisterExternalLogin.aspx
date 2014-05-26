@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Registre" Language="C#" Title="Inscrire une connexion externe" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="RegisterExternalLogin.aspx.cs" Inherits="lab6.Account.RegisterExternalLogin" %>
+﻿<%@ Page Language="C#" Title="Inscrire une connexion externe" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="RegisterExternalLogin.aspx.cs" Inherits="lab6.Account.RegisterExternalLogin" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">

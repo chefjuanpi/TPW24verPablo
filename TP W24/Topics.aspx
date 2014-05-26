@@ -6,12 +6,14 @@
     <div id="content">
         <asp:ListView ID="lvTopics" ItemPlaceholderID="itemPlaceHolder" runat="server">
             <LayoutTemplate>
-                <table>
-                    <tr>
-                        <td>Sujets</td>
-                        <td>Stats</td>
-                        <td>Dernier message</td>
+                <table style="margin-bottom:10px;">
+                    <tr style="height:20px;">
+                        <th style="width:500px;">Sujets</th>
+                        <th style="width:200px;">Stats</th>
+                        <th style="width:400px;">Dernier message</th>
                     </tr>
+
+                    <div id="itemPlaceHolder" runat="server"></div>
                 </table>
             </LayoutTemplate>
             <ItemTemplate>
@@ -26,7 +28,7 @@
                         <div class="startedBy">
                             Sujet commencé par
                             <a href='<%= Page.ResolveUrl("~/RegisteredUsers/Account.aspx?Member=")%><%# DataBinder.Eval(Container.DataItem, "[\"StartedBy\"]") %>'>
-                                <%# Eval("topicStarterUsername") %>
+                                <%# Eval("topicStarterUsername") %> <br />
                             </a> le <%# Eval("StartedDate") %>
                         </div>
                     </td>

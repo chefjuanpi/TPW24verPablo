@@ -10,12 +10,13 @@
 
         <asp:ListView ID="lvMembers" ItemPlaceholderID="itemPlaceHolder" runat="server">
             <LayoutTemplate>
-                <table>
-                    <tr>
-                        <td>Sujets</td>
-                        <td>Enrégistré le</td>
-                        <td>Messages écrits</td>
-                        <td>Dernier message</td>
+                <table style="margin-bottom:20px;" >
+                    <tr style="height:20px;">
+                        <th style="width:180px;">Membre</th>
+                        <th style="width:200px;">Enrégistré le</th>
+                        <th style="width:200px;">Messages écrits</th>
+                        <th style="width:300px;">Dernier message</th>
+                        <th style="width:200px;">Date dernier message</th>
                     </tr>
                     <div id="itemPlaceHolder" runat="server"></div>
                 </table>
@@ -42,16 +43,20 @@
                     <td>
                         <a href='ForumMessages.aspx?Topic=<%# Eval("TopicID") %>'>
                             <%# Eval("TopicTitle") %>
-                        </a> <%# Eval("DateWritten") %>
+                        </a>
+                    </td>
+
+                    <td>
+                        <%# Eval("DateWritten") %>
                     </td>
                 </tr>
             </ItemTemplate>
         </asp:ListView>
 
-        <div>
+        <div style="margin-bottom:20px;">
             <asp:DataPager ID="membersPager" PageSize="20" PagedControlID="lvMembers" runat="server">
                 <Fields>
-                    <asp:NumericPagerField />
+                    <asp:NextPreviousPagerField />
                 </Fields>
             </asp:DataPager>
         </div>

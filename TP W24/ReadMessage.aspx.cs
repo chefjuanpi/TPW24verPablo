@@ -16,7 +16,7 @@ namespace TP_W24
             DB.OpenCon();
 
             SqlCommand com = new SqlCommand(
-              @"SELECT m.*, UserName FROM PrivateMsgs
+              @"SELECT m.*, UserName, photoProfil FROM PrivateMsgs m
                 INNER JOIN Users u
                 ON m.WrittenBy = u.UserID
                 INNER JOIN Utilisateurs util
@@ -27,7 +27,7 @@ namespace TP_W24
             com.Parameters.AddWithValue("@msgID", msgID);
 
             if (DB.ExecuteReader(com) && DB.DR.Read()) {
-                subject.InnerHtml = DB.DR["PrivateMsgTitle"].ToString();
+                subject.InnerHtml = "<strong>" + DB.DR["PrivateMsgTitle"].ToString() + "</strong>";
                 senderLink.InnerHtml = DB.DR["UserName"].ToString();
                 senderLink.HRef = Page.ResolveUrl("~/RegisteredUsers/Account.aspx?Member=" + DB.DR["WrittenBy"].ToString());
                 profileImg.Src = DB.DR["photoProfil"].ToString();
