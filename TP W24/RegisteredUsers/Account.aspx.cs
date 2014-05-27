@@ -24,9 +24,14 @@ namespace TP_W24
             {
                 string requestedMemberID = Request.QueryString["Member"];
 
-                if (requestedMemberID == null || requestedMemberID == Membership.GetUser().ProviderUserKey.ToString()) {
-                    sendMessageLink.Visible = false;
-                    afficherInfo();
+                if (requestedMemberID == null) {
+                    if (User.Identity.IsAuthenticated) {
+                        sendMessageLink.Visible = false;
+                        afficherInfo();
+                    }
+                    else {
+                        Response.Redirect(Page.ResolveUrl("~/Account/Register.aspx"));
+                    }
                 }
                 else {
                     HideEditControls();

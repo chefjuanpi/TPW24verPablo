@@ -58,12 +58,12 @@
             </ItemTemplate>
         </asp:Repeater>
 
-        <div class="section">
+        <%--<div class="section">
             <div class="header">
                 Rechercher un sujet: 
-                <input type="text" name="txtSearchTopic" value="" />
-                <asp:Button ID="Button1" Text="Rechercher" runat="server" />
+                <input type="text" id="txtSearchTopic" value="" runat="server" />
+                <asp:Button ID="cmdSearchTopic" Text="Rechercher" runat="server" OnClick="cmdSearchTopic_Click" />
             </div>
-        </div>
+        </div>--%>
     </div>
 </asp:Content>

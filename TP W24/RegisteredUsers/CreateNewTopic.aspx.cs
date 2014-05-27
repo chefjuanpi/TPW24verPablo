@@ -13,6 +13,8 @@ namespace TP_W24
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!User.Identity.IsAuthenticated)
+                Response.Redirect(Page.ResolveUrl("~/Redirect.aspx?Msg=Vous devez être connecté pour accéder à cette page."));
             if (Request.QueryString["Board"] == null)
                 Response.Redirect(Page.ResolveUrl("~/Default.aspx"));
         }

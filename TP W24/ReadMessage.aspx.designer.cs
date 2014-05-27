@@ -13,15 +13,6 @@ namespace TP_W24 {
     public partial class ReadMessage {
         
         /// <summary>
-        /// Contrôle subject.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl subject;
-        
-        /// <summary>
         /// Contrôle senderLink.
         /// </summary>
         /// <remarks>
@@ -38,6 +29,15 @@ namespace TP_W24 {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlImage profileImg;
+        
+        /// <summary>
+        /// Contrôle subject.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl subject;
         
         /// <summary>
         /// Contrôle msgContent.

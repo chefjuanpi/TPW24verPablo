@@ -4,10 +4,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <div id="content">
-        <asp:ListView ID="lvTopics" ItemPlaceholderID="itemPlaceHolder" runat="server">
+        <asp:ListView ID="lvTopics" ItemPlaceholderID="itemPlaceHolder" runat="server" OnPagePropertiesChanged="lvTopics_PagePropertiesChanged">
             <LayoutTemplate>
                 <table style="margin-bottom:10px;">
-                    <tr style="height:20px;">
+                    <tr style="height:22px;">
                         <th style="width:500px;">Sujets</th>
                         <th style="width:200px;">Stats</th>
                         <th style="width:400px;">Dernier message</th>
@@ -17,7 +17,7 @@
                 </table>
             </LayoutTemplate>
             <ItemTemplate>
-                <tr>
+                <tr style="height:56px;">
                     <td>
                         <strong>
                             <a href='ForumMessages.aspx?Topic=<%# Eval("TopicID") %>'>
@@ -50,45 +50,13 @@
             </ItemTemplate>
         </asp:ListView>
 
-        <%--<div id="topicsHeader">
-            <div style="float: left;">Sujets</div>
-            <div style="float: right;">Dernier message</div>
+        <div style="margin-bottom:20px;">
+            <asp:DataPager ID="topicsPager" PageSize="20" PagedControlID="lvTopics" runat="server">
+                <Fields>
+                    <asp:NextPreviousPagerField />
+                </Fields>
+            </asp:DataPager>
         </div>
-
-        <asp:Repeater ID="rptTopics" runat="server">
-            <ItemTemplate>
-                <div class="topic">
-                    <div class="title">
-                        <strong>
-                            <a href='ForumMessages.aspx?Topic=<%# Eval("TopicID") %>'>
-                                <%# Eval("TopicTitle") %>
-                            </a>
-                        </strong> <br />
-
-                        <div class="startedBy">
-                            Sujet commencé par
-                            <a href='<%= Page.ResolveUrl("~/RegisteredUsers/Account.aspx?Member=")%><%# DataBinder.Eval(Container.DataItem, "[\"StartedBy\"]") %>'>
-                                <%# Eval("topicStarterUsername") %>
-                            </a> le <%# Eval("StartedDate") %>
-                        </div>
-                    </div>
-
-                    <div class="stats">
-                        <%# Eval("MessageCount") %> Messages<br />
-                        <%# Eval("ViewCount") %> Vues
-                    </div>
-
-                    <div class="lastPost"> par 
-                        <i>
-                            <a href='<%= Page.ResolveUrl("~/RegisteredUsers/Account.aspx?Member=")%><%# DataBinder.Eval(Container.DataItem, "[\"WrittenBy\"]") %>'>
-                                <%# Eval("lastPosterUsername") %>
-                            </a>
-                        </i>.<br />
-                        le <i><%# Eval("DateWritten") %></i>
-                    </div>
-                </div>
-            </ItemTemplate>
-        </asp:Repeater>--%>
         
         <asp:LinkButton ID="cmdNewTopic" CssClass='newTopicBtn' Text="Nouveau sujet" runat="server" OnClick="cmdNewTopic_Click" />
     </div>

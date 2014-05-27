@@ -42,7 +42,6 @@ namespace TP_W24
             DB.FillDataSet(daTopics, dsTopics);
             
             DB.BindControl(lvTopics, dsTopics.Tables[0]);
-            //DB.BindControl(rptTopics, dsTopics);
 
             DB.CloseCon();
         }
@@ -54,7 +53,6 @@ namespace TP_W24
                     Response.Redirect("Default.aspx");
                 else
                     FillListView(Request.QueryString["Board"]);
-                    //FillRepeater(Request.QueryString["Board"]);
             }
         }
 
@@ -62,6 +60,11 @@ namespace TP_W24
         {
             if (Request.QueryString["Board"] != null)
                 Response.Redirect(Page.ResolveUrl("~/RegisteredUsers/CreateNewTopic.aspx?Board=" + Request.QueryString["Board"]));
+        }
+
+        protected void lvTopics_PagePropertiesChanged(object sender, EventArgs e)
+        {
+            FillListView(Request.QueryString["Board"]);
         }
     }
 }

@@ -43,7 +43,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="header1" runat="server">
     <div style="margin-left:20%; margin-right:20%; text-align:center;"> 
-        <h1>Registre</h1>
+        <h1>S'enrégistrer</h1>
     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="body" runat="server">

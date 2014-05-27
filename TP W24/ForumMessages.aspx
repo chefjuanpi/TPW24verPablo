@@ -24,14 +24,17 @@
 
                     <div class="msgContent">
                         <p>
-                            <%# Eval("IsBlocked") == "1" ? "Ce message a été supprimé par un administrateur" : Eval("Content") %>
+                            <%# Eval("IsBlocked").ToString() == "True" ?  "<i>Ce message a été supprimé par un administrateur</i>" : Eval("Content") %>
                         </p>
-
-                        <%# User.IsInRole("Admin") ? "<asp:Button Text='Supprimer' runat='server' CommandArgument='" + Eval("messageID") + "' OnClientClick='return confirm(\"Voullez-vous vraiment supprimer ce message?\");' onClick='cmdDeleteMsg_Click' />" : "" %>
                     </div>
 
                     <div class="msgFooter">
                         Envoyé le: <%# Eval("DateWritten") %> <br />
+
+                        <% if(User.IsInRole("Admin")) { %>
+                            <asp:Button ID="cmdUndelete" ForeColor="Green" Text='Restaurer' runat='server' CommandArgument='<%# Eval("messageID") %>' OnClick="cmdUndelete_Click" />
+                            <asp:Button ID="cmdDelete" ForeColor="Red" Text='Supprimer' runat='server' CommandArgument='<%# Eval("messageID") %>' onClick='cmdDeleteMsg_Click' />
+                        <% } %>
                     </div>
                 </div>
             </ItemTemplate>

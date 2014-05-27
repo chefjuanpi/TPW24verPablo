@@ -8,7 +8,7 @@
             * Seules les membres actifs sont affiché. Pour être considéré actif, un membre doit avoir posté au moins un message.
         </div>
 
-        <asp:ListView ID="lvMembers" ItemPlaceholderID="itemPlaceHolder" runat="server">
+        <asp:ListView ID="lvMembers" ItemPlaceholderID="itemPlaceHolder" runat="server" OnPagePropertiesChanged="lvMembers_PagePropertiesChanged">
             <LayoutTemplate>
                 <table style="margin-bottom:20px;" >
                     <tr style="height:20px;">
@@ -60,41 +60,6 @@
                 </Fields>
             </asp:DataPager>
         </div>
-
-        <%--<div id="membersHeader">
-            <div style="float: left; width: 200px;">Sujets</div>
-            <div style="float: left; width: 154px;">Enrégistré le</div>
-            <div style="float: left;">Messages écrits</div>
-            <div style="float: right;">Dernier message</div>
-        </div>
-
-        <asp:Repeater runat="server" id="rptMembers">
-            <ItemTemplate>
-                <div class="member">
-                    <div class="name">
-                        <strong>
-                            <a href='<%= Page.ResolveUrl("~/RegisteredUsers/Account.aspx?Member=")%><%# Eval("UserID") %>'>
-                                <%# Eval("UserName") %>
-                            </a>
-                        </strong>
-                    </div>
-
-                    <div class="dateRegistered">
-                        <%# Eval("CreateDate") %>
-                    </div>
-
-                    <div class="stats">
-                        <%# Eval("MessageCount") %> Messages
-                    </div>
-
-                    <div class="lastPost">
-                        <a href='ForumMessages.aspx?Topic=<%# Eval("TopicID") %>'>
-                            <%# Eval("TopicTitle") %>
-                        </a> <%# Eval("DateWritten") %>
-                    </div>
-                </div>
-            </ItemTemplate>
-        </asp:Repeater>--%>
         
         Rafiner la recherche: <br />
         <table>

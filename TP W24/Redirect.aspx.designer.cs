@@ -10,15 +10,15 @@
 namespace TP_W24 {
     
     
-    public partial class Forum {
+    public partial class Redirect {
         
         /// <summary>
-        /// Contrôle rptBoardCategories.
+        /// Contrôle msgLiteral.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptBoardCategories;
+        protected global::System.Web.UI.WebControls.Literal msgLiteral;
     }
 }

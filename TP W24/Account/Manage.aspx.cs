@@ -24,6 +24,8 @@ namespace lab6.Account
 
         protected void Page_Load()
         {
+            if (!User.Identity.IsAuthenticated || !User.IsInRole("Admin"))
+                Response.Redirect(Page.ResolveUrl("~/Default.aspx"));
             if (!IsPostBack)
             {
                 // Déterminer les sections à afficher

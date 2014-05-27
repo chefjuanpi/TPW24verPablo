@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <div id="content">
         <div>
-            <div class="label">Email:</div>
+            <div class="label">Votre Email:</div>
             <asp:TextBox ID="txtEmail" runat="server" Columns="41" /><br />
             <asp:RequiredFieldValidator ErrorMessage="* Le Courriel est manquant" ControlToValidate="txtEmail" runat="server" ValidationGroup="sendMessageValidationGroup" />
         </div>

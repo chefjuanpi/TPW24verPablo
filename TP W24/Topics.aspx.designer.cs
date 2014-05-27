@@ -22,6 +22,15 @@ namespace TP_W24 {
         protected global::System.Web.UI.WebControls.ListView lvTopics;
         
         /// <summary>
+        /// Contrôle topicsPager.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataPager topicsPager;
+        
+        /// <summary>
         /// Contrôle cmdNewTopic.
         /// </summary>
         /// <remarks>

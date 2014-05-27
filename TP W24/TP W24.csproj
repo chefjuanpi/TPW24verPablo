@@ -104,6 +104,7 @@
     <Content Include="css\jquery.ui.all.css" />
     <Content Include="Error.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Redirect.aspx" />
     <Content Include="RegisteredUsers\Account.aspx" />
     <Content Include="css\Account.css" />
     <Content Include="Admin\Management.css" />
@@ -196,6 +197,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Globals.cs" />
+    <Compile Include="Redirect.aspx.cs">
+      <DependentUpon>Redirect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Redirect.aspx.designer.cs">
+      <DependentUpon>Redirect.aspx</DependentUpon>
+    </Compile>
     <Compile Include="RegisteredUsers\Account.aspx.cs">
       <DependentUpon>Account.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

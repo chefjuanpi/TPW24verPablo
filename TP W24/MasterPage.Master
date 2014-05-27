@@ -60,7 +60,7 @@ Commentaires:
                             <ul>
 			                    <li><a href="../Default.aspx" accesskey="1" title="">Accueil</a></li>
 			                    <li><a href="../ForumBoards.aspx" accesskey="2" title="">Forum</a></li>
-			                    <li><a class="modal_trigger" href="#modal" accesskey="3" title="">Conecter</a></li>
+			                    <li><a class="modal_trigger" href="#modal" accesskey="3" title="">Se connecter</a></li>
 		                    </ul>
                         </AnonymousTemplate>
                         <LoggedInTemplate>
@@ -79,7 +79,7 @@ Commentaires:
 			                            <li><a href="../ForumBoards.aspx" accesskey="2" title="">Forum</a></li>
 			                            <li><a href="../RegisteredUsers/Account.aspx" accesskey="3" title="">Mon Compte</a></li>
 			                            <li><a href="../Members.aspx" accesskey="4" title="">Membres</a></li>
-			                            <li><a href="../Management.aspx" accesskey="5" title="" style="color:#715558;">Gestion</a></li>
+			                            <li><a href="../Admin/Management.aspx" accesskey="5" title="" style="color:#715558;">Gestion</a></li>
 		                            </ul>
                                 </ContentTemplate>
                             </asp:RoleGroup>

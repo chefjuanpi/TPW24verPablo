@@ -46,5 +46,32 @@ namespace TP_W24
                 FillMessageInfos(Request.QueryString["msgID"]);
             }
         }
+
+        protected void cmdReply_Click(object sender, EventArgs e)
+        {
+            DB.OpenCon();
+
+            DB.ExecuteReader(new SqlCommand("SELECT PrivateMsgTitle, WrittenBy FROM PrivateMsgs WHERE PrivateMsgID = " + Request.QueryString["msgID"]));
+            if (!DB.DR.Read()) {
+                DB.CloseCon();
+                Response.Redirect(Page.ResolveUrl("~/Redirect.aspx?Msg=Une erreur s'est produite. Contactez l'administrateur ou réessayer plus tard."));
+            }
+            string title = "Re: " + DB.DR[0];
+            string destinedUser = DB.DR[1].ToString();
+
+            SqlCommand insertCmd = new SqlCommand("INSERT INTO PrivateMsgs (WrittenBy, SentTo, PrivateMsgTitle, Content) VALUES (@writtenBy, @sentTo, @privateMsgTitle, @content)");
+            insertCmd.Parameters.AddWithValue("@writtenBy", Membership.GetUser().ProviderUserKey);
+            insertCmd.Parameters.AddWithValue("@sentTo", destinedUser);
+            insertCmd.Parameters.AddWithValue("@privateMsgTitle", title);
+            insertCmd.Parameters.AddWithValue("@content", txtMessage.Text);
+
+            if(DB.ExecuteNonQuery(insertCmd) != 1) {
+                DB.CloseCon();
+                Response.Redirect(Page.ResolveUrl("~/Redirect.aspx?Msg=Une erreur s'est produite. Contactez l'administrateur ou réessayer plus tard."));
+            }
+
+            DB.CloseCon();
+            Response.Redirect(Page.ResolveUrl("~/Redirect.aspx?Msg=Votre message a été envoyé avec succès."));
+        }
     }
 }

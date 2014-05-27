@@ -4,15 +4,15 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <div id="content">
+        <div id="poster">
+            <strong><a id="senderLink" runat="server"></a></strong> <br />
+            <img id="profileImg" runat="server" width="64" height="64" /> <br />
+        </div>
+
         <div id="subject" runat="server">
         </div>
 
         <div id="message">
-            <div id="poster">
-                <strong><a id="senderLink" runat="server"></a></strong> <br />
-                <img id="profileImg" runat="server" width="64" height="64" /> <br />
-            </div>
-
             <div id="msgContentContainer">
                 <p id="msgContent" runat="server"></p>
             </div>
@@ -23,6 +23,7 @@
         
         Répondre: <br />
         <asp:TextBox ID="txtMessage" runat="server" Rows="12" Columns="91" TextMode="MultiLine" />
-        <asp:Button ID="cmdReply" Text="Répondre" runat="server" />
+        <asp:Button ID="cmdReply" Text="Répondre" runat="server" OnClick="cmdReply_Click" ValidationGroup="msgValidationGroup" />
+        <asp:RequiredFieldValidator ErrorMessage="* Le message est manquant<br/>" ControlToValidate="txtMessage" runat="server" ValidationGroup="msgValidationGroup" />
     </div>
 </asp:Content>

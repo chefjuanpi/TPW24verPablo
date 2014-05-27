@@ -39,7 +39,7 @@
                 buttonImageOnly: true
             });
         });
-</script>   
+    </script>   
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="header1" runat="server">
     <div style="margin-left:20%; margin-right:20%; text-align:center;"> 

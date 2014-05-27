@@ -88,5 +88,16 @@ namespace TP_W24
 
             Response.Redirect("ForumMessages.aspx?Topic=" + Request.QueryString["Topic"]);
         }
+
+        protected void cmdUndelete_Click(object sender, EventArgs e)
+        {
+            int messageID = int.Parse(((Button)sender).CommandArgument);
+
+            DB.OpenCon();
+            DB.ExecuteNonQuery(new SqlCommand("UPDATE Messages SET IsBlocked = 0 WHERE MessageID = " + messageID));
+            DB.CloseCon();
+
+            Response.Redirect("ForumMessages.aspx?Topic=" + Request.QueryString["Topic"]);
+        }
     }
 }
