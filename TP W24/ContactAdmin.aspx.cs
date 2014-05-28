@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Net.Mail;
 using System.Web;
@@ -20,38 +19,23 @@ namespace TP_W24
         protected void cmdSendMsg_Click(object sender, EventArgs e)
         {
             try {
-              DB.OpenCon();
+                string emailHeader = "";
 
-                SqlCommand com = new SqlCommand("SELECT UserID FROM Users WHERE UserName = @username");
-                com.Parameters.AddWithValue("@username", "daveadmin");
+                if (User.Identity.IsAuthenticated)
+                    emailHeader += "Membre: " + Membership.GetUser().UserName + "\n\r";
 
-                if (DB.ExecuteReader(com))
-                {
-                    if (DB.DR.Read())
-                    {
-                        com = new SqlCommand("INSERT INTO PrivateMsgs (WrittenBy, SentTo, Content, PrivateMsgTitle) VALUES (@writtenBy, @sentTo, @content, @privateMsgTitle)");
-                        com.Parameters.AddWithValue("@writtenBy", Membership.GetUser().ProviderUserKey);
-                        com.Parameters.AddWithValue("@sentTo", Membership.GetUser("daveadmin").ProviderUserKey);
-                        com.Parameters.AddWithValue("@content", txtMessage.Text);
-                        com.Parameters.AddWithValue("@privateMsgTitle", txtSubject.Text);
+                emailHeader += "Courriel: " + txtEmail + "\n\r";
 
-                        if (DB.ExecuteNonQuery(com) == 1)
-                        {
-                            txtSubject.Text = txtMessage.Text = txtMessage.Text = "";
-                            txtMessage.Text = "Votre message a été envoyé avec succès";
-                        }
-                        else
-                        {
-                            txtMessage.Text = "Une erreur s'est produite. Veuillez contacter l'administrateur ou réessayer plus tard.";
-                        }
-                    }
-                    else
-                    {
-                        txtMessage.Text = string.Format("* Aucun utilisateur ayant le nom \"{0}\" n'a été trouvé", txtSubject.Text);
-                    }
-                }
+                MailMessage mail = new MailMessage("w24tp2admin@gmail.com", "w24tp2admin@gmail.com", txtSubject.Text, emailHeader + txtMessage.Text);
 
-                DB.CloseCon();
+                SmtpClient smtp = new SmtpClient("smtp.gmail.com");
+                smtp.Credentials = new System.Net.NetworkCredential("w24tp2admin@gmail.com", "myPassword");
+
+                smtp.EnableSsl = true;
+
+                smtp.Send(mail);
+
+                Response.Redirect(Page.ResolveUrl("~/Redirect.aspx?Msg=Votre message à été envoyé avec succès!"));
             }
             catch (System.Net.Mail.SmtpException ex) {
                 if (ex.StatusCode == SmtpStatusCode.MustIssueStartTlsFirst)

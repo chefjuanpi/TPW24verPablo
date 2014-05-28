@@ -31,21 +31,12 @@ namespace TP_W24 {
         protected global::System.Web.UI.WebControls.TextBox txtMessage;
         
         /// <summary>
-        /// Contrôle LoginView2.
+        /// Contrôle cmdReply.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LoginView LoginView2;
-        
-        /// <summary>
-        /// Contrôle RequiredFieldValidator1.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        protected global::System.Web.UI.WebControls.Button cmdReply;
     }
 }
