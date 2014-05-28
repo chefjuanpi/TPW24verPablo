@@ -1,4 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Management.aspx.cs" Inherits="TP_W24.Management" %>
+﻿<!-- La gestion se fait finalement directement sur la page des messages. -->
+
+<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Management.aspx.cs" Inherits="TP_W24.Management" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="Management.css" type="text/css" rel="stylesheet" />
 </asp:Content>

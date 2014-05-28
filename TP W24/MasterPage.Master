@@ -79,7 +79,7 @@ Commentaires:
 			                            <li><a href="../ForumBoards.aspx" accesskey="2" title="">Forum</a></li>
 			                            <li><a href="../RegisteredUsers/Account.aspx" accesskey="3" title="">Mon Compte</a></li>
 			                            <li><a href="../Members.aspx" accesskey="4" title="">Membres</a></li>
-			                            <li><a href="../Admin/Management.aspx" accesskey="5" title="" style="color:#715558;">Gestion</a></li>
+			                            <%--<li><a href="../Admin/Management.aspx" accesskey="5" title="" style="color:#715558;">Gestion</a></li>--%> <!-- La gestion se fait maintenant directement sur la page des messages. -->
 		                            </ul>
                                 </ContentTemplate>
                             </asp:RoleGroup>
@@ -117,9 +117,9 @@ Commentaires:
 				                    </li>
                                 </ul>
                             </li>
-                            <li class="sub-info">
+                            <li class="sub-info" style="margin: 10px 0px 0px 10%;">
                                 <a href="ContactAdmin.aspx">
-                                    Contactez-Nous
+                                    Nous contacter
                                 </a>
                             </li>
                         </ul>

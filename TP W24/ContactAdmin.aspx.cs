@@ -34,9 +34,17 @@ namespace TP_W24
                 smtp.EnableSsl = true;
 
                 smtp.Send(mail);
-            }
-            catch (Exception ex) {
 
+                Response.Redirect(Page.ResolveUrl("~/Redirect.aspx?Msg=Votre message à été envoyé avec succès!"));
+            }
+            catch (System.Net.Mail.SmtpException ex) {
+                if (ex.StatusCode == SmtpStatusCode.MustIssueStartTlsFirst)
+                    Response.Redirect(Page.ResolveUrl("~/Redirect.aspx?Msg=L'admin n'a pas voullut révéler son vrai mot de passe dans son code source. Pour cette raison, il n'est pas possible de contacter l'administrateur."));
+                else
+                    throw ex;
+            }
+            catch (Exception) {
+                Response.Redirect(Page.ResolveUrl("~/Redirect.aspx?Msg=Une erreur inconnue s'est produite. Contactez l'administrateur ou réessayez plus tard."));
             }
         }
 
