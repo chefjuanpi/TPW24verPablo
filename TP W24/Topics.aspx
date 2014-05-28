@@ -58,6 +58,6 @@
             </asp:DataPager>
         </div>
         
-        <asp:LinkButton ID="cmdNewTopic" CssClass='newTopicBtn' Text="Nouveau sujet" runat="server" OnClick="cmdNewTopic_Click" />
+        <asp:LinkButton ID="cmdNewTopic" CssClass='btn btn_blue' Text="Nouveau sujet" runat="server" OnClick="cmdNewTopic_Click" />
     </div>
 </asp:Content>

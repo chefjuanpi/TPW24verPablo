@@ -49,6 +49,7 @@ namespace TP_W24
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (User.Identity.IsAuthenticated) txtMessage.Enabled = true;
             if (!Page.IsPostBack) {
                 if (Request.QueryString["Topic"] == null)
                     Response.Redirect("Default.aspx");

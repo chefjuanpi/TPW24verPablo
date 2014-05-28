@@ -28,7 +28,7 @@ Commentaires:
     <link rel="stylesheet" type="text/css" media="all" href="~/css/Default.css" />
     <link rel="stylesheet" type="text/css" media="all" href="~/css/trunk.css"   />
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
-    <link href="~/css/LoginPopup.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/css/LoginPopup.css" />
 
 <!-- Scripts --> 
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
@@ -79,7 +79,7 @@ Commentaires:
 			                            <li><a href="../ForumBoards.aspx" accesskey="2" title="">Forum</a></li>
 			                            <li><a href="../RegisteredUsers/Account.aspx" accesskey="3" title="">Mon Compte</a></li>
 			                            <li><a href="../Members.aspx" accesskey="4" title="">Membres</a></li>
-			                            <%--<li><a href="../Admin/Management.aspx" accesskey="5" title="" style="color:#715558;">Gestion</a></li>--%> <!-- La gestion se fait maintenant directement sur la page des messages. -->
+			                            <li><a title="">Mode Administration</a></li> 
 		                            </ul>
                                 </ContentTemplate>
                             </asp:RoleGroup>
@@ -102,36 +102,34 @@ Commentaires:
                          <asp:ContentPlaceHolder ID="body" runat="server">    </asp:ContentPlaceHolder>
 			        </li>
                     <!-- end #body -->
-                    <li class="clear-fix"></li>
-			        <li class="footer-section">
-                        <asp:ContentPlaceHolder ID="footer" runat="server">    </asp:ContentPlaceHolder>
+                    <li ></li>
+			        <li class="footer-section" >
+                        <asp:ContentPlaceHolder ID="footer" runat="server">    
+
+                        </asp:ContentPlaceHolder>
 				        <ul class="sub-container">
-		                    <li class="sujets">
-			                    <ul>
-				                    <li>
-                                        <p style="margin-left:10%; margin-top:20px; font-size:20px; overflow:auto;" >
-                                            Site Fait par : Pablo Aguilar-Lliguin et Mickael Bergeron Néron<br />
-                                            Cours : TPW24 <br />
-                                            Presenté à: Dave Côté
-				                        </p>
-				                    </li>
-                                </ul>
-                            </li>
-                            <li class="sub-info" style="margin: 10px 0px 0px 10%;">
-                                <a href="ContactAdmin.aspx">
-                                    Nous contacter
-                                </a>
-                            </li>
+				            <li style="background-color:snow; overflow:auto; ">
+                                <div style="float:left; width:60%;">
+                                   <p style="margin-left:5%; margin-top:20px; font-size:20px; " >
+                                        Site Fait par : Pablo Aguilar-Lliguin et Mickael Bergeron Néron<br />
+                                        Cours : TPW24 <br />
+                                        Presenté à: Dave Côté
+				                    </p>
+                                    </div>
+                                        <div style="float:right;">
+                                    <a href="../ContactAdmin.aspx" class="btn btn_blue"> Nous contacter</a>
+                                </div>
+  				            </li>
+
+          
                         </ul>
                         <!-- end #footer -->
                     </li>
 		        </ul>
 	        </div>
 	   </div>
-
        <uc:LoginPopUp ID="LoginPopUp1" runat="server" ></uc:LoginPopUp>
         <!-- end # ecran modal de login, login externe et registre -->
-
     </form>
 </body>
 </html>
